@@ -1,0 +1,56 @@
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/11 10:19
+*****************************************************
+******************************************
+Command = PFIOpen_Ticket
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x80B0
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000000010110000
+----------------------------------------------------------------------------------
+ PR Bit:15 Logica OR Bits 0-6 
+ PR Bit:7 Printer Buffer VACIO 
+ PR Bit:5 Receipt Paper LOW 
+ PR Bit:4 Journal Paper LOW
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8600
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000011000000000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:10 El controlador Fiscal esta Fiscalizado 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+
+******************************************
+Command = PFIOpen_Ticket
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x80B0
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000000010110000
+----------------------------------------------------------------------------------
+ PR Bit:15 Logica OR Bits 0-6 
+ PR Bit:7 Printer Buffer VACIO 
+ PR Bit:5 Receipt Paper LOW 
+ PR Bit:4 Journal Paper LOW
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8600
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000011000000000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:10 El controlador Fiscal esta Fiscalizado 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/11 10:22
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/11 18:36
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/11 18:50
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/11 18:55
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/11 18:58
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/11 19:01
+*****************************************************

@@ -1,0 +1,1047 @@
+*       *********************************************************
+*       *                                                         
+*       * 09/05/2016           MENU_CTE.MPR             08:42:46  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2016 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _4mq0ioa6e OF _MSYSMENU PROMPT "Tablas" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4mq0ioa6f OF _MSYSMENU PROMPT "Movimientos" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4mq0ioa6g OF _MSYSMENU PROMPT "Informes" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4mq0ioa6h OF _MSYSMENU PROMPT "Utilitarios" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4mq0ioa6i OF _MSYSMENU PROMPT "Salir" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+ON PAD _4mq0ioa6e OF _MSYSMENU ACTIVATE POPUP tablas
+ON PAD _4mq0ioa6f OF _MSYSMENU ACTIVATE POPUP movimiento
+ON PAD _4mq0ioa6g OF _MSYSMENU ACTIVATE POPUP informes
+ON PAD _4mq0ioa6h OF _MSYSMENU ACTIVATE POPUP utilitario
+ON SELECTION PAD _4mq0ioa6i OF _MSYSMENU ;
+	DO _4mq0ioa6j ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP tablas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tablas PROMPT "Sucursales"
+DEFINE BAR 2 OF tablas PROMPT "Localidad"
+DEFINE BAR 3 OF tablas PROMPT "Zonas"
+DEFINE BAR 4 OF tablas PROMPT "Tipo de Clientes"
+DEFINE BAR 5 OF tablas PROMPT "Clientes"
+DEFINE BAR 6 OF tablas PROMPT "\-"
+DEFINE BAR 7 OF tablas PROMPT "\<Abogados"
+DEFINE BAR 8 OF tablas PROMPT "\<Cobrador"
+DEFINE BAR 9 OF tablas PROMPT "\<Juzgados"
+ON BAR 1 OF tablas ACTIVATE POPUP sucursales
+ON BAR 2 OF tablas ACTIVATE POPUP localidad
+ON BAR 3 OF tablas ACTIVATE POPUP zonas
+ON BAR 4 OF tablas ACTIVATE POPUP tipodeclie
+ON BAR 5 OF tablas ACTIVATE POPUP clientes
+ON BAR 7 OF tablas ACTIVATE POPUP abogados
+ON BAR 8 OF tablas ACTIVATE POPUP cobrador
+ON BAR 9 OF tablas ACTIVATE POPUP juzgados
+
+DEFINE POPUP sucursales MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF sucursales PROMPT "Actualiza"
+DEFINE BAR 2 OF sucursales PROMPT "Lista"
+ON SELECTION BAR 1 OF sucursales ;
+	DO _4mq0ioa6k ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF sucursales ;
+	DO _4mq0ioa6l ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP localidad MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF localidad PROMPT "Actualiza"
+DEFINE BAR 2 OF localidad PROMPT "Lista"
+ON SELECTION BAR 1 OF localidad ;
+	DO _4mq0ioa6m ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF localidad ;
+	DO _4mq0ioa6n ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP zonas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF zonas PROMPT "Actualiza"
+DEFINE BAR 2 OF zonas PROMPT "Lista"
+ON SELECTION BAR 1 OF zonas ;
+	DO _4mq0ioa6o ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF zonas ;
+	DO _4mq0ioa6p ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP tipodeclie MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodeclie PROMPT "Actualiza" ;
+	SKIP FOR xx=1
+DEFINE BAR 2 OF tipodeclie PROMPT "Lista" ;
+	SKIP FOR xx=1
+ON SELECTION BAR 1 OF tipodeclie ;
+	DO _4mq0ioa6q ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF tipodeclie ;
+	DO _4mq0ioa6r ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP clientes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF clientes PROMPT "Actualiza"
+DEFINE BAR 2 OF clientes PROMPT "Lista"
+ON SELECTION BAR 1 OF clientes ;
+	DO _4mq0ioa6s ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF clientes ;
+	DO _4mq0ioa6t ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP abogados MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF abogados PROMPT "Actualiza"
+DEFINE BAR 2 OF abogados PROMPT "Lista"
+ON SELECTION BAR 1 OF abogados ;
+	DO _4mq0ioa6u ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF abogados ;
+	DO _4mq0ioa6v ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP cobrador MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF cobrador PROMPT "Actualiza"
+DEFINE BAR 2 OF cobrador PROMPT "Lista"
+ON SELECTION BAR 1 OF cobrador ;
+	DO _4mq0ioa6w ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP juzgados MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF juzgados PROMPT "Actualiza"
+DEFINE BAR 2 OF juzgados PROMPT "Lista"
+ON SELECTION BAR 1 OF juzgados ;
+	DO _4mq0ioa6x ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP movimiento MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF movimiento PROMPT "Cuenta Corriente"
+ON BAR 1 OF movimiento ACTIVATE POPUP cuentacorr
+
+DEFINE POPUP cuentacorr MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF cuentacorr PROMPT "Carga"
+DEFINE BAR 2 OF cuentacorr PROMPT "Ficha Por Cliente"
+DEFINE BAR 3 OF cuentacorr PROMPT "\-"
+DEFINE BAR 4 OF cuentacorr PROMPT "Consulta de Movimientos"
+DEFINE BAR 5 OF cuentacorr PROMPT "Consulta de Garantes"
+DEFINE BAR 6 OF cuentacorr PROMPT "Consulta de Recibos"
+DEFINE BAR 7 OF cuentacorr PROMPT "\-"
+DEFINE BAR 8 OF cuentacorr PROMPT "Anulación"
+DEFINE BAR 9 OF cuentacorr PROMPT "Recuperar Créditos His."
+DEFINE BAR 10 OF cuentacorr PROMPT "Informe de Control - Correo"
+DEFINE BAR 11 OF cuentacorr PROMPT "Exportar Recibos a Fondos"
+DEFINE BAR 12 OF cuentacorr PROMPT "\-"
+DEFINE BAR 13 OF cuentacorr PROMPT "Actualización de Intereses"
+DEFINE BAR 14 OF cuentacorr PROMPT "Actualización de Saldos"
+DEFINE BAR 15 OF cuentacorr PROMPT "Actualización Estado de Cuentas"
+ON SELECTION BAR 1 OF cuentacorr ;
+	DO _4mq0ioa6y ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF cuentacorr ;
+	DO _4mq0ioa6z ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 4 OF cuentacorr ;
+	DO _4mq0ioa70 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 5 OF cuentacorr ;
+	DO _4mq0ioa71 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 6 OF cuentacorr ;
+	DO _4mq0ioa72 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 8 OF cuentacorr ;
+	DO _4mq0ioa73 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 9 OF cuentacorr ;
+	DO _4mq0ioa74 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 10 OF cuentacorr ;
+	DO _4mq0ioa75 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 11 OF cuentacorr ;
+	DO _4mq0ioa76 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 13 OF cuentacorr ;
+	DO _4mq0ioa77 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 14 OF cuentacorr ;
+	DO _4mq0ioa78 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 15 OF cuentacorr ;
+	DO _4mq0ioa79 ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP informes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF informes PROMPT "Detalle de la Cuenta Corriente"
+DEFINE BAR 2 OF informes PROMPT "Créditos Otorgados"
+DEFINE BAR 3 OF informes PROMPT "Correlatividad de Comprobantes"
+DEFINE BAR 4 OF informes PROMPT "Recibos Emitidos"
+DEFINE BAR 5 OF informes PROMPT "Resumen de Saldos Por Sucursal"
+DEFINE BAR 6 OF informes PROMPT "Resumen de Valores Por Sucursal"
+DEFINE BAR 7 OF informes PROMPT "Resumen de Saldo (Remitos+Créditos)"
+ON SELECTION BAR 1 OF informes ;
+	DO _4mq0ioa7a ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF informes ;
+	DO _4mq0ioa7b ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 3 OF informes ;
+	DO _4mq0ioa7c ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 4 OF informes ;
+	DO _4mq0ioa7d ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 5 OF informes ;
+	DO _4mq0ioa7e ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 6 OF informes ;
+	DO _4mq0ioa7f ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 7 OF informes ;
+	DO _4mq0ioa7g ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP utilitario MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR _mst_calcu OF utilitario PROMPT "Calculadora" ;
+	MESSAGE 'Calculadora .... '
+DEFINE BAR _mst_diary OF utilitario PROMPT "Calendario"
+DEFINE BAR _mfi_setup OF utilitario PROMPT "Configurar Impresora"
+DEFINE BAR 4 OF utilitario PROMPT "Selector de Colores"
+DEFINE BAR 5 OF utilitario PROMPT "Actualización de Archivos" ;
+	SKIP FOR xx=1
+DEFINE BAR 6 OF utilitario PROMPT "Correo"
+ON SELECTION BAR 4 OF utilitario run/n control color
+ON BAR 5 OF utilitario ACTIVATE POPUP actualizac
+ON SELECTION BAR 6 OF utilitario ;
+	DO _4mq0ioa7h ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+DEFINE POPUP actualizac MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF actualizac PROMPT "Cuenta Corriente"
+DEFINE BAR 2 OF actualizac PROMPT "Históricos"
+DEFINE BAR 3 OF actualizac PROMPT "Generales"
+ON SELECTION BAR 1 OF actualizac ;
+	DO _4mq0ioa7i ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 2 OF actualizac ;
+	DO _4mq0ioa7j ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+ON SELECTION BAR 3 OF actualizac ;
+	DO _4mq0ioa7k ;
+	IN LOCFILE("PROG272\MENU_CTE" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CTE?")
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6J  ON SELECTION PAD                            
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   83       
+*       * Called By:  ON SELECTION PAD                            
+*       * Prompt:     Salir                                       
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6j
+set sysmenu to defa
+clos data
+clear read
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6K  ON SELECTION BAR 1 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:    7       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP sucursales      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    2                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6k
+xx = 1
+do mpath0+'e20abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6L  ON SELECTION BAR 2 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:    8       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP sucursales      
+*       * Prompt:     Lista                                       
+*       * Snippet:    3                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6l
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e20lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6M  ON SELECTION BAR 1 OF POPUP localidad       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   11       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP localidad       
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6m
+xx = 1
+do mpath0+'e14abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6N  ON SELECTION BAR 2 OF POPUP localidad       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   12       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP localidad       
+*       * Prompt:     Lista                                       
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6n
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e14lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6O  ON SELECTION BAR 1 OF POPUP zonas           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   15       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP zonas           
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    6                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6o
+xx = 1
+do mpath0+'e15abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6P  ON SELECTION BAR 2 OF POPUP zonas           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   16       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP zonas           
+*       * Prompt:     Lista                                       
+*       * Snippet:    7                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6p
+xx = 1
+do mpath0+'e15lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6Q  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   19       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    8                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6q
+xx = 1
+do mpath0+'e19abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6R  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   20       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       * Prompt:     Lista                                       
+*       * Snippet:    9                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6r
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e19lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6S  ON SELECTION BAR 1 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   23       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP clientes        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    10                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6s
+xx = 1
+do mpath0+'e18abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6T  ON SELECTION BAR 2 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   24       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP clientes        
+*       * Prompt:     Lista                                       
+*       * Snippet:    11                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6t
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e18lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6U  ON SELECTION BAR 1 OF POPUP abogados        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   29       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP abogados        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    12                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6u
+xx = 1
+do mpath11+'d11abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6V  ON SELECTION BAR 2 OF POPUP abogados        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   30       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP abogados        
+*       * Prompt:     Lista                                       
+*       * Snippet:    13                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6v
+*xx = 1
+*if lastkey() <> 13
+*   keyb "{enter}"
+*endi
+*do mpath11+'d11lista'
+*xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6W  ON SELECTION BAR 1 OF POPUP cobrador        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   33       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP cobrador        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    14                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6w
+xx = 1
+do mpath11+'d12abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6X  ON SELECTION BAR 1 OF POPUP juzgados        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   38       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP juzgados        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    15                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6x
+xx = 1
+do mpath11+'d13abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6Y  ON SELECTION BAR 1 OF POPUP cuentacorr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   44       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP cuentacorr      
+*       * Prompt:     Carga                                       
+*       * Snippet:    16                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6y
+xx=1
+do mpath11+'d20c_cte'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA6Z  ON SELECTION BAR 2 OF POPUP cuentacorr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   45       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP cuentacorr      
+*       * Prompt:     Ficha Por Cliente                           
+*       * Snippet:    17                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa6z
+wait 'Este Proceso No Está Habilitado ... ' wind
+retu
+*xx=1
+*do mpath11+'d21ficli'
+*xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA70  ON SELECTION BAR 4 OF POPUP cuentacorr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   48       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP cuentacorr      
+*       * Prompt:     Consulta de Movimientos                     
+*       * Snippet:    18                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa70
+xx=1
+do mpath11+'d20consu'  with 'CONSUTO'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA71  ON SELECTION BAR 5 OF POPUP cuentacorr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   49       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP cuentacorr      
+*       * Prompt:     Consulta de Garantes                        
+*       * Snippet:    19                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa71
+xx=1
+do mpath11+'d20concg'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA72  ON SELECTION BAR 6 OF POPUP cuentacorr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   50       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP cuentacorr      
+*       * Prompt:     Consulta de Recibos                         
+*       * Snippet:    20                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa72
+xx=1
+do mpath11+'d20consu'  with 'CONSURE'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA73  ON SELECTION BAR 8 OF POPUP cuentacorr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   53       
+*       * Called By:  ON SELECTION BAR 8 OF POPUP cuentacorr      
+*       * Prompt:     Anulación                                   
+*       * Snippet:    21                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa73
+xx=1
+do mpath11+'d20anula'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA74  ON SELECTION BAR 9 OF POPUP cuentacorr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   54       
+*       * Called By:  ON SELECTION BAR 9 OF POPUP cuentacorr      
+*       * Prompt:     Recuperar Créditos His.                     
+*       * Snippet:    22                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa74
+wait 'Este Proceso No Está Habilitado ... ' wind
+retu
+*xx=1
+*do mpath11+'d20recfa'
+*xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA75  ON SELECTION BAR 10 OF POPUP cuentacorr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   55       
+*       * Called By:  ON SELECTION BAR 10 OF POPUP cuentacorr     
+*       * Prompt:     Informe de Control - Correo                 
+*       * Snippet:    23                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa75
+wait 'Este Proceso No Está Habilitado ... ' wind
+retu
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d22lispr'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA76  ON SELECTION BAR 11 OF POPUP cuentacorr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   56       
+*       * Called By:  ON SELECTION BAR 11 OF POPUP cuentacorr     
+*       * Prompt:     Exportar Recibos a Fondos                   
+*       * Snippet:    24                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa76
+xx=1
+do mpath11+'d20acfon'  with 'CTACTE'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA77  ON SELECTION BAR 13 OF POPUP cuentacorr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   59       
+*       * Called By:  ON SELECTION BAR 13 OF POPUP cuentacorr     
+*       * Prompt:     Actualización de Intereses                  
+*       * Snippet:    25                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa77
+xx=1
+do mpath11+'d20inte'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA78  ON SELECTION BAR 14 OF POPUP cuentacorr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   60       
+*       * Called By:  ON SELECTION BAR 14 OF POPUP cuentacorr     
+*       * Prompt:     Actualización de Saldos                     
+*       * Snippet:    26                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa78
+xx=1
+do mpath11+'d20saldo'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA79  ON SELECTION BAR 15 OF POPUP cuentacorr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   61       
+*       * Called By:  ON SELECTION BAR 15 OF POPUP cuentacorr     
+*       * Prompt:     Actualización Estado de Cuentas             
+*       * Snippet:    27                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa79
+xx=1
+do mpath11+'d21estad'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7A  ON SELECTION BAR 1 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   64       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP informes        
+*       * Prompt:     Detalle de la Cuenta Corriente              
+*       * Snippet:    28                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7a
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d21decue'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7B  ON SELECTION BAR 2 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   65       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP informes        
+*       * Prompt:     Créditos Otorgados                          
+*       * Snippet:    29                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7b
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d21cresu'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7C  ON SELECTION BAR 3 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   66       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP informes        
+*       * Prompt:     Correlatividad de Comprobantes              
+*       * Snippet:    30                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7c
+retu
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d41inf02'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7D  ON SELECTION BAR 4 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   67       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP informes        
+*       * Prompt:     Recibos Emitidos                            
+*       * Snippet:    31                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7d
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d41inf03'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7E  ON SELECTION BAR 5 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   68       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP informes        
+*       * Prompt:     Resumen de Saldos Por Sucursal              
+*       * Snippet:    32                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7e
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d21resu'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7F  ON SELECTION BAR 6 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   69       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP informes        
+*       * Prompt:     Resumen de Valores Por Sucursal             
+*       * Snippet:    33                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7f
+retu
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d41estco'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7G  ON SELECTION BAR 7 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   70       
+*       * Called By:  ON SELECTION BAR 7 OF POPUP informes        
+*       * Prompt:     Resumen de Saldo (Remitos+Créditos)         
+*       * Snippet:    34                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7g
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d21reCRE'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7H  ON SELECTION BAR 6 OF POPUP utilitario      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   82       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP utilitario      
+*       * Prompt:     Correo                                      
+*       * Snippet:    35                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7h
+xx=1
+do mpath9+'s32acfon' with 'PROCE_MANU'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7I  ON SELECTION BAR 1 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   79       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP actualizac      
+*       * Prompt:     Cuenta Corriente                            
+*       * Snippet:    36                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7i
+xx=1
+do mpath11+'w70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7J  ON SELECTION BAR 2 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   80       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP actualizac      
+*       * Prompt:     Históricos                                  
+*       * Snippet:    37                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7j
+xx=1
+do mpath11+'w70manth'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4MQ0IOA7K  ON SELECTION BAR 3 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CTE.MPR,            Record:   81       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP actualizac      
+*       * Prompt:     Generales                                   
+*       * Snippet:    38                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4mq0ioa7k
+xx=1
+do mpath0+'e70mante'
+xx=0
+

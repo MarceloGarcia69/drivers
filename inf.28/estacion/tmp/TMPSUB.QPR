@@ -1,0 +1,7 @@
+SELECT DISTINCT Tmp32.*, Articulo.codrub, Articulo.codsub,;
+  Articulo.codmar;
+ FROM Tmp32, Articulo, Subrubro;
+ WHERE Articulo.codart = Tmp32.codart;
+   AND Subrubro.codrub = Articulo.codrub;
+ ORDER BY Articulo.codrub, Tmp32.codart, Tmp32.ni_fac;
+ INTO TABLE tmpsub.dbf

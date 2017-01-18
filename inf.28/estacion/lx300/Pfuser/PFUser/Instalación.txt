@@ -1,0 +1,13 @@
+Descripción
+-----------
+Desde este soft podrá realizar cierres (X y Z), probar la comunicación serie, obtener/modificar encabezados y colas, modificar fecha y hora, emitir documentos de prueba (ticket, ticket-factura, factura) y realizar auditorías (por nº de cierre Z y por fechas).
+
+
+Si utiliza Windows 9x / ME
+-------------------------
+Descomprimir el .zip que contiene las librerías (win_syst.zip) en el directorio System dentro del directorio que se encuentra Windows instalado.
+
+
+Si utiliza Windows NT / 2000 / XP
+-------------------------
+Descomprimir el .zip que contiene las librerías (win_syst.zip) en el directorio System32 dentro del directorio que se encuentra Windows instalado.

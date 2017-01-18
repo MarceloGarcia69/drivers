@@ -1,0 +1,593 @@
+*       *********************************************************
+*       *                                                         
+*       * 02/11/2016           MENU_CON.SPR              17:40:17 
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2016 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENSCRN.    
+*       *                                                         
+*       *********************************************************
+
+
+#REGION 0
+REGIONAL m.currarea, m.talkstat, m.compstat
+
+IF SET("TALK") = "ON"
+	SET TALK OFF
+	m.talkstat = "ON"
+ELSE
+	m.talkstat = "OFF"
+ENDIF
+m.compstat = SET("COMPATIBLE")
+SET COMPATIBLE FOXPLUS
+
+m.rborder = SET("READBORDER")
+SET READBORDER ON
+
+m.currarea = SELECT()
+
+
+*       *********************************************************
+*       *                                                         
+*       *             Windows Definiciones de ventana             
+*       *                                                         
+*       *********************************************************
+*
+
+MODIFY WINDOW SCREEN ;
+	AT  0.000, 0.000  ;
+	SIZE 36.200,128.000 ;
+	TITLE "I N F O N O R - Soluciones Informáticas - (03704) 420479 - 156-89373" ;
+	FONT "MS Sans Serif", 12 ;
+	FLOAT ;
+	CLOSE ;
+	MINIMIZE ;
+	COLOR RGB(,,,192,192,192) ;
+	ICON FILE LOCFILE("ABM.ICO","ICO", ;
+		"¿Dónde está abm?")
+MOVE WINDOW SCREEN CENTER
+CLEAR
+
+*       *********************************************************
+*       *                                                         
+*       *  MENU_CON/Windows Código de configuración - SECCION 2   
+*       *                                                         
+*       *********************************************************
+*
+
+#REGION 1
+do menu_con.MPR
+
+*       *********************************************************
+*       *                                                         
+*       *        MENU_CON/Windows Distribución de pantalla        
+*       *                                                         
+*       *********************************************************
+*
+
+#REGION 1
+@ 2.150,16.125 TO 28.450,119.375 ;
+	PATTERN 1 ;
+	PEN 4, 8 ;
+	COLOR RGB(128,128,0,255,255,255)
+@ 28.650,16.125 TO 32.400,119.500 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,128,128,0)
+@ 29.800,28.250 TO 29.800,98.000 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(0,0,255,0,0,255)
+@ 29.450,27.250 TO 31.200,99.500 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,,,,)
+@ 29.500,27.375 TO 31.250,99.625 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,,,,)
+@ 2.550,17.125 SAY (LOCFILE("wo_scn11.bmp","BMP|ICO|PCT|ICN", "¿Dónde está wo_scn11?" )) BITMAP ;
+	SIZE 25.500,101.250 ;
+	STRETCH ;
+	STYLE "T"
+@ 2.550,3.000 TO 6.100,12.500 ;
+	PEN 1, 8
+@ 2.600,12.500 TO 6.200,12.500 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 2.600,3.000 TO 6.000,3.000 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 6.100,3.000 TO 6.100,12.625 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 2.550,3.000 TO 2.550,12.625 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 4.150,12.000 TO 4.150,12.000 ;
+	PEN 1, 8
+@ 3.050,12.750 TO 6.450,13.250 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 6.200,3.375 TO 6.450,12.875 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 2.600,3.125 GET m16abm ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11vjbj()
+@ 3.300,5.625 SAY (LOCFILE("..\iconos\note02.ico","BMP|ICO|PCT|ICN", "¿Dónde está note02?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	STYLE "T"
+@ 5.100,4.625 SAY "Plan - Ctas" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 15.000,3.250 GET configuracion ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11vjc0()
+@ 15.000,3.125 TO 18.550,12.625 ;
+	PEN 1, 8
+@ 15.050,12.625 TO 18.650,12.625 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 15.050,3.125 TO 18.450,3.125 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 18.550,3.125 TO 18.550,12.750 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 15.000,3.125 TO 15.000,12.750 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 16.600,12.125 TO 16.600,12.125 ;
+	PEN 1, 8
+@ 17.450,3.750 SAY "Configuración" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 15.500,6.125 SAY (LOCFILE("..\iconos\iconedit.ico","BMP|ICO|PCT|ICN", "¿Dónde está iconedit?" )) BITMAP ;
+	SIZE 1.650,4.125 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 18.650,3.625 TO 18.900,13.125 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 15.500,12.875 TO 18.900,13.375 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 6.700,3.125 GET m24c_con ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11vjc3() ;
+	COLOR ,,,,,,,,RGB(,,,0,128,0)
+@ 6.650,3.000 TO 10.200,12.500 ;
+	PEN 1, 8
+@ 6.700,12.500 TO 10.300,12.500 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 6.700,3.000 TO 10.100,3.000 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 10.200,3.000 TO 10.200,12.625 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 6.650,3.000 TO 6.650,12.625 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 8.250,12.000 TO 8.250,12.000 ;
+	PEN 1, 8
+@ 9.200,3.625 SAY "Contabilidad .." ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 7.350,6.000 SAY (LOCFILE("..\iconos\note26.ico","BMP|ICO|PCT|ICN", "¿Dónde está note26?" )) BITMAP ;
+	SIZE 1.300,3.250 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 10.300,3.500 TO 10.550,13.000 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 7.150,12.750 TO 10.550,13.250 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 30.000,30.500 SAY 'Módulo de Fondos ...       '  +allt(mfantasia) ;
+	SIZE 1.000,65.125 ;
+	FONT "Tahoma", 11 ;
+	STYLE "BT" ;
+	PICTURE "@I" ;
+	COLOR RGB(0,255,255,192,192,192)
+@ 14.450,3.750 TO 14.700,13.250 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 11.300,12.750 TO 14.700,13.250 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 10.850,3.125 GET m61l_fon ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11vjc4()
+@ 10.800,3.000 TO 14.350,12.500 ;
+	PEN 1, 8
+@ 10.850,12.500 TO 14.450,12.500 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 10.850,3.000 TO 14.250,3.000 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 14.350,3.000 TO 14.350,12.625 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 10.800,3.000 TO 10.800,12.625 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 12.400,12.000 TO 12.400,12.000 ;
+	PEN 1, 8
+@ 11.150,6.250 SAY (LOCFILE("..\iconos\impre13.ico","BMP|ICO|PCT|ICN", "¿Dónde está impre13?" )) BITMAP ;
+	SIZE 1.550,3.875 ;
+	STRETCH ;
+	STYLE "T"
+@ 12.900,5.375 SAY "Informes" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 13.450,5.250 SAY "Contables" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 29.450,100.250 GET a_salir ;
+	PICTURE "@*BVN " + ;
+		(LOCFILE("door2.ico","BMP|ICO|PCT|ICN","¿Dónde está door2?")) ;
+	SIZE 1.900,11.500,0.200 ;
+	DEFAULT 1 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11vjc6()
+@ 19.850,12.875 TO 23.250,13.375 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 23.000,3.750 TO 23.250,13.375 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 19.400,3.250 GET consultas ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11vjc7()
+@ 19.350,3.125 TO 22.900,12.625 ;
+	PEN 1, 8
+@ 19.400,12.625 TO 23.000,12.625 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 19.400,3.125 TO 22.800,3.125 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 22.900,3.125 TO 22.900,12.875 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 19.350,3.125 TO 19.350,12.750 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 20.950,12.125 TO 20.950,12.125 ;
+	PEN 1, 8
+@ 19.750,6.125 SAY (LOCFILE("..\iconos\buscar1.ico","BMP|ICO|PCT|ICN", "¿Dónde está buscar1?" )) BITMAP ;
+	SIZE 1.600,4.125 ;
+	STRETCH ;
+	STYLE "T"
+@ 21.800,5.125 SAY "Actualizar" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 23.650,3.250 GET Recodifica ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11vjca()
+@ 23.600,3.125 TO 27.150,12.625 ;
+	PEN 1, 8
+@ 27.150,3.125 TO 27.150,12.750 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 23.600,3.125 TO 23.600,12.750 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 24.300,5.875 SAY (LOCFILE("..\iconos\tranfe2.ico","BMP|ICO|PCT|ICN", "¿Dónde está tranfe2?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 26.050,3.625 SAY "Recodificación" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 27.250,3.500 TO 27.500,13.000 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 23.650,12.625 TO 27.250,12.625 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 23.650,3.125 TO 27.050,3.125 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 25.200,12.125 TO 25.200,12.125 ;
+	PEN 1, 8
+@ 24.100,12.875 TO 27.500,13.375 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 27.950,3.375 GET Recodifica ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11vjcc()
+@ 27.900,3.250 TO 31.450,12.750 ;
+	PEN 1, 8
+@ 31.450,3.250 TO 31.450,12.875 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 27.900,3.250 TO 27.900,12.875 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 28.600,6.000 SAY (LOCFILE("..\iconos\elimi1.ico","BMP|ICO|PCT|ICN", "¿Dónde está elimi1?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 30.350,5.750 SAY "Eliminar" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 31.550,3.625 TO 31.800,13.125 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 27.950,12.750 TO 31.550,12.750 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 27.950,3.250 TO 31.350,3.250 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 29.500,12.250 TO 29.500,12.250 ;
+	PEN 1, 8
+@ 28.400,13.000 TO 31.800,13.500 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 2.100,1.875 TO 32.450,14.375 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,0,0,,,,)
+
+
+
+READ CYCLE
+
+MODIFY WINDOW SCREEN
+SELECT (m.currarea)
+
+
+#REGION 0
+
+SET READBORDER &rborder
+
+IF m.talkstat = "ON"
+	SET TALK ON
+ENDIF
+IF m.compstat = "ON"
+	SET COMPATIBLE ON
+ENDIF
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11VJBJ           m16abm VALID                       
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_CON,     Record Number:   16  
+*       * Variable:            m16abm                             
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      1                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11vjbj     &&  m16abm VALID
+#REGION 1
+xx=1
+do mpath2+'m16abm'
+xx=0
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11VJC0           configuracion VALID                
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_CON,     Record Number:   19  
+*       * Variable:            configuracion                      
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      2                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11vjc0     &&  configuracion VALID
+#REGION 1
+xx=1
+do mpath2+'m70confic_con' with 'BROW'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11VJC3           m24c_con VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_CON,     Record Number:   30  
+*       * Variable:            m24c_con                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      3                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11vjc3     &&  m24c_con VALID
+#REGION 1
+xx=1
+do mpath2+'m24c_con' with 'CONTAB'
+xx=0
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11VJC4           m61l_fon VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_CON,     Record Number:   44  
+*       * Variable:            m61l_fon                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      4                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11vjc4     &&  m61l_fon VALID
+#REGION 1
+x=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m23l_con'
+x=0
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11VJC6           a_salir VALID                      
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_CON,     Record Number:   54  
+*       * Variable:            a_salir                            
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Push Button                        
+*       * Snippet Number:      5                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11vjc6     &&  a_salir VALID
+#REGION 1
+set sysmenu to defa
+clear read
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11VJC7           consultas VALID                    
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_CON,     Record Number:   57  
+*       * Variable:            consultas                          
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      6                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11vjc7     &&  consultas VALID
+#REGION 1
+xx=1
+do mpath2+'m23recod'  with 'MODIFICAR_DATOS_GLES'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11VJCA           Recodifica VALID                   
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_CON,     Record Number:   66  
+*       * Variable:            Recodifica                         
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      7                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11vjca     &&  Recodifica VALID
+#REGION 1
+xx=1
+DO mpath2+'m23recod' with 'RECODI_ASIENTOS'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11VJCC           Recodifica VALID                   
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_CON,     Record Number:   77  
+*       * Variable:            Recodifica                         
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      8                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11vjcc     &&  Recodifica VALID
+#REGION 1
+xx=1
+DO mpath2+'m23recod' with 'RECODI_ASIENTOS'
+xx=0

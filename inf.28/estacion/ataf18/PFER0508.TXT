@@ -1,0 +1,28 @@
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/05/08 19:29
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/05/08 19:36
+*****************************************************
+Comando = Envia Linea no fiscal
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0000
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000000000000
+----------------------------------------------------------------------------------
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0xA610
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1010011000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:13 Documento Abierto 
+ PF Bit:10 El controlador Fiscal esta Fiscalizado 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/05/08 20:16
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/05/08 20:23
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/05/08 20:24
+*****************************************************

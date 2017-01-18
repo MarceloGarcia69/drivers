@@ -1,0 +1,182 @@
+PRUEBA de CONTROLADOR FISCAL Efectuada 05/10/19 09:34
+*****************************************************
+Comando = OpenFact 05-10-19 09:35
+Tipo de Documento='T'
+Tipo de salida Impresa='C'
+Letra Identificatoria del D.F.='A'
+Cantidad de Impresiones='1'
+Tipo de Impresión del Formulario='F'
+Tamaño del Font='12'
+Responsabilidad IVA Vendedor ='I'
+Responsabilidad IVA Comprador='I'
+Linea 1 Nombre Comprador='segovia fredy alberto'
+Linea 2 Nombre Comprador=''
+Tipo de Doc. del Comprador='CUIT'
+Documento Número='20205258923'
+Bien de Uso='N'
+Linea 1 Domicilio Comprador='Domicilio Comprador Linea 1'
+Linea 2 Domicilio Comprador=''
+Linea 3 Domicilio Comprador=''
+Remito Linea 1='Remito Linea 1 ..........'
+Remito Linea 2..................=''
+Tipo de Tabla de Almacenamiento de Items='C'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+Comando = OpenFact 05-10-19 09:36
+Tipo de Documento='T'
+Tipo de salida Impresa='C'
+Letra Identificatoria del D.F.='A'
+Cantidad de Impresiones=''
+Tipo de Impresión del Formulario='F'
+Tamaño del Font='12'
+Responsabilidad IVA Vendedor ='I'
+Responsabilidad IVA Comprador='I'
+Linea 1 Nombre Comprador='segovia fredy alberto'
+Linea 2 Nombre Comprador=''
+Tipo de Doc. del Comprador='CUIT'
+Documento Número='20205258923'
+Bien de Uso='N'
+Linea 1 Domicilio Comprador='Domicilio Comprador Linea 1'
+Linea 2 Domicilio Comprador=''
+Linea 3 Domicilio Comprador=''
+Remito Linea 1='Remito Linea 1 ..........'
+Remito Linea 2..................=''
+Tipo de Tabla de Almacenamiento de Items='C'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+Comando = OpenFact 05-10-19 09:36
+Tipo de Documento='T'
+Tipo de salida Impresa='C'
+Letra Identificatoria del D.F.='A'
+Cantidad de Impresiones='1'
+Tipo de Impresión del Formulario='F'
+Tamaño del Font='12'
+Responsabilidad IVA Vendedor ='I'
+Responsabilidad IVA Comprador='I'
+Linea 1 Nombre Comprador='segovia fredy alberto'
+Linea 2 Nombre Comprador=''
+Tipo de Doc. del Comprador='CUIT'
+Documento Número='20205258923'
+Bien de Uso='N'
+Linea 1 Domicilio Comprador='Domicilio Comprador Linea 1'
+Linea 2 Domicilio Comprador=''
+Linea 3 Domicilio Comprador=''
+Remito Linea 1='Remito Linea 1 ..........'
+Remito Linea 2..................=''
+Tipo de Tabla de Almacenamiento de Items='G'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+Comando = OpenFact 05-10-19 09:37
+Tipo de Documento='T'
+Tipo de salida Impresa='C'
+Letra Identificatoria del D.F.='A'
+Cantidad de Impresiones='1'
+Tipo de Impresión del Formulario='F'
+Tamaño del Font='12'
+Responsabilidad IVA Vendedor ='I'
+Responsabilidad IVA Comprador='I'
+Linea 1 Nombre Comprador='segovia fredy alberto'
+Linea 2 Nombre Comprador=''
+Tipo de Doc. del Comprador='CUIT'
+Documento Número='20205258923'
+Bien de Uso='N'
+Linea 1 Domicilio Comprador='Domicilio Comprador Linea 1'
+Linea 2 Domicilio Comprador=''
+Linea 3 Domicilio Comprador=''
+Remito Linea 1='Remito Linea 1 ..........'
+Remito Linea 2..................=''
+Tipo de Tabla de Almacenamiento de Items='G'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+Comando = OpenFact 05-10-19 09:39
+Tipo de Documento='T'
+Tipo de salida Impresa='C'
+Letra Identificatoria del D.F.='A'
+Cantidad de Impresiones='1'
+Tipo de Impresión del Formulario='F'
+Tamaño del Font='12'
+Responsabilidad IVA Vendedor ='I'
+Responsabilidad IVA Comprador='I'
+Linea 1 Nombre Comprador='segovia fredy alberto'
+Linea 2 Nombre Comprador=''
+Tipo de Doc. del Comprador='CUIT'
+Documento Número='20205258923'
+Bien de Uso='N'
+Linea 1 Domicilio Comprador='Domicilio Comprador Linea 1'
+Linea 2 Domicilio Comprador=''
+Linea 3 Domicilio Comprador=''
+Remito Linea 1='Remito Linea 1 ..........'
+Remito Linea 2..................=''
+Tipo de Tabla de Almacenamiento de Items='C'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+

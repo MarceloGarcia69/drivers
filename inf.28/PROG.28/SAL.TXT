@@ -1,0 +1,12 @@
+USE D_FACVEN
+set order to tag fac_in
+brow key 20821
+set defa to i:\infonor\17
+USE d_FACVEN
+USE t_FACVEN
+go bott
+brow
+USE d_FACVEN
+set order to tag fac_in
+brow key 20824
+set defa to i:\infonor\prog17

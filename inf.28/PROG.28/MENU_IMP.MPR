@@ -1,0 +1,1194 @@
+*       *********************************************************
+*       *                                                         
+*       * 05/10/2016           MENU_IMP.MPR             12:14:09  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2016 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _4qv0q84o6 OF _MSYSMENU PROMPT "Tablas" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4qv0q84o7 OF _MSYSMENU PROMPT "Movimientos" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4qv0q84o8 OF _MSYSMENU PROMPT "Informes" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4qv0q84o9 OF _MSYSMENU PROMPT "Utilitarios" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4qv0q84oa OF _MSYSMENU PROMPT "Salir" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+ON PAD _4qv0q84o6 OF _MSYSMENU ACTIVATE POPUP tablas
+ON PAD _4qv0q84o7 OF _MSYSMENU ACTIVATE POPUP movimiento
+ON PAD _4qv0q84o8 OF _MSYSMENU ACTIVATE POPUP informes
+ON PAD _4qv0q84o9 OF _MSYSMENU ACTIVATE POPUP utilitario
+ON SELECTION PAD _4qv0q84oa OF _MSYSMENU ;
+	DO _4qv0q84ob ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP tablas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tablas PROMPT "\<Proveedores"
+DEFINE BAR 2 OF tablas PROMPT "\-"
+DEFINE BAR 3 OF tablas PROMPT "Sucursales"
+DEFINE BAR 4 OF tablas PROMPT "Localidad"
+DEFINE BAR 5 OF tablas PROMPT "Zonas"
+DEFINE BAR 6 OF tablas PROMPT "Tipo de Clientes"
+DEFINE BAR 7 OF tablas PROMPT "Clientes"
+DEFINE BAR 8 OF tablas PROMPT "\-"
+DEFINE BAR 9 OF tablas PROMPT "\<Rubro de Compras"
+DEFINE BAR 10 OF tablas PROMPT "\<Tipo de Compras"
+DEFINE BAR 11 OF tablas PROMPT "\<Rubro de Ventas"
+DEFINE BAR 12 OF tablas PROMPT "\-"
+DEFINE BAR 13 OF tablas PROMPT "Plan de Cuentas"
+DEFINE BAR 14 OF tablas PROMPT "Tipo de Movimientos"
+ON BAR 1 OF tablas ACTIVATE POPUP proveedore
+ON BAR 3 OF tablas ACTIVATE POPUP sucursales
+ON BAR 4 OF tablas ACTIVATE POPUP localidad
+ON BAR 5 OF tablas ACTIVATE POPUP zonas
+ON BAR 6 OF tablas ACTIVATE POPUP tipodeclie
+ON BAR 7 OF tablas ACTIVATE POPUP clientes
+ON BAR 9 OF tablas ACTIVATE POPUP rubrodecom
+ON BAR 10 OF tablas ACTIVATE POPUP tipodecomp
+ON BAR 11 OF tablas ACTIVATE POPUP rubrodeven
+ON BAR 13 OF tablas ACTIVATE POPUP plandecuen
+ON BAR 14 OF tablas ACTIVATE POPUP tipodemovi
+
+DEFINE POPUP proveedore MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF proveedore PROMPT "Actualiza"
+DEFINE BAR 2 OF proveedore PROMPT "Cuentas Bancarias"
+DEFINE BAR 3 OF proveedore PROMPT "Lista"
+ON SELECTION BAR 1 OF proveedore ;
+	DO _4qv0q84oc ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF proveedore ;
+	DO _4qv0q84od ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 3 OF proveedore ;
+	DO _4qv0q84oe ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP sucursales MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF sucursales PROMPT "Actualiza"
+DEFINE BAR 2 OF sucursales PROMPT "Lista"
+ON SELECTION BAR 1 OF sucursales ;
+	DO _4qv0q84of ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF sucursales ;
+	DO _4qv0q84og ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP localidad MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF localidad PROMPT "Actualiza"
+DEFINE BAR 2 OF localidad PROMPT "Lista"
+ON SELECTION BAR 1 OF localidad ;
+	DO _4qv0q84oh ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF localidad ;
+	DO _4qv0q84oi ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP zonas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF zonas PROMPT "Actualiza"
+DEFINE BAR 2 OF zonas PROMPT "Lista"
+ON SELECTION BAR 1 OF zonas ;
+	DO _4qv0q84oj ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF zonas ;
+	DO _4qv0q84ok ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP tipodeclie MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodeclie PROMPT "Actualiza" ;
+	SKIP FOR xx=1
+DEFINE BAR 2 OF tipodeclie PROMPT "Lista" ;
+	SKIP FOR xx=1
+ON SELECTION BAR 1 OF tipodeclie ;
+	DO _4qv0q84ol ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF tipodeclie ;
+	DO _4qv0q84om ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP clientes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF clientes PROMPT "Actualiza"
+DEFINE BAR 2 OF clientes PROMPT "Lista"
+ON SELECTION BAR 1 OF clientes ;
+	DO _4qv0q84on ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF clientes ;
+	DO _4qv0q84oo ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP rubrodecom MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF rubrodecom PROMPT "Actualiza"
+DEFINE BAR 2 OF rubrodecom PROMPT "Lista"
+ON SELECTION BAR 1 OF rubrodecom ;
+	DO _4qv0q84op ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF rubrodecom ;
+	DO _4qv0q84oq ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP tipodecomp MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodecomp PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodecomp PROMPT "Lista"
+ON SELECTION BAR 1 OF tipodecomp ;
+	DO _4qv0q84or ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF tipodecomp ;
+	DO _4qv0q84os ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP rubrodeven MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF rubrodeven PROMPT "Actualiza"
+DEFINE BAR 2 OF rubrodeven PROMPT "Lista"
+ON SELECTION BAR 1 OF rubrodeven ;
+	DO _4qv0q84ot ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP plandecuen MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF plandecuen PROMPT "Actualiza"
+DEFINE BAR 2 OF plandecuen PROMPT "Lista"
+ON SELECTION BAR 1 OF plandecuen ;
+	DO _4qv0q84ou ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF plandecuen ;
+	DO _4qv0q84ov ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP tipodemovi MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodemovi PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodemovi PROMPT "Lista"
+ON SELECTION BAR 1 OF tipodemovi ;
+	DO _4qv0q84ow ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF tipodemovi ;
+	DO _4qv0q84ox ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP movimiento MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF movimiento PROMPT "Iva Compras"
+DEFINE BAR 2 OF movimiento PROMPT "Iva Ventas"
+DEFINE BAR 3 OF movimiento PROMPT "Percepciones DGR"
+DEFINE BAR 4 OF movimiento PROMPT "Retenciones IVA"
+DEFINE BAR 5 OF movimiento PROMPT "Retenciones Ganancias"
+ON BAR 1 OF movimiento ACTIVATE POPUP ivacompras
+ON BAR 2 OF movimiento ACTIVATE POPUP ivaventas
+ON BAR 3 OF movimiento ACTIVATE POPUP percepcion
+ON BAR 4 OF movimiento ACTIVATE POPUP retencione
+
+DEFINE POPUP ivacompras MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF ivacompras PROMPT "Importar"
+DEFINE BAR 2 OF ivacompras PROMPT "Carga de Movimientos"
+DEFINE BAR 3 OF ivacompras PROMPT "\-"
+DEFINE BAR 4 OF ivacompras PROMPT "Resumen de Movimientos"
+DEFINE BAR 5 OF ivacompras PROMPT "Informe Libro Iva - Compras"
+DEFINE BAR 6 OF ivacompras PROMPT "\-"
+DEFINE BAR 7 OF ivacompras PROMPT "Configuración"
+ON SELECTION BAR 1 OF ivacompras ;
+	DO _4qv0q84oy ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF ivacompras ;
+	DO _4qv0q84oz ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 4 OF ivacompras ;
+	DO _4qv0q84p0 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 5 OF ivacompras ;
+	DO _4qv0q84p1 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 7 OF ivacompras ;
+	DO _4qv0q84p2 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP ivaventas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF ivaventas PROMPT "Importar"
+DEFINE BAR 2 OF ivaventas PROMPT "Carga de Movimientos"
+DEFINE BAR 3 OF ivaventas PROMPT "\-"
+DEFINE BAR 4 OF ivaventas PROMPT "Resumen de Movimientos"
+DEFINE BAR 5 OF ivaventas PROMPT "Informe Libro Iva Ventas"
+DEFINE BAR 6 OF ivaventas PROMPT "\-"
+DEFINE BAR 7 OF ivaventas PROMPT "Configuración"
+ON SELECTION BAR 1 OF ivaventas ;
+	DO _4qv0q84p3 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF ivaventas ;
+	DO _4qv0q84p4 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 4 OF ivaventas ;
+	DO _4qv0q84p5 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 5 OF ivaventas ;
+	DO _4qv0q84p6 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 7 OF ivaventas ;
+	DO _4qv0q84p7 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP percepcion MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF percepcion PROMPT "Importar"
+DEFINE BAR 2 OF percepcion PROMPT "Declaracion Jurada"
+DEFINE BAR 3 OF percepcion PROMPT "\-"
+DEFINE BAR 4 OF percepcion PROMPT "Informe"
+DEFINE BAR 5 OF percepcion PROMPT "Carga Manual"
+ON SELECTION BAR 1 OF percepcion ;
+	DO _4qv0q84p8 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 4 OF percepcion ;
+	DO _4qv0q84p9 ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP retencione MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF retencione PROMPT "Importar"
+DEFINE BAR 2 OF retencione PROMPT "Carga"
+DEFINE BAR 3 OF retencione PROMPT "\-"
+DEFINE BAR 4 OF retencione PROMPT "Declaración Jurada"
+DEFINE BAR 5 OF retencione PROMPT "Informe"
+
+DEFINE POPUP informes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF informes PROMPT "Resumen de Movimientos Iva Compras"
+DEFINE BAR 2 OF informes PROMPT "Informes Libro Iva Compras"
+DEFINE BAR 3 OF informes PROMPT "\-"
+DEFINE BAR 4 OF informes PROMPT "Resumen de Movimientos Iva Ventas"
+DEFINE BAR 5 OF informes PROMPT "Informes Libro Iva Ventas"
+DEFINE BAR 6 OF informes PROMPT "\-"
+DEFINE BAR 7 OF informes PROMPT "Retención de Ganancias"
+ON SELECTION BAR 1 OF informes ;
+	DO _4qv0q84pa ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF informes ;
+	DO _4qv0q84pb ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 4 OF informes ;
+	DO _4qv0q84pc ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 5 OF informes ;
+	DO _4qv0q84pd ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 7 OF informes ;
+	DO _4qv0q84pe ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP utilitario MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR _mst_calcu OF utilitario PROMPT "Calculadora" ;
+	MESSAGE 'Calculadora .... '
+DEFINE BAR _mst_diary OF utilitario PROMPT "Calendario"
+DEFINE BAR _mfi_setup OF utilitario PROMPT "Configurar Impresora"
+DEFINE BAR 4 OF utilitario PROMPT "Selector de Colores"
+DEFINE BAR 5 OF utilitario PROMPT "Actualización de Archivos" ;
+	SKIP FOR xx=1
+DEFINE BAR 6 OF utilitario PROMPT "Correo"
+ON SELECTION BAR 4 OF utilitario run/n control color
+ON BAR 5 OF utilitario ACTIVATE POPUP actualizac
+ON SELECTION BAR 6 OF utilitario ;
+	DO _4qv0q84pf ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+DEFINE POPUP actualizac MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF actualizac PROMPT "Impuestos"
+DEFINE BAR 2 OF actualizac PROMPT "Generales"
+ON SELECTION BAR 1 OF actualizac ;
+	DO _4qv0q84pg ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+ON SELECTION BAR 2 OF actualizac ;
+	DO _4qv0q84ph ;
+	IN LOCFILE("PROG28\MENU_IMP" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_IMP?")
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OB  ON SELECTION PAD                            
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  124       
+*       * Called By:  ON SELECTION PAD                            
+*       * Prompt:     Salir                                       
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ob
+set sysmenu to defa
+clos data
+clear read
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OC  ON SELECTION BAR 1 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:    7       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP proveedore      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    2                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oc
+xx = 1
+do mpath0+'e11abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OD  ON SELECTION BAR 2 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:    8       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP proveedore      
+*       * Prompt:     Cuentas Bancarias                           
+*       * Snippet:    3                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84od
+xx = 1
+do mpath0+'e11c_bco'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OE  ON SELECTION BAR 3 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:    9       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP proveedore      
+*       * Prompt:     Lista                                       
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oe
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e11lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OF  ON SELECTION BAR 1 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   14       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP sucursales      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84of
+xx = 1
+do mpath0+'e20abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OG  ON SELECTION BAR 2 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   15       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP sucursales      
+*       * Prompt:     Lista                                       
+*       * Snippet:    6                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84og
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e20lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OH  ON SELECTION BAR 1 OF POPUP localidad       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   18       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP localidad       
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    7                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oh
+xx = 1
+do mpath0+'e14abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OI  ON SELECTION BAR 2 OF POPUP localidad       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   19       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP localidad       
+*       * Prompt:     Lista                                       
+*       * Snippet:    8                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oi
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e14lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OJ  ON SELECTION BAR 1 OF POPUP zonas           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   22       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP zonas           
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    9                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oj
+xx = 1
+do mpath0+'e15abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OK  ON SELECTION BAR 2 OF POPUP zonas           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   23       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP zonas           
+*       * Prompt:     Lista                                       
+*       * Snippet:    10                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ok
+xx = 1
+do mpath0+'e15lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OL  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   26       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    11                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ol
+xx = 1
+do mpath0+'e19abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OM  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   27       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       * Prompt:     Lista                                       
+*       * Snippet:    12                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84om
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e19lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84ON  ON SELECTION BAR 1 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   30       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP clientes        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    13                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84on
+xx = 1
+do mpath0+'e18abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OO  ON SELECTION BAR 2 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   31       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP clientes        
+*       * Prompt:     Lista                                       
+*       * Snippet:    14                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oo
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e18lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OP  ON SELECTION BAR 1 OF POPUP rubrodecom      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   36       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP rubrodecom      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    15                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84op
+xx = 1
+do mpath5+'i10abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OQ  ON SELECTION BAR 2 OF POPUP rubrodecom      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   37       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP rubrodecom      
+*       * Prompt:     Lista                                       
+*       * Snippet:    16                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oq
+*xx = 1
+*do mpath5+'i10lista'
+*xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OR  ON SELECTION BAR 1 OF POPUP tipodecomp      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   40       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodecomp      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    17                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84or
+xx = 1
+do mpath5+'i11abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OS  ON SELECTION BAR 2 OF POPUP tipodecomp      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   41       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodecomp      
+*       * Prompt:     Lista                                       
+*       * Snippet:    18                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84os
+*xx = 1
+*do mpath5+'i11lista'
+*xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OT  ON SELECTION BAR 1 OF POPUP rubrodeven      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   44       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP rubrodeven      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    19                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ot
+xx = 1
+do mpath5+'i12abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OU  ON SELECTION BAR 1 OF POPUP plandecuen      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   50       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP plandecuen      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    20                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ou
+xx = 1
+do mpath2+'m16abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OV  ON SELECTION BAR 2 OF POPUP plandecuen      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   51       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP plandecuen      
+*       * Prompt:     Lista                                       
+*       * Snippet:    21                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ov
+xx = 1
+do mpath2+'m16lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OW  ON SELECTION BAR 1 OF POPUP tipodemovi      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   54       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodemovi      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    22                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ow
+xx = 1
+do mpath2+'m15abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OX  ON SELECTION BAR 2 OF POPUP tipodemovi      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   55       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodemovi      
+*       * Prompt:     Lista                                       
+*       * Snippet:    23                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ox
+xx = 1
+do mpath2+'m15lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OY  ON SELECTION BAR 1 OF POPUP ivacompras      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   60       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP ivacompras      
+*       * Prompt:     Importar                                    
+*       * Snippet:    24                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oy
+xx = 1
+do mpath5+'i20impor'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84OZ  ON SELECTION BAR 2 OF POPUP ivacompras      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   61       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP ivacompras      
+*       * Prompt:     Carga de Movimientos                        
+*       * Snippet:    25                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84oz
+xx = 1
+do mpath5+'i21carma'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P0  ON SELECTION BAR 4 OF POPUP ivacompras      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   63       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP ivacompras      
+*       * Prompt:     Resumen de Movimientos                      
+*       * Snippet:    26                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p0
+xx = 1
+do mpath5+'i40resu'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P1  ON SELECTION BAR 5 OF POPUP ivacompras      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   64       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP ivacompras      
+*       * Prompt:     Informe Libro Iva - Compras                 
+*       * Snippet:    27                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p1
+xx = 1
+do mpath5+'i40lisco'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P2  ON SELECTION BAR 7 OF POPUP ivacompras      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   67       
+*       * Called By:  ON SELECTION BAR 7 OF POPUP ivacompras      
+*       * Prompt:     Configuración                               
+*       * Snippet:    28                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p2
+xx = 1
+do mpath5+'i70confi'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P3  ON SELECTION BAR 1 OF POPUP ivaventas       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   70       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP ivaventas       
+*       * Prompt:     Importar                                    
+*       * Snippet:    29                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p3
+xx = 1
+do mpath5+'i30impor'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P4  ON SELECTION BAR 2 OF POPUP ivaventas       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   71       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP ivaventas       
+*       * Prompt:     Carga de Movimientos                        
+*       * Snippet:    30                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p4
+xx = 1
+do mpath5+'i31carma'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P5  ON SELECTION BAR 4 OF POPUP ivaventas       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   73       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP ivaventas       
+*       * Prompt:     Resumen de Movimientos                      
+*       * Snippet:    31                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p5
+xx = 1
+do mpath5+'i40resve'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P6  ON SELECTION BAR 5 OF POPUP ivaventas       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   74       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP ivaventas       
+*       * Prompt:     Informe Libro Iva Ventas                    
+*       * Snippet:    32                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p6
+xx = 1
+do mpath5+'i40lisve'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P7  ON SELECTION BAR 7 OF POPUP ivaventas       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   77       
+*       * Called By:  ON SELECTION BAR 7 OF POPUP ivaventas       
+*       * Prompt:     Configuración                               
+*       * Snippet:    33                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p7
+xx = 1
+do mpath5+'i70confi'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P8  ON SELECTION BAR 1 OF POPUP percepcion      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   80       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP percepcion      
+*       * Prompt:     Importar                                    
+*       * Snippet:    34                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p8
+xx = 1
+do mpath5+'i41impor'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84P9  ON SELECTION BAR 4 OF POPUP percepcion      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:   85       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP percepcion      
+*       * Prompt:     Informe                                     
+*       * Snippet:    35                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84p9
+xx = 1
+do mpath5+'i41l_per'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84PA  ON SELECTION BAR 1 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  104       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP informes        
+*       * Prompt:     Resumen de Movimientos Iva Compras          
+*       * Snippet:    36                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84pa
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath5+'i40resu'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84PB  ON SELECTION BAR 2 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  105       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP informes        
+*       * Prompt:     Informes Libro Iva Compras                  
+*       * Snippet:    37                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84pb
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath5+'i40lisco'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84PC  ON SELECTION BAR 4 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  108       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP informes        
+*       * Prompt:     Resumen de Movimientos Iva Ventas           
+*       * Snippet:    38                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84pc
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath5+'i40resve'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84PD  ON SELECTION BAR 5 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  109       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP informes        
+*       * Prompt:     Informes Libro Iva Ventas                   
+*       * Snippet:    39                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84pd
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath5+'i40lisve'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84PE  ON SELECTION BAR 7 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  112       
+*       * Called By:  ON SELECTION BAR 7 OF POPUP informes        
+*       * Prompt:     Retención de Ganancias                      
+*       * Snippet:    40                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84pe
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath5+'i21l_gan'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84PF  ON SELECTION BAR 6 OF POPUP utilitario      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  123       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP utilitario      
+*       * Prompt:     Correo                                      
+*       * Snippet:    41                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84pf
+xx=1
+do mpath9+'s32acfon' with 'PROCE_MANU'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84PG  ON SELECTION BAR 1 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  121       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP actualizac      
+*       * Prompt:     Impuestos                                   
+*       * Snippet:    42                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84pg
+xx=1
+do mpath5+'i70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4QV0Q84PH  ON SELECTION BAR 2 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_IMP.MPR,            Record:  122       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP actualizac      
+*       * Prompt:     Generales                                   
+*       * Snippet:    43                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4qv0q84ph
+xx=1
+do mpath0+'e70mante'
+xx=0
+

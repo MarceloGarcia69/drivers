@@ -1,0 +1,666 @@
+*       *********************************************************
+*       *                                                         
+*       * 27/08/2006           MENU_MAN.MPR             18:45:30  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2006 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _1vt147f3z OF _MSYSMENU PROMPT "Tablas" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _1vt147f4g OF _MSYSMENU PROMPT "Procesos" COLOR SCHEME 3
+DEFINE PAD _1vt147f4h OF _MSYSMENU PROMPT "utilitarios" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _1vt147f4i OF _MSYSMENU PROMPT "Salir" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+ON PAD _1vt147f3z OF _MSYSMENU ACTIVATE POPUP tablas
+ON PAD _1vt147f4g OF _MSYSMENU ACTIVATE POPUP _1vt11htrm
+ON PAD _1vt147f4h OF _MSYSMENU ACTIVATE POPUP utilitario
+ON SELECTION PAD _1vt147f4i OF _MSYSMENU ;
+	DO _1vt147f4j ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP tablas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tablas PROMPT "Claves de Acceso"
+DEFINE BAR 2 OF tablas PROMPT "\-"
+DEFINE BAR 3 OF tablas PROMPT "Modulos"
+DEFINE BAR 4 OF tablas PROMPT "Procesos"
+DEFINE BAR 5 OF tablas PROMPT "Autorización"
+DEFINE BAR 6 OF tablas PROMPT "\-"
+DEFINE BAR 7 OF tablas PROMPT "Personal"
+DEFINE BAR 8 OF tablas PROMPT "Tipo de Personal"
+ON BAR 1 OF tablas ACTIVATE POPUP clavesdeac
+ON BAR 2 OF tablas ACTIVATE POPUP _1mz1jqsvy
+ON BAR 3 OF tablas ACTIVATE POPUP modulos
+ON BAR 4 OF tablas ACTIVATE POPUP procesos
+ON BAR 5 OF tablas ACTIVATE POPUP autorizaci
+ON BAR 7 OF tablas ACTIVATE POPUP personal
+ON BAR 8 OF tablas ACTIVATE POPUP tipodepers
+
+DEFINE POPUP clavesdeac MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF clavesdeac PROMPT "Actualiza" ;
+	SKIP FOR xx = 1
+DEFINE BAR 2 OF clavesdeac PROMPT "Lista" ;
+	SKIP FOR xx = 1
+ON SELECTION BAR 1 OF clavesdeac ;
+	DO _1vt147f4k ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 2 OF clavesdeac ;
+	DO _1vt147f4l ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP _1mz1jqsvy MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF _1mz1jqsvy PROMPT "Actualiza"
+DEFINE BAR 2 OF _1mz1jqsvy PROMPT "Lista"
+ON SELECTION BAR 1 OF _1mz1jqsvy ;
+	DO _1vt147f4m ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 2 OF _1mz1jqsvy ;
+	DO _1vt147f4n ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP modulos MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF modulos PROMPT "Actualiza"
+DEFINE BAR 2 OF modulos PROMPT "Lista"
+ON SELECTION BAR 1 OF modulos ;
+	DO _1vt147f4p ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 2 OF modulos ;
+	DO _1vt147f4q ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP procesos MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF procesos PROMPT "Actualiza"
+DEFINE BAR 2 OF procesos PROMPT "Lista"
+ON SELECTION BAR 1 OF procesos ;
+	DO _1vt147f4r ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 2 OF procesos ;
+	DO _1vt147f4s ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP autorizaci MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF autorizaci PROMPT "Actualiza"
+DEFINE BAR 2 OF autorizaci PROMPT "Lista"
+ON SELECTION BAR 1 OF autorizaci ;
+	DO _1vt147f4t ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 2 OF autorizaci ;
+	DO _1vt147f4u ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP personal MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF personal PROMPT "Actualiza"
+DEFINE BAR 2 OF personal PROMPT "Lista"
+ON SELECTION BAR 1 OF personal ;
+	DO _1vt147f5c ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 2 OF personal ;
+	DO _1vt147f5d ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP tipodepers MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodepers PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodepers PROMPT "Lista"
+ON SELECTION BAR 1 OF tipodepers ;
+	DO _1vt147f5e ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 2 OF tipodepers ;
+	DO _1vt147f5f ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP _1vt11htrm MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF _1vt11htrm PROMPT "Fondos"
+DEFINE BAR 2 OF _1vt11htrm PROMPT "Contable"
+DEFINE BAR 3 OF _1vt11htrm PROMPT "Impuestos"
+DEFINE BAR 4 OF _1vt11htrm PROMPT "Ventas"
+DEFINE BAR 5 OF _1vt11htrm PROMPT "Cta.Cte."
+DEFINE BAR 6 OF _1vt11htrm PROMPT "Proveedores"
+ON BAR 3 OF _1vt11htrm ACTIVATE POPUP impuestos
+
+DEFINE POPUP impuestos MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF impuestos PROMPT "Iva Compras"
+DEFINE BAR 2 OF impuestos PROMPT "Iva Vtas"
+
+DEFINE POPUP utilitario MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF utilitario PROMPT "Reconstrucción de Indices"
+DEFINE BAR 2 OF utilitario PROMPT "Borrado de Temporales"
+DEFINE BAR 3 OF utilitario PROMPT "Correo"
+ON BAR 1 OF utilitario ACTIVATE POPUP reconstruc
+ON SELECTION BAR 2 OF utilitario ;
+	DO _1vt147f5h ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 3 OF utilitario ;
+	DO _1vt147f5i ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+DEFINE POPUP reconstruc MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF reconstruc PROMPT "Generales"
+DEFINE BAR 2 OF reconstruc PROMPT "Facturación"
+DEFINE BAR 3 OF reconstruc PROMPT "Ventas"
+DEFINE BAR 4 OF reconstruc PROMPT "Cuenta Corriente"
+DEFINE BAR 5 OF reconstruc PROMPT "Proveedores"
+DEFINE BAR 6 OF reconstruc PROMPT "Fondos"
+ON SELECTION BAR 1 OF reconstruc ;
+	DO _1vt147f5k ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 2 OF reconstruc ;
+	DO _1vt147f5l ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 3 OF reconstruc ;
+	DO _1vt147f5m ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 4 OF reconstruc ;
+	DO _1vt147f5n ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 5 OF reconstruc ;
+	DO _1vt147f5o ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+ON SELECTION BAR 6 OF reconstruc ;
+	DO _1vt147f5p ;
+	IN LOCFILE("PROG17\MENU_MAN" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_MAN?")
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4J  ON SELECTION PAD                            
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   65       
+*       * Called By:  ON SELECTION PAD                            
+*       * Prompt:     Salir                                       
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4j
+set sysmenu to defa
+clos data
+clear read
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4K  ON SELECTION BAR 1 OF POPUP clavesdeac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:    7       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP clavesdeac      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    2                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4k
+xx = 1
+do mpath7+'c10abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4L  ON SELECTION BAR 2 OF POPUP clavesdeac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:    8       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP clavesdeac      
+*       * Prompt:     Lista                                       
+*       * Snippet:    3                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4l
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath7+'c10lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4M  ON SELECTION BAR 1 OF POPUP _1mz1jqsvy      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   11       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP _1mz1jqsvy      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4m
+xx = 1
+do mpath9+'s12abm'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4N  ON SELECTION BAR 2 OF POPUP _1mz1jqsvy      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   12       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP _1mz1jqsvy      
+*       * Prompt:     Lista                                       
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4n
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s12lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4P  ON SELECTION BAR 1 OF POPUP modulos         
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   15       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP modulos         
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    6                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4p
+xx = 1
+do mpath7+'c15abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4Q  ON SELECTION BAR 2 OF POPUP modulos         
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   16       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP modulos         
+*       * Prompt:     Lista                                       
+*       * Snippet:    7                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4q
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath7+'c15lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4R  ON SELECTION BAR 1 OF POPUP procesos        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   19       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP procesos        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    8                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4r
+xx = 1
+do mpath7+'c16abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4S  ON SELECTION BAR 2 OF POPUP procesos        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   20       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP procesos        
+*       * Prompt:     Lista                                       
+*       * Snippet:    9                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4s
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s15lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4T  ON SELECTION BAR 1 OF POPUP autorizaci      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   23       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP autorizaci      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    10                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4t
+xx = 1
+do mpath7+'c17abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F4U  ON SELECTION BAR 2 OF POPUP autorizaci      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   24       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP autorizaci      
+*       * Prompt:     Lista                                       
+*       * Snippet:    11                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f4u
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s21lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5C  ON SELECTION BAR 1 OF POPUP personal        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   29       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP personal        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    12                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5c
+* ------ carga
+xx = 1
+do mpath0+'e13abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5D  ON SELECTION BAR 2 OF POPUP personal        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   30       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP personal        
+*       * Prompt:     Lista                                       
+*       * Snippet:    13                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5d
+* -----  lista
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e13lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5E  ON SELECTION BAR 1 OF POPUP tipodepers      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   33       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodepers      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    14                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5e
+* ----  Carga
+xx = 1
+do mpath0+'e12abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5F  ON SELECTION BAR 2 OF POPUP tipodepers      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   34       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodepers      
+*       * Prompt:     Lista                                       
+*       * Snippet:    15                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5f
+* ---- Lista
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e12lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5H  ON SELECTION BAR 2 OF POPUP utilitario      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   63       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP utilitario      
+*       * Prompt:     Borrado de Temporales                       
+*       * Snippet:    16                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5h
+wait 'No Disponible' windows
+retu
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5I  ON SELECTION BAR 3 OF POPUP utilitario      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   64       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP utilitario      
+*       * Prompt:     Correo                                      
+*       * Snippet:    17                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5i
+xx=1
+do mpath9+'s32acfon' with 'PROCE_MANU'
+xx=0
+
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5K  ON SELECTION BAR 1 OF POPUP reconstruc      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   57       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP reconstruc      
+*       * Prompt:     Generales                                   
+*       * Snippet:    18                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5k
+xx=1
+do mpath0+'e70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5L  ON SELECTION BAR 2 OF POPUP reconstruc      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   58       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP reconstruc      
+*       * Prompt:     Facturación                                 
+*       * Snippet:    19                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5l
+xx=1
+do mpath9+'s70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5M  ON SELECTION BAR 3 OF POPUP reconstruc      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   59       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP reconstruc      
+*       * Prompt:     Ventas                                      
+*       * Snippet:    20                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5m
+xx=1
+do mpath9+'s70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5N  ON SELECTION BAR 4 OF POPUP reconstruc      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   60       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP reconstruc      
+*       * Prompt:     Cuenta Corriente                            
+*       * Snippet:    21                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5n
+xx=1
+do mpath11+'w70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5O  ON SELECTION BAR 5 OF POPUP reconstruc      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   61       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP reconstruc      
+*       * Prompt:     Proveedores                                 
+*       * Snippet:    22                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5o
+xx=1
+do mpath4+'p70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _1VT147F5P  ON SELECTION BAR 6 OF POPUP reconstruc      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_MAN.MPR,            Record:   62       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP reconstruc      
+*       * Prompt:     Fondos                                      
+*       * Snippet:    23                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _1vt147f5p
+xx=1
+do mpath2+'m70mante'
+xx=0
+

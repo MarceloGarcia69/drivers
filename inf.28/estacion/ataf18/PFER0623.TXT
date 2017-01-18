@@ -1,0 +1,22 @@
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/23 11:53
+*****************************************************
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/06/23 11:54
+*****************************************************
+Comando = Cierre 04-06-aa 11:55
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8620
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000011000100000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:10 El controlador Fiscal esta Fiscalizado 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:5 Comando Invalido para el Estado Lógico del Equipo
+

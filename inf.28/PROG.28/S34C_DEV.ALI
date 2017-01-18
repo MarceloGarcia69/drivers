@@ -1,0 +1,1570 @@
+* ---------------------------------------------------------------------- *
+* Amsoft         - Gestión
+* Programa       : s34c_dev.prg
+* Llamado  desde : Menusto.prg
+* Objetivo       : Compra de Mercadería a Proveedores 
+* Ultima Actual. : 17/04/2002
+* Programo       : Alicia & Marcelo
+* ---------------------------------------------------------------------- *
+parameter pPara34
+
+
+set sysmenu to defa     && alicia
+
+do case 
+   case pPara34 = 'REMITOS'
+        mleye34 = 'Devolución de Remitos'
+
+   case pPara34 = 'ANULA'
+        mleye34 = 'XX'
+ endcase
+
+set dele on 
+
+* -------  Temporal Egresos  ---------
+
+do mpath9+'s00abre' with 'd_modven',' '
+
+egretemp = 	'C:\estacion\tmp\tmpegr'+righ('00'+allt(MESTACION),2)
+
+sele d_modven
+copy stru to &egretemp
+clos data 
+
+* --------------------------------------------------------
+
+do mpath0+'e00abre' with 'codope',' '
+do mpath0+'e00abre' with 'clientes',' '
+do mpath0+'e00abre' with 'estcta',' '
+do mpath0+'e00abre' with 'sucursal',' '
+do mpath0+'e00abre' with 'zona',' '
+do mpath0+'e00abre' with 'deposito',' '
+do mpath0+'e00abre' with 'config',' '
+
+do mpath5+'i00abre' with 'tipcom',' '
+do mpath9+'s00abre' with 'articulo',' '
+do mpath9+'s00abre' with 'reparti',' '
+do mpath9+'s00abre' with 'tipuni',' '
+
+do mpath9+'s00abre' with 'marcas',' '
+do mpath9+'s00abre' with 'rubro',' '
+do mpath9+'s00abre' with 'subrubro',' '
+do mpath0+'e00abre' with 'confient',' '
+do mpath0+'e00abre' with 'confisuc',' '
+do mpath9+'s00abre' with 'opeven',' '
+do mpath9+'s00abre' with 'confifac',' '
+
+
+do mpath9+'s00abre' with 't_remven',' '
+do mpath9+'s00abre' with 'd_remven',' '
+do mpath9+'s00abre' with 'a_remven',' '
+
+
+do mpath9+'s00abre' with 'r_devrem',' '
+
+
+* ----------- Stock -------------------
+
+do mpath9+'s00abre' with 'st_logs',' '
+do mpath9+'s00abre' with 'st_logde',' '
+do mpath9+'s00abre' with 'st_arti',' '
+
+do mpath9+'s00abre' with 've_logs',' '
+do mpath9+'s00abre' with 've_pimp',' '
+
+**
+* -----------------------------------
+
+sele rubro
+set order to tag rubcod
+sele subrubro
+set order to tag subcod
+sele marcas
+set order to tag marcod
+
+sele articulo
+set orde to tag artcod 
+set relation to codsub into subrubro
+set relation to codrub into rubro additive
+set relation to codmar into marcas additive
+
+
+* --------------  Variables  ----------------
+public aOpeven, mrev_In, acli1, aNcli1, TATipcom     
+public aTipcom,  mPrefijo,   mNroc     , mNomOpe
+public aTip_rem, mPrefi_rem, mNroc_rem 
+public acodsuc,   tacodsuc, acoddep,   tacoddep ,aart1, aNart1, mCanArt, mni_artrem2 , mni_rev2 , mCanBul, mbruto, mneto, mcantidad 
+public abrow_rem, fbrow_rem, fbrow_sel, aBrow_sel
+public acampo_conf, asuc1, adep1,  mni_rev2, acampo_can 
+public mdevoluci, mprevenfo, mprevenfoCI, mdevoluci, mprevenfoCI, aSele_ParTot
+public acampo_rem, acampo_car 
+public mdomici, mcuit, msitiva, mcodven, mcodrep, mobs_ext, mtasaiva   
+public mlista_pre, mnrorem, mfecha 
+
+public msto_ant, acanti 
+
+store 0 to msto_ant, acanti
+
+mnomope      = space(20) 
+mnrorem      = space(14) 
+
+mfecha       = date() 
+
+paso         = .f.
+acampo       = .f.
+anunca       = .f.
+acampo_rem   = .t.
+acampo_car   = .f.
+
+
+mobs_ext     = 'N'
+mtasaiva     = 0
+mlista_pre   = 1
+
+aOpeven      = 1
+acampo_can   = .f.
+acampo_conf  = .t. 
+
+fbrow_sel    = ' ' 
+aBrow_sel    = 1
+abrow_rem    = 1
+aSele_ParTot = 2
+mbruto       = 0
+mneto        = 0
+
+* -------------------------------------------------
+
+do rBlanVari 
+do rBlanComp in mpath9+'s34c_dev' 
+
+do rTipcom1 in mpath1+'w00wfun' with 'REMITOS'     &&&  Carga por 1ra.Vez TATipcom
+store 0 to totsuc, totsucg, total
+
+* ----- Cuando Se hace una factura Ordinaria ------
+
+sele tipcom
+set order to tag tipcom
+set filter to remitos = 'S'
+
+ COUNT TO M
+ declare TaTipRem(m)
+ store 0 to TaTIPRem
+ sele tipcom
+ go top
+ mcanTipC = 0
+ atip_rem  = 1
+
+for x=1 to m
+     atip_rem = x 
+     TaTipRem(x)=allt(tipcom.tipcom)
+     sele tipcom
+     mcanTipC = mcanTipC +1
+     skip 1
+endfor
+
+sele tipcom 
+set filter to 
+
+* ------- repartidor  --------------------
+
+sele reparti
+set order to tag repcod 
+go top 
+mcodrep = reparti.codrep 
+
+* -------  Carga Tabla de Sucursal ---------------- 
+sele sucursal 
+set order to tag succod 
+
+set filter to val(codsuc) <> 99 
+
+COUNT TO M
+ declare TaCodSuc(m,2)
+
+ store 0 to TaCodSuc
+  
+ sele sucursal
+ go top
+ mcanOpe = 0
+
+for x=1 to m
+
+     TaCodSuc(x,1)=allt(sucursal.nomsuc)       
+     TaCodSuc(x,2)=sucursal.codsuc
+     sele sucursal
+     skip 1
+     mcanOpe = mcanOpe +1
+endfor
+sele sucursal
+set filter to 
+
+
+* -------  Carga Tabla de Deposito  ---------------- 
+
+ sele deposito  
+ set order to tag depcod 
+
+ COUNT TO M
+ declare TaCodDep(m,2)
+ store 0 to TaCodDep
+  
+ sele deposito
+ go top
+ mcanOpe = 0
+
+for x=1 to m
+
+     TaCodDep(x,1)=allt(Deposito.nomDep)       
+     TaCodDep(x,2)=Deposito.codDep
+     sele Deposito 
+     skip 1
+     mcanOpe = mcanOpe +1
+
+endfor
+sele deposito
+
+** ----------------  ALICIA ---------------
+* ------------ Tabla de Remitos  ------------------
+* ----- Cuando Se hace una factura Ordinaria ------
+
+sele tipcom
+set order to tag tipcom
+set filter to remitos = 'S'
+
+ COUNT TO M
+ declare TaTipRem(m)
+ store 0 to TaTIPRem
+ sele tipcom
+ go top
+ mcanTipC = 0
+ atip_rem  = 1
+
+for x=1 to m
+     atip_rem = x 
+     TaTipRem(x)=allt(tipcom.tipcom)
+     sele tipcom
+     mcanTipC = mcanTipC +1
+     skip 1
+endfor
+sele tipcom 
+set filter to 
+
+
+* ------- Configuración Sucursal  -------------       
+sele confient
+
+asuc1 = confient.codsuc       &&& Sucursal Activa 
+adep1 = confient.coddep       &&& Deposito Activa 
+
+
+sele sucursal
+set order to tag succod
+seek asuc1
+if found()
+   aNsuc1=sucursal.nomsuc
+   else 
+   aNsuc1='No Existe Sucursal Predeterminada ... '
+endi
+
+acodsuc = ASCAN(tacodsuc,asuc1)/2
+
+* ---------------
+
+sele deposito
+set order to tag depcod
+
+seek adep1
+
+if found()
+   aNdep1= deposito.nomdep
+   else 
+   aNdep1 = 'No Existe Deposito Predeterminado  ... '
+endi
+acoddep = ASCAN(tacoddep,adep1)/2
+
+
+* ------------  Base Temporal Remitos de un mismo cliente   -------------
+
+TmpRem0 = mpath0+'tmpre0'+righ('00'+allt(MESTACION),2)
+
+CREATE dbf &TmpRem0;
+  (ni_rev n(10), FECREM D(8), NROCOM C(14), t_CanArt n(4), t_sdoact N(10,2), t_saldo N(10,2), codsuc c(2), coddep c(3) )
+  use
+
+      TmpRem0 = mpath0+'tmpRe0'+righ('00'+allt(MESTACION),2)
+
+      if used(TmpRem0)
+         select TmpRem0
+         set order to 0
+         else
+         select 0
+         CrediTmp =TmpRem0+'.dbf'
+         use (locfile(TmpRem0,"DBF","Where is TmpRem0?"));
+         again alias TmpRem0;
+         order 0  exclu
+     endif
+
+fbrow_rem = " dtoc(TmpRem0.fecrem)+' '+ TmpRem0.nrocom  +' '+ str(TmpRem0.T_CanArt,4) + space(10)+  iif(TmpRem0.t_sdoact = 0,'Cancelado','Pendiente')"
+
+* -------------------  TOTALES DE REMITOS PENDIENTES DE FACTURAR  ------------------------
+
+tmpRem1 = mpath0+'tmpD1'+righ('00'+allt(MESTACION),2)
+
+CREATE dbf &tmpRem1;
+  (ni_rev2 n(10), codcli C(5), coddep c(3), codart C(8), ni_artfac n(5), ni_artrem2 n(5), gru_art c(4),nrocom c(14),;
+  r_sdocan N(10,2), Cansel n(10,2), devoluci N(10,2) , sdoact N(10,2), fecha d(8), recno_fac n(2), recno_rem N(10),;
+  preunita n(12,3),  preunitaCI n(12,3), preventa n(12,3), impdscar n(12,3), impdscarCI n(12,3),;
+  recaAr n(6,3),  imprecar n(12,3), prevenfo n(12,3), prevenfoCI n(12,3), impTotArCI n(12,3), ;
+  lista_pre N(1),TasaIva N(6,3), obs_ext C(1))
+  use
+
+  tmpRem1 = mpath0+'tmpD1'+righ('00'+allt(MESTACION),2)
+
+      if used(tmpRem1)
+         select tmpRem1
+         set order to 0
+         else
+         select 0
+         CrediTmp =tmpRem1+'.dbf'
+         use (locfile(tmpRem1,"DBF","Where is tmpRem1?"));
+         again alias tmpRem1;
+         order 0  exclu
+     endif
+
+fbrow_rem = "tmpRem1.codart + ' ' + left(allt(articulo.nomart) + ' ' + allt(articulo.descriin),12);
+                     + str(tmpRem1.prevenfoCI,8,2) + str(tmpRem1.r_sdocan,8,2)  +  str(tmpRem1.devoluci,8,2);
+                     + str(tmpRem1.sdoact,8,2)"
+
+* -----  Detalle Selectivo  ------
+
+tmpSel1 = mpath0+'tmpS1'+righ('00'+allt(MESTACION),2)
+
+*CREATE dbf &tmpSel1;
+*  (ni_rev2 n(10), codcli C(5), codart C(8), ni_artfac n(5), ni_artrem2 n(5), gru_art c(4),nrocom c(14),nomart c(30),descriin c(30), nommar C(30),;
+*  r_sdocan N(10,2), Cansel n(10,2), sdoact N(10,2), fecha d(8),;
+*  recno_fac n(2), recno_rem n(10), prevenfo n(12,3), prevenfoCI n(12,3), imptotarci  n(12,3), lista_pre N(1),TasaIva N(6,3))
+
+
+
+CREATE dbf &tmpSel1;
+  (ni_rev2 n(10), ni_artrem2 n(5), ni_rev n(10),  ni_artrem n(5), codcli C(5), codart C(8), nomart c(60),;
+  r_sdocan N(10,2), sdo_ant n(10,2), devoluci n(10,2), sdoact N(10,2), recno_rem n(10), prevenfo n(12,3), prevenfoCI n(12,3), imptotar n(12,3), imptotarci n(12,3),;
+  lista_pre N(1),TasaIva N(6,3), obs_ext C(1))
+
+
+  use
+  tmpSel1 = mpath0+'tmpS1'+righ('00'+allt(MESTACION),2)
+
+      if used(tmpSel1)
+         select tmpSel1
+         set order to 0
+         else
+         select 0
+         CrediTmp =tmpSel1+'.dbf'
+         use (locfile(tmpSel1,"DBF","Where is tmpSel1?"));
+         again alias tmpSel1;
+         order 0  exclu
+     endif
+
+ index on codart + str(ni_rev2,10) + str(ni_artrem2,5) to tmpsel
+
+fbrow_Sel = "tmpSel1.codart+' '+left(tmpSel1.nomart,12)+;
+ +str(tmpSel1.devoluci,8,2)+  str(tmpSel1.prevenfoci,9,2)+ str(tmpSel1.imptotarCI,9,2)"
+
+* -------------  Temporal de egresos  -------------------
+      egretemp = 	'C:\estacion\tmp\tmpegr'+righ('00'+allt(MESTACION),2)
+      
+      if used(egretemp)
+         select egretemp
+         set order to 0
+         else
+         select 0
+         egretemp=egretemp+'.dbf'
+         use (locfile(egretemp,"DBF","Where is egretemp?"));
+         again alias egretemp;
+         order 0  exclu
+     endif
+
+* ----------------------------------------- 
+
+do mpath9+'s34c_dev.spr'
+
+sele articulo
+set relation off into subrubro
+set relation off into rubro
+set relation off into marcas
+
+sele sucursal 
+set filter to 
+* -------------------   Borrado de Variables  -------------------------
+clos data
+rele acli1, aNcli1 
+
+return 
+**
+* -----------------  Rutina de Selección Código Nombre  -------------------- *
+procedure rBlanVari
+
+acli1      = space(5) 
+aNcli1     = space(20)
+
+mprefijo   = space(4) 
+mnroc      = space(8)
+mtipcom    = space(1)
+
+
+mPrefi_rem = space(4) 
+mNroc_rem  = space(8)
+aTip_rem   = 1
+
+mfecha     = date()
+mdomici    = space(20) 
+mnrocom    = space(14) 
+asuc1      = space(2) 
+
+adep1      = space(3)
+
+mdevoluci  = 0 
+mnomope    = space(20) 
+
+aart1      = space(5) 
+aNart1     = space(20)
+
+store 0 to mcanart,mcanbul,mbruto,mneto, mr_sdocan 
+
+retu
+**
+* ----------------  Blanqueo de Variables de Compra -------------- *
+procedure rBlanComp
+aArt1  = space(8)
+aNart1 = space(15)
+
+store 0 to mr_sdocan, msdoact, mdevoluci
+
+* ---------  costos de Compra  ----------
+store 0 to mcantidad,mcanart,mcanbul 
+retu
+**
+* -------------------  Consulta de Códigos  ----------------------- *
+procedure rVeri_Dev
+
+   mtipcom = tatipcom(atipcom)
+   mnrocom = mtipcom+mprefijo+'-'+mnroc
+   asuc1 = TACodSuc(acodsuc,2) 
+   adep1 = TACodDep(acoddep,2) 
+   
+   paso = .f.
+   mtitle = "  "
+
+   mrev_In = 0
+   
+   *   index on codope+codsuc+nrocom+codcli tag RemOpe descending
+
+   sele t_remven 
+   set order to tag RemOpe
+
+   seek ' 3'+asuc1+mnrocom+acli1 
+
+   if !found() 
+       wait ' Este Remito No Existe para este Cliente ... ' wind 
+       paso = .f. 
+       retu 
+
+       else 
+
+       mopeven = t_remven.opeven
+        
+       if val(opeven) <> 12 and val(opeven) <> 14
+          wait ' Este Remito No Esta Permitido Hacer Devoluciones ... ' wind        
+          paso = .f.
+          retu 
+        endi  
+        mni_rev2 = t_remven.ni_rev 
+        
+        if  val(mopeven) = 12 and aOpeven <> 1
+            wait 'El Tipo de Comprobante que Selecciono es Incorrecto !!! ... ' wind 
+            paso = .f. 
+            retu
+        endi 
+        if  val(mopeven) = 14 and aOpeven <> 2
+            wait 'El Tipo de Comprobante que Selecciono es Incorrecto !!! ... ' wind 
+            paso = .f. 
+            retu
+        endi 
+
+        
+        paso = .t.
+   endi  
+
+ ** --------------------------------------------------------------- *
+
+   sele opeven 
+   set order to tag opeven
+
+   seek mopeven 
+   if found() 
+      mNomOpe = opeven.nomope_ven  
+   endi 
+   
+   show get mNomOpe 
+
+
+retu 
+* ---------------------  Nro de Comprobante  ----------------------- *
+
+procedure rBus_Nro_Rem
+
+      asuc1 = TACodSuc(acodsuc,2) 
+      
+      adep1 = TACodDep(acoddep,2) 
+
+      mtiprem = tatiprem(atip_rem)
+
+      sele t_remven 
+      set order to tag RemOpe
+      seek ' 3'+asuc1+mtiprem+mprefi_rem
+
+    if found()
+       mnroc_rem = right('00000000'+ allt(str(val(righ(nrocom,8))+1,8)),8)
+       else
+       mnroc_rem = '00000001'
+    endi
+
+*    if mtiprem = 'R'
+*       aTip_rem = 1
+*       else 
+*       aTip_rem = 2
+*    endi 
+
+        mnrorem = mtiprem+mprefi_rem+'-'+ mnroc_rem
+retu 
+**
+
+procedure rCar_Rem_tmp
+
+         sele tmpRem1
+         zap
+         index on ni_rev2 tag Tmp_rem 
+
+         sele tmpSel1
+         zap
+         index on codart  tag Tmp_sel1 
+
+         * --------------------------------------
+
+         sele marcas
+         set order to tag marcod 
+
+         sele articulo
+         set order to tag artcod 
+         set relation to codmar into marcas 
+         
+         sele t_remven
+         set order to tag rev_In
+
+         sele d_remven
+         set order to tag rev_InAr
+         * index on str(ni_rev,10) + str(ni_artrem,5) tag rev_InAr
+
+         sele a_remven
+         set order to tag rev_In    &&& remcli
+         set relation to NI_rev into t_remven
+         set relation to str(ni_rev,10) + str(ni_artrem,5) into d_remven  additive
+
+         seek mni_rev2
+         
+         do whil !eof() and ni_rev = mni_rev2 
+
+            if r_sdocan = 0
+               skip 1
+               loop
+            endi
+            if val(codcli) <> val(acli1) 
+               skip 1 
+               loop 
+            endi 
+
+            store 0 to  mPrevenfo,mPrevenfoCI 
+
+            mnommar   = " "
+
+            mcodart     = codart
+            mr_sdocan   = r_sdocan
+
+            mni_rev2     = NI_rev
+            mni_artrem2  = NI_artrem
+
+            mnrocom     = t_remven.nrocom
+            mfecrem     = t_remven.fecha
+
+            mRecno_Rem  = recno()
+            mPrevenfo   = d_remven.prevenfo
+            mPrevenfoCI = d_remven.prevenfoci
+
+            mLista_pre  = d_remven.Lista_pre 
+            mTasaIva    = d_remven.TasaIva 
+            mcoddep     = d_remven.coddep 
+            mobs_ext    = d_remven.obs_ext 
+
+
+            sele tmpRem1
+            appen blan
+
+             repl codart     with mcodart,;
+                  r_sdocan   with mr_sdocan,;
+                  sdoact     with mr_sdocan,;
+                  codcli     with acli1,;
+                  coddep     with mcoddep,;
+                  ni_rev2    with mni_rev2,;
+                  ni_artrem2 with mni_artrem2,;
+                  nrocom     with mnrocom,;
+                  fecha      with mfecrem,;
+                  recno_rem  with mRecno_Rem,;
+                  prevenfo   with mPrevenfo,;
+                  prevenfoCI with mPrevenfoCI,;
+                  Lista_pre  with mLista_pre,;
+                  TasaIva    with mTasaIva,;
+                  obs_ext    with mobs_ext
+
+             sele a_remven
+
+            skip 1
+         endd
+
+        * --------------------------------
+
+         sele a_remven 
+         set relation off into t_remven
+         set relation off into d_remven
+retu 
+**
+
+procedure fcodi
+parameter pcod,ptipcam,lefcampo
+mregre = .f.
+
+
+do case
+  case (pcod = 'CLI' and ptipcam = 1) or (pcod = 'CLI' and ptipcam = 2)
+    do fayuda  with 'acli1','aNcli1',ptipcam,1,'clientes','clicod','clinom', 4,59,25,98,'codcli','nomcli','','',' Clientes Codificados ',5,20,lefcampo in mpath1+'w00range'
+
+    mdomici = clientes.domici 
+    mcuit   = clientes.cuit 
+    msitiva = clientes.sitiva 
+    mcodven = clientes.codven
+
+    if !mregre
+       retu .f.
+       else
+       show get acli1
+       show get aNcli1
+    endi 
+
+* -----------------
+    case pcod = 'CLEAR_DESCRIIN'
+          @ 13.181,11.200 clear to 14.810,119.112
+         
+    case pcod = 'SAY_DESCRIIN'
+
+            @ 13.338,15.200  SAY "Desc.Inter.:"+ allt(mdescriin) +  " Marca: " + allt(mnommar)+;
+              	"Bultos:  " + allt(str(mcantidad,9,2)) FONT "Times New Roman", 10;
+	        	STYLE "B";
+	        	COLOR ,RGB(0,0,0,192,192,192)
+
+           * @ 11.338,15.200  SAY "Desc.Inter.:"+ allt(mdescriin) + "  (U.Compra: "+ str(municom,2) + ")   Marca: " + allt(mnommar)+;
+           * "  Bultos:  " + allt(str(mcantidad,9,2)) + "    Unidades: " + allt(str(mcantidad*municom,9,2));
+           * FONT "Times New Roman", 10;
+	       * STYLE "B";
+	       * COLOR ,RGB(0,0,0,192,192,192)
+
+* ------------  Valores  -------------------------
+
+    * -------------   Consulta de Remito en Boton de Rango  --------------  
+
+   ****   ALICIA ************
+   
+    * -------------   Consulta de Remito en Boton de Rango  --------------  
+
+    case (pcod = 'BUS_REM' and ptipcam = 1) or (pcod = 'BUS_REM' and ptipcam = 2) 
+
+        sele sucursal
+        set order to tag succod 
+       
+        sele deposito
+        set order to  tag depcod
+
+        sele TmpRem 
+        index on dtos(fecrem) tag tmpfec
+        index on nrocom  tag tmpnro         
+
+        set relation to coddep into deposito 
+	    set relation to codsuc into sucursal additive
+
+        irbus = recno()
+	    mbrow = " fecrem :h= 'Fecha', nrocom   :h='Nro Comp' , t_canart :h='Cant.Artículos', t_sdoact :h='Cant. Bultos ',;
+	   								 t_saldo :h='Saldo Remito', coddep :h='Cod.Depósito' , deposito.nomdep  :h='Depósito',;
+   														  sucursal.nomsuc  :h='Sucursal' "
+        on key label esc
+        do mpath9+'s70busca' with 'TmpRem0','tmpfec','tmpfec','tmpnro', mbrow, 0.8,8,0.022,0.02,22.795,96.760
+
+        acom1 = nrocom
+        mni_rev  = ni_rev 
+         
+        sele TmpRem0
+        set relation off into deposito
+        set relation off into sucursal
+ 
+ 
+
+endcase 
+retu 
+**
+
+
+
+procedure rVerifiComp
+paso = .f. 
+
+sele tmpsel1 
+go top 
+coun to xm 
+
+if mbruto = 0 or xm = 0  or mneto = 0 
+    wait ' No Existen Artículo Seleccionados - VERIFIQUE !!!  ... ' wind 
+    paso = .f.
+    retu
+endi
+
+if empty(mprefijo) 
+    wait ' Prefijo Incorecto - VERIFIQUE ' wind 
+    paso = .f.
+    retu
+endi
+
+if empty(mNroc) 
+    wait ' Nº Comprobante Incorrecto - VERIFIQUE ' wind 
+    paso = .f.
+    retu
+endi
+* --------  Verificar Remito  -----------
+
+   mtiprem = tatiprem(atip_rem)
+   mnrorem = mtiprem+mPrefi_rem +'-'+mnroc_rem
+
+   sele t_remven
+   set order to tag RemOpe
+   seek ' 3'+asuc1+mnrorem
+   if found()
+       wait ' Este Remito Existe '+ mnrorem + ' Verifique  ... ' wind
+       paso = .f.
+       retu
+   endi
+
+paso = .t. 
+
+retu 
+**
+* -----------------------   hasta aqui llegue     ----------------
+*******************************************************************************
+*******************************************************************************
+
+* ------------------------------------------------------------------- *
+**
+** --------------------  saco de facturación  ----------------------- *
+procedure rsaco_Comp
+*sele ingtemp 
+sele &marchi 
+
+mconreg = 0 
+go top 
+store 0 to mCanBul, mCanArt
+do whil !eof() 
+   mCanArt = mCanArt + 1
+   mCanBul = mCanBul + cantidad
+   * mCanUni = mCanUni + unidades
+
+ *  if bul_uni = 'B'
+ *   mCanUni = mCanUni + unidades 
+ *     else
+ *     mCanUni = mCanUni + cantidad
+ *  endi     
+
+   skip 1
+ENDD
+*- do rProce_Valo
+* sele ingtemp
+sele &marchi 
+retu
+**
+* ------------------- busca fcodart en s00bro -------------------------- *
+procedure rbusca
+parameter rbus
+do case
+case rbus='art'
+     do case
+        case aTipo_Opera = 1
+          do fcodart with  'invtemp','aArt1' in mpath9+'s70scre'                
+        case aTipo_Opera = 2
+          do fcodart with  'reitemp','aArt1' in mpath9+'s70scre'        
+        case aTipo_Opera = 3
+          do fcodart with  'tratemp','aArt1' in mpath9+'s70scre'                
+        case aTipo_Opera = 4
+          do fcodart with  'ajutemp','aArt1' in mpath9+'s70scre'             
+     endcase
+     do rsaco_Comp
+endcase
+return
+**
+* --------------   fcantidad   ---------------------
+procedure fcantida
+parameter pcampo 
+if lastkey()=5 or lastkey()=24 or lastkey()=18   or lastkey()=3 ;
+      or lastkey()=14 or lastkey()=28 or lastkey()=19      &&& =-4
+   retu
+endif
+if lastkey() < 0 or lastkey()=27
+   return
+endif
+          do rsaco_Comp 
+          do fcodi with  'CLEAR_DESCRIIN' in mpath9+'s33c_sto'
+          do fcodi with  'SAY_DESCRIIN'   in mpath9+'s33c_sto'
+show gets 
+return .t.
+**
+* ------------------  función F5 - Grabo aComprobante  ---------------- *
+procedure rconfiComp
+
+acontafin = 2 
+
+mregre = .f.
+mtipcom  = tatipcom(atipcom)
+mnrocom  = mtipcom+mprefijo+'-'+mnroc
+mnrocom  = mtipcom + mprefijo +'-'+mnroc 
+
+do case
+   case aTipo_Opera = 1  &&& Inventario 
+        * mcodope =  ' 6'
+   case aTipo_Opera = 2  &&& Ingresos x remitos
+        * mcodope =  ' 1'
+   case aTipo_Opera = 3  &&& Transferencia 
+        * mcodope =  ' 3'
+   case aTipo_Opera = 4  &&& Ajustes
+        * mcodope =  ' 5'
+   case aTipo_Opera = 5  &&& egresos x remitos
+endcase
+
+do while .t.
+      do rgraboComp
+      do rImpreComp
+      do rBlanVari   in mpath9+'s33c_sto'
+      do rBlanComp in mpath9+'s33c_sto' 
+      _curobj=1 
+      show gets       
+   exit
+enddo
+retu
+**
+procedure rProce_Valo
+retu 
+**
+procedure rVeriComp 
+mtipcom  = tatipcom(atipcom)
+mnrocom  = mtipcom+mprefijo+'-'+mnroc
+mnrocom  = mtipcom + mprefijo +'-'+mnroc 
+
+paso = .f.
+do case
+   case aTipo_opera = 1
+        sele t_inve 
+        set order to tag inv_suc
+        seek asuc1 + mnrocom
+        if found()
+           ?chr(7)
+           wait ' Nº de Comprobante Existe - Verifique !!! ..... ' wind
+           paso = .f.
+           retu
+        endi
+   case aTipo_opera = 2
+        sele t_reming
+        set order to tag rei_suc
+        seek apro1 + mnrocom
+        if found()
+           ?chr(7)
+           wait ' Nº de Comprobante Existe - Verifique !!! ..... ' wind
+           paso = .f.
+           retu
+        endi
+   case aTipo_opera = 3
+        sele t_trans 
+        set order to tag tra_suc
+        seek asuc1 + mnrocom
+        if found()
+           ?chr(7)
+           wait ' Nº de Comprobante Existe - Verifique !!! ..... ' wind
+           paso = .f.
+           retu
+        endi
+   case aTipo_opera = 4
+        sele t_ajuste 
+        set order to tag aju_suc
+        seek asuc1 + mnrocom
+        if found()
+           ?chr(7)
+           wait ' Nº de Comprobante Existe - Verifique !!! ..... ' wind
+           paso = .f.
+           retu
+        endi
+endcase
+  paso = .t. 
+retu
+**
+* ---------------------   rsaco_ModiPa    ------------------------------------- *
+* Objetivo Saco de Modalidad de Pago, estableciendo diferencias  -------------- *
+*
+**
+**
+* - - -
+Procedure rImpreComp 
+retu
+  go top
+  mrespue = 1
+
+  DO WHILE .t.
+        do case
+           case a_impre <= 2 
+           
+                *  ---------------------------------------------------                
+                pfecha   = 'Fecha:'+dtoc(mfecha)
+                pnrocom  = 'Presupuesto:'+mnrocom
+                pcuit    = 'Cuit:' + mcuit
+                paNven1  = 'Vendedor:'+aNven1
+                paNrep1  = 'Repartidor:'+aNrep1
+              
+                if a_impre = 1
+                   REPOR FORM mpath9+'s32pres1' NOEJECT TO  PRINTER  &&& PROMPT
+                   else
+                   rEPOR FORM mpath9+'s32pres1' PREVIE
+                endi 
+
+           case a_impre = 3    &&& mrespue = 2
+
+           otherw 
+             exit 
+     endcase
+
+     if mrespue = 3 
+        exit 
+     endi 
+    
+     exit
+   ENDD
+retu 
+**
+procedure rGraboComp
+do case 
+   case aTipo_Opera = 1    		&&& Inventario 
+
+      sele st_Tmp
+      coun to mcan_art
+
+      sele t_inve 
+      set order to tag inv_In 
+      go bott 
+      mni_inv = ni_inv +1 
+
+      appen blan  
+      repla ni_inv    with  mni_inv,;
+            nrocom    with  mnrocom,; 
+            fecha     with  mfecha,;
+            codsuc    with  asuc1,;            
+            coddep    with  adep1,;
+            fecgra    with  date(),; 
+            horagra   with  time(),;
+            codclave  with  mcodclave,;
+            observa   with  mobserva,;
+            can_art   with  mcan_art,;
+            actu_sto  with  'N'
+
+     mnroart = 0
+
+     sele st_Tmp
+     go top 
+     do whil !eof() 
+        mnroart = mnroart + 1 
+        mcodart   = codart 
+        mcantidad = cantidad
+
+        sele d_inve
+        appe blan
+        repl codart    with mcodart,; 
+             cantidad  with mcantidad,;
+             ni_inv    with mni_inv,;
+             ni_artinv with mnroart
+
+        Sele st_Tmp   
+        skip 1  
+    endd
+
+      do ract_sto in mpath9+'s33a_st'  with  ' 1','4',mni_inv,'st_tmp','','','','',''
+
+      wait ' Inventario Dado de Alta - Nº ' + mnrocom + '  Con ... '+ str(mnroart,2)+ ' Artículos ' wind 
+
+      Sele st_Tmp
+      zap
+
+      * -----   deletea  -----
+      sele tpv_inve 
+      dele all for val(tpv_inve.coddep) = val(adep1)   
+      sele dpv_inve 
+      dele all for val(dpv_inve.coddep) = val(adep1)   
+      * -----------------------
+
+   case aTipo_Opera = 2    			&&& remitos de ingresos  
+
+        sele st_Tmp
+        coun to mcan_art
+
+        sele t_reming
+        set order to tag rei_In 
+        go bott 
+        mni_rei = ni_rei +1
+
+        appen blan  
+        repla ni_rei    with  mni_rei,;
+            nrocom    with  mnrocom,; 
+            fecha     with  mfecha,;
+            codsuc    with  asuc1,;            
+            coddep    with  adep1,;
+            fecgra    with  date(),; 
+            horagra   with  time(),;
+            codclave  with  mcodclave,;
+            observa   with  mobserva,;
+            can_art   with  mcan_art,;
+            actu_sto  with  'N',;
+            codpro    with  apro1 
+
+            mnroart = 0
+
+       sele st_Tmp
+       go top 
+
+     do whil !eof() 
+        mnroart = mnroart + 1
+        mcodart   = codart 
+        mcantidad = cantidad
+
+        sele d_reming
+        appe blan
+        repl codart    with mcodart,; 
+             cantidad  with mcantidad,;
+             ni_rei    with mni_rei,;
+             ni_artrei with mnroart 
+
+        Sele st_Tmp   
+        skip 1  
+    endd
+    do ract_sto in mpath9+'s33a_st'  with  '24','1',mni_rei,'st_tmp','','','','',''
+    wait ' Remito de Ingresos Dado de Alta - Nº ' + mnrocom + '  Con ... '+ str(mnroart,2) + ' Artículos ' wind 
+
+    **
+    Sele st_Tmp
+    zap
+
+   case aTipo_Opera = 3    						&&& Transferencia 
+
+      sele st_Tmp
+      coun to mcan_art
+      
+      sele t_trans 
+      set order to tag tra_In 
+      go bott 
+      mni_tra = ni_tra +1 
+
+      appen blan
+      repla ni_tra    with  mni_tra,;
+            nrocom    with  mnrocom,; 
+            fecha     with  mfecha,;
+            codsuc    with  asuc1,;            
+            coddep    with  adep1,;            
+            coddep2   with  adep2,;                        
+            fecgra    with  date(),; 
+            horagra   with  time(),;
+            codclave  with  mcodclave,;
+            observa   with  mobserva,;
+            can_art   with  mcan_art,;
+            actu_sto  with  'N'
+
+     mnroart = 0
+
+     sele st_Tmp
+     go top 
+     do whil !eof() 
+        mnroart = mnroart+1 
+
+        mcodart   = codart 
+        mcantidad = cantidad  
+       
+        sele d_trans
+        appe blan
+        repl codart    with mcodart,; 
+             cantidad  with mcantidad,;
+             ni_tra    with mni_tra,;
+             ni_arttra with mnroart 
+
+        Sele st_Tmp   
+        skip 1  
+    endd
+
+    do ract_sto in mpath9+'s33a_st'  with  '11','2',mni_tra,'st_tmp','','','','',''
+
+    do ract_sto in mpath9+'s33a_st'  with  '12','1',mni_tra,'st_tmp','','','','',''
+
+
+    wait ' Transferencia Dada de Alta - Nº ' + mnrocom + '  Con ... '+ str(mnroart,2) + ' Artículos ' wind 
+
+    Sele st_Tmp
+    zap
+
+   case aTipo_Opera = 4    						&&& Ajustes 
+
+      sele st_tmp
+      coun to mcan_art
+      sele t_ajuste
+      set order to tag aju_In 
+      go bott 
+      mni_aju = ni_aju +1 
+      appen blan
+      repla ni_aju    with  mni_aju,;
+            nrocom    with  mnrocom,; 
+            fecha     with  mfecha,;
+            codsuc    with  asuc1,;            
+            coddep    with  adep1,;            
+            fecgra    with  date(),; 
+            horagra   with  time(),;
+            codclave  with  mcodclave,;
+            observa   with  mobserva,;
+            can_art   with  mcan_art,;
+            actu_sto  with  'N'
+     mnroart = 0
+
+     sele st_Tmp
+     go top 
+     do whil !eof() 
+        mnroart = mnroart+1 
+        mcodart   = codart 
+        mcantidad = cantidad
+       
+        sele d_ajuste
+        appe blan
+        repl codart    with mcodart,; 
+             cantidad  with mcantidad,;
+             ni_aju    with mni_aju,;
+             ni_artaju with mnroart  
+             
+        Sele st_Tmp   
+        skip 1  
+    endd
+
+    do ract_sto in mpath9+'s33a_st'  with  ' 5','1',mni_aju,'st_tmp','','','','',''
+    wait ' Ajuste Dado de Alta - Nº ' + mnrocom + '  Con ... '+ str(mnroart,2) + ' Artículos ' wind 
+
+    sele st_tmp
+    zap
+   case aTipo_Opera = 5    						&&& egresos x remitos 
+
+
+endcase
+
+return 
+**
+procedure r33actua
+parameter p33
+retu 
+      sele articulo 
+      set order to tag artcod
+
+      sele ingtemp 
+      go top 
+      do while !eof()
+         if anula 
+            sele ingtemp
+            skip 1
+            loop 
+         endi
+
+         mcodart=ingtemp.codart
+
+         if !ingtemp.actuali
+            sele articulo
+            seek mcodart
+            if !found()
+               sele ingtemp 
+               skip 1
+               loop
+            endif
+            sele ingtemp
+            campo='articulo.dep' + righ('000'+ allt(ingtemp.coddep),3)
+
+           * if ingtemp.Bul_Uni = 'B' 
+               mCanUni = (ingtemp.cantidad+ingtemp.bonifi) 
+           *    else
+           *    mCanUni = (ingtemp.cantidad+ingtemp.bonifi)
+           * endi
+
+            repla &campo with &campo - mCanUni
+            repla articulo.dep999 with articulo.dep999 - mCanUni
+            repla ingtemp.actuali with .t.
+            pase=.t.
+
+       Endif    &&& actuali
+        skip 1
+      enddo     &&& mnrocom=nrocom
+      if p33 = 's33c_sto' 
+         if !pase
+           wait ' El Stock de Esta Factura fué actualizado anteriormente ' window
+         endi 
+      endi 
+retu 
+**
+
+* ---------------------   Inventario Provisorio   ------------------------
+
+procedure rGra_Inve_PV
+
+      adep1   = mcoddep 
+      
+      mni_inv = 0
+      sele st_Tmp
+      coun to mcan_art
+
+      * -----   deletea  -----
+      sele tpv_inve 
+      dele all for val(tpv_inve.coddep) = val(adep1)   
+      sele dpv_inve 
+      dele all for val(dpv_inve.coddep) = val(adep1)   
+
+      * ----------------------
+      sele tpv_inve 
+      set order to tag inv_In 
+      go bott 
+      if eof() and bof() 
+         mni_inv = 1 
+         else 
+         mni_inv = ni_inv +1
+      endi 
+
+      * mnroc= right('00000000'+alltrim(str(mNI_inv,8)),8)
+
+      mnroc= right('00000000'+alltrim(mnroc),8)
+
+
+      mnrocom = 'X'+ right('0000'+alltrim(adep1),4) +'-'+ mnroc
+
+      sele tpv_inve 
+      appen blan  
+      repla ni_inv    with  mni_inv,;
+            nrocom    with  mnrocom,; 
+            fecha     with  mfecha,;
+            codsuc    with  asuc1,;            
+            coddep    with  adep1,;
+            fecgra    with  date(),; 
+            horagra   with  time(),;
+            codclave  with  mcodclave,;
+            observa   with  mobserva,;
+            can_art   with  mcan_art,;
+            actu_sto  with  'N'
+
+     mnroart = 0
+
+     sele st_Tmp
+     go top 
+     do whil !eof() 
+        mnroart = mnroart + 1 
+        mcodart   = codart 
+        mcantidad = cantidad
+
+        sele dpv_inve
+        appe blan
+        repl codart    with mcodart,; 
+             cantidad  with mcantidad,;
+             ni_inv    with mni_inv,;
+             ni_artinv with mnroart,;
+             coddep    with  adep1
+             
+        Sele st_Tmp   
+        skip 1  
+    endd
+    wait ' Se Han Grabado Provisoriamente un Total '+ allt(str(mnroart,8)) + '   Artículos Inventados ...' wind 
+retu 
+**
+
+* -----------------------------  GRABO Remitos  --------------------------------------
+
+procedure rGrabo_Rem_Dev
+
+     mcodope = ' 3' 
+
+     sele ve_logs
+     set order to tag ven_In
+     go bott
+     mNI_ven = NI_ven + 1
+     appen blan
+     repl  ni_ven with mNI_ven,;
+           fecha     with  mfecha,;
+           codope    with  mcodope,;
+           coddep    with  adep1,;
+           opeven    with  '15'
+
+          * opeven    with  TAOpeVen(aOpeVen,2) 
+
+do whil .t. 
+        sele t_remven  
+        set order to tag RemOpe
+        seek ' 3'+asuc1+  mnrorem 
+        if found() 
+           xrem1 = val(righ(mnrorem,8))+1
+           xrem2 = mnrorem    
+           mnrorem = left(xrem2,6)+right('00000000'+allt(str(xrem1,8)),8)
+           loop 
+        endi
+   exit 
+endd
+
+* -----------------------------------------------------------------------
+
+    sele tmpsel1 
+    go top 
+    count to mCan_Art
+
+    sele egretemp 
+    zap 
+
+    sele tipuni
+    set order to tag unicod 
+
+    sele articulo 
+    set order to tag  artcod 
+    set relation to coduni into tipuni
+
+    sele tmpsel1
+    set relation to codart into articulo 
+
+    go top 
+    do whil !eof() 
+        scatter memvar
+
+        sele egretemp
+        appe blan
+
+        repl ni_rev     with m.ni_rev,;
+             codart     with m.codart,;
+             ni_artrem  with m.ni_artrem,;
+             coddep     with adep1,;
+             codcli     with m.codcli,;
+             lista_pre  with m.lista_pre,;
+             cantidad   with m.devoluci,;
+             preunita   with m.prevenfo,;
+             preunitaci with m.prevenfoCI,;
+             prevenfo   with m.prevenfo,;
+             prevenfoci with m.prevenfoCI,;
+             imptotar   with (m.prevenfo   * m.devoluci),;
+             imptotarCI with (m.prevenfoCI * m.devoluci),;
+             tasaiva    with m.tasaiva,;
+             coduni     with articulo.coduni,;
+             aliasuni   with tipuni.aliasuni,;
+             obs_ext    with m.obs_ext
+             
+       sele tmpsel1
+       skip 1     
+    endd
+
+    sele tmpsel1
+    set relation off into articulo 
+
+    sele articulo 
+    set relation off into tipuni
+
+    * --------------------------------------
+
+     sele t_remven
+     set order to tag rev_In
+     set delete off          
+     go bott
+     mni_rev= ni_rev +1
+     set delete on           
+     appen blan
+
+      repla ni_rev    with  mni_rev,;
+            ni_ven    with  mNI_ven,;
+            codcli    with  acli1,;
+            nrocom    with  mnrorem,;
+            nomcli    with  aNcli1,;
+            domici    with  mdomici,;
+            cuit      with  mcuit,;
+            sitiva    with  msitiva,;
+            fecha     with  mfecha,;
+            feccom    with  mfecha,;
+            codven    with  mcodven,;
+            codsuc    with  asuc1,;
+            codrep    with  mcodrep,;
+            fecgra    with  date(),; 
+            horagra   with  time(),;
+            codclave  with  mcodclave,;
+            observa   with  'Devolución de Mercaderia',;
+            codope    with  ' 3'
+
+       repl opeven  with  '15'
+       
+    repl    tipcom    with  left(mnrorem,1),;
+            nroc      with  mNroc_rem,; 
+            coddep    with  adep1,;
+            netoSTci  with  mbruto ,;
+            netoST    with  mneto,;
+            Neto0CI   with  mbruto,;
+            Neto0     with  mbruto,; 
+            netoci    with  mbruto,;
+            neto      with  mneto,;
+            iva1      with  (mbruto-mneto),;
+            bruto     with  mbruto,;
+            desto     with  0,;
+            destoci   with  0,;
+            gastosCI  with  0,;
+            gastos    with  0,; 
+            recargoCI with  0,;
+            recargo   with  0,;
+            rgo_arCI  with  0,;
+            rgo_ar    with  0,;
+            can_art   with mCan_Art
+
+* -------------------------------------------------
+
+     mnroart = 0
+
+     sele egretemp 
+     repl all ni_rev    with mNi_rev,;
+    	      codcli    with acli1,;
+      	      coddep    with adep1,;
+              ni_artrem with ni_artrem2  
+
+     sele egretemp 
+     go top 
+
+      xni_artrem = 0
+   
+     do whil !eof() 
+        mnroart = mnroart+1 
+        xni_artrem = xni_artrem + 1 
+        scatter memvar
+
+        sele d_remven
+        appe blan
+        gather memvar
+
+        repl ni_rev    with mNi_rev,;
+      	     codcli    with acli1,;
+       	     coddep    with adep1,;
+       	     ni_artrem with xni_artrem  
+
+        Sele egretemp
+        skip 1  
+    endd
+
+* ---------------------------------------------
+
+           	   sele confifac 
+           	   scatter memvar
+
+               atipo_comp = 2
+               tbruto     = mbruto  
+               mfecha     = date() 
+
+           	   if  m.rev_i_pen = 'S'  and left(mnroRem,1) = 'R'
+                   do rVE_pimp with ' 3',mnroRem  in mpath9+'s32c_fac'
+			   endi
+           	   if  m.rvv_i_pen = 'S'  and left(mnroRem,1) <> 'R'
+                   do rVE_pimp with ' 3',mnroRem  in mpath9+'s32c_fac'
+			   endi
+
+               * Nota:  Pendiente de validar si es un remito de Cta.Cte. o un rem que cancela Fac.Ant.
+
+               *  xrem = TaOpeVen(aOpeVen,2) 
+
+               mnrocom = mnrorem
+               do ract_sto in mpath9+'s33a_st'  with  '55','1',mni_rev,'egretemp','','','','',''
+
+* ----------------------------------------------
+
+     	sele tmpsel1
+     	go top 
+
+     	go top
+     	do whil !eof()
+           mcodart     = codart
+           mcodcli     = codcli
+           mni_rev2    = ni_rev2
+           mni_artrem2 = ni_artrem2
+           mdevoluci   = devoluci
+           msdo_ant    = sdo_ant            
+
+        	sele r_devrem 
+        	appe blan
+
+        	repl ni_rev     with mni_rev,;
+        	     codart     with mcodart,;
+        	     sdo_ant    with msdo_ant,;
+        	     devoluci   with mdevoluci,;
+        	     codcli     with acli1,;
+             	 ni_artrem  with mNI_artrem2,;
+             	 ni_rev2    with mNI_rev2,;
+             	 ni_artrem2 with mNI_artrem2
+
+        	Sele tmpsel1
+        	skip 1  
+    	endd
+
+        set dele on
+        sele tmpsel1
+        go top 
+
+        do whil !eof()
+
+           *- if tmpReAn1.tmpcanti <> 0
+
+
+           if tmpsel1.devoluci <> 0   &&& cansel <> 0
+
+              mcodart    = tmpsel1.codart 
+              mNI_rev2       = tmpsel1.ni_rev2
+              mNI_artrem2    = tmpsel1.ni_artrem2
+              mdevoluci  = devoluci
+
+              mRecno_rem = tmpsel1.recno_rem
+              
+              *- mtmpcanti  = tmpsel1.tmpcanti 
+
+              
+              sele a_remven 
+              set order to tag remart
+              seek mcodart+str(mNI_rev2,10)+str(mNI_artrem2,5)
+
+
+              if found()   
+                 repl a_remven.a_cantifa with a_remven.u_cantifa
+
+                 repl a_remven.a_sdocan  with a_remven.r_sdocan,;
+                      a_remven.u_cantifa with mdevoluci                     &&& mcansel                    
+                 repl a_remven.r_sdocan  with a_remven.r_sdocan - mdevoluci &&& mcansel  
+
+                 if a_remven.r_sdocan = 0
+                    repl a_remven.cancel with .t.,;
+                         a_remven.sicancel with 'S'
+                 endi 
+
+              endi 
+           endi
+           sele tmpsel1
+           skip 1 
+          endd         
+     	sele tmpsel1
+
+retu 

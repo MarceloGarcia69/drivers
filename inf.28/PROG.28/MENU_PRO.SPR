@@ -1,0 +1,746 @@
+*       *********************************************************
+*       *                                                         
+*       * 02/11/2016           MENU_PRO.SPR              17:39:52 
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2016 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENSCRN.    
+*       *                                                         
+*       *********************************************************
+
+
+#REGION 0
+REGIONAL m.currarea, m.talkstat, m.compstat
+
+IF SET("TALK") = "ON"
+	SET TALK OFF
+	m.talkstat = "ON"
+ELSE
+	m.talkstat = "OFF"
+ENDIF
+m.compstat = SET("COMPATIBLE")
+SET COMPATIBLE FOXPLUS
+
+m.rborder = SET("READBORDER")
+SET READBORDER ON
+
+m.currarea = SELECT()
+
+
+*       *********************************************************
+*       *                                                         
+*       *             Windows Definiciones de ventana             
+*       *                                                         
+*       *********************************************************
+*
+
+MODIFY WINDOW SCREEN ;
+	AT  0.000, 0.000  ;
+	SIZE 36.200,128.000 ;
+	TITLE "I N F O N O R - de Colusso & García - (03704) 420479-156-89373" ;
+	FONT "MS Sans Serif", 12 ;
+	FLOAT ;
+	CLOSE ;
+	MINIMIZE ;
+	COLOR RGB(,,,192,192,192) ;
+	ICON FILE LOCFILE("..\ABM.ICO","ICO", ;
+		"¿Dónde está abm?")
+MOVE WINDOW SCREEN CENTER
+CLEAR
+
+*       *********************************************************
+*       *                                                         
+*       *  MENU_PRO/Windows Código de configuración - SECCION 2   
+*       *                                                         
+*       *********************************************************
+*
+
+#REGION 1
+do menu_pro.MPR
+
+*       *********************************************************
+*       *                                                         
+*       *        MENU_PRO/Windows Distribución de pantalla        
+*       *                                                         
+*       *********************************************************
+*
+
+#REGION 1
+@ 0.250,0.875 TO 33.850,12.500 ;
+	PEN 2, 8 ;
+	COLOR RGB(255,255,255,,,,)
+@ 30.200,14.250 TO 33.950,126.625 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,128,128,128)
+@ 31.550,19.125 TO 31.550,107.625 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 31.200,18.125 TO 32.950,109.125 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,,,,)
+@ 31.250,18.250 TO 33.000,109.250 ;
+	PEN 1, 8 ;
+	COLOR RGB(192,192,192,,,,)
+@ 0.350,14.250 TO 29.800,126.625 ;
+	PEN 4, 8 ;
+	COLOR RGB(128,128,128,,,,)
+@ 1.100,11.375 TO 4.500,11.875 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 4.250,2.250 TO 4.500,11.875 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 0.650,1.750 GET E18ABM ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzx1()
+@ 0.600,1.625 TO 4.150,11.125 ;
+	PEN 1, 8
+@ 0.650,11.125 TO 4.200,11.125 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 0.650,1.625 TO 4.050,1.625 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 4.150,1.625 TO 4.150,11.375 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 0.600,1.625 TO 0.600,11.250 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 1.150,4.500 SAY (LOCFILE("..\iconos\note38.ico","BMP|ICO|PCT|ICN", "¿Dónde está note38?" )) BITMAP ;
+	SIZE 1.550,4.125 ;
+	STRETCH ;
+	STYLE "T"
+@ 2.200,10.625 TO 2.200,10.625 ;
+	PEN 1, 8
+@ 2.700,5.125 SAY "ABM" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 3.150,3.875 SAY "Proveedor" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 31.750,21.375 SAY 'Módulo Proveedores ...      '  +allt(mfantasia) ;
+	SIZE 1.000,83.875 ;
+	FONT "Tahoma", 11 ;
+	STYLE "BT" ;
+	PICTURE "@I" ;
+	COLOR RGB(0,255,255,192,192,192)
+@ 8.350,2.250 TO 8.600,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 5.200,11.250 TO 8.600,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 4.700,1.625 GET p20c_pro ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzx4()
+@ 4.700,1.500 TO 8.250,11.000 ;
+	PEN 1, 8
+@ 4.750,11.000 TO 8.350,11.000 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 6.950,3.500 SAY "Cta.Cte." ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 4.750,1.500 TO 8.150,1.500 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 8.250,1.500 TO 8.250,11.125 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 4.700,1.500 TO 4.700,11.125 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 5.350,4.000 SAY (LOCFILE("..\iconos\crdfle02.ico","BMP|ICO|PCT|ICN", "¿Dónde está crdfle02?" )) BITMAP ;
+	SIZE 1.550,3.875 ;
+	STRETCH ;
+	STYLE "T"
+@ 6.300,10.500 TO 6.300,10.500 ;
+	PEN 1, 8
+@ 7.450,3.000 SAY "Proveedor" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 9.250,11.500 TO 12.650,12.000 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 8.900,1.875 GET i20carma ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzx5()
+@ 8.850,1.750 TO 12.400,11.250 ;
+	PEN 1, 8
+@ 8.950,11.250 TO 12.500,11.250 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 8.900,1.750 TO 12.300,1.750 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 12.400,1.875 TO 12.400,11.500 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 8.850,1.750 TO 8.850,11.375 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 10.450,10.750 TO 10.450,10.750 ;
+	PEN 1, 8
+@ 11.000,4.625 SAY "Carga " ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(0,0,128,192,192,192)
+@ 11.550,2.750 SAY "Iva Compras" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(0,0,128,192,192,192)
+@ 9.400,4.125 SAY (LOCFILE("..\iconos\fondo3.ico","BMP|ICO|PCT|ICN", "¿Dónde está fondo3?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	STYLE "T"
+@ 12.500,2.375 TO 12.750,12.000 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 13.500,11.625 TO 16.900,12.125 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 16.650,2.500 TO 16.900,12.125 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 13.050,2.000 GET d20consu ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzx7()
+@ 13.000,1.875 TO 16.550,11.375 ;
+	PEN 1, 8
+@ 13.050,11.375 TO 16.650,11.375 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 13.050,1.875 TO 16.450,1.875 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 16.550,1.875 TO 16.550,11.625 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 13.000,1.875 TO 13.000,11.500 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 14.600,10.875 TO 14.600,10.875 ;
+	PEN 1, 8
+@ 13.400,4.875 SAY (LOCFILE("..\iconos\buscar1.ico","BMP|ICO|PCT|ICN", "¿Dónde está buscar1?" )) BITMAP ;
+	SIZE 1.600,4.125 ;
+	STRETCH ;
+	STYLE "T"
+@ 15.200,4.000 SAY "Consultar" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 17.450,11.500 TO 20.850,12.000 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 17.100,1.875 GET p22t_opa ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzx9()
+@ 17.050,1.750 TO 20.600,11.250 ;
+	PEN 1, 8
+@ 17.150,11.250 TO 20.700,11.250 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 17.100,1.750 TO 20.500,1.750 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 20.600,1.875 TO 20.600,11.500 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 17.050,1.750 TO 17.050,11.375 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 18.650,10.750 TO 18.650,10.750 ;
+	PEN 1, 8
+@ 19.200,4.375 SAY "Ordenes" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 17.600,4.750 SAY (LOCFILE("..\iconos\impre9.ico","BMP|ICO|PCT|ICN", "¿Dónde está impre9?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	STYLE "T"
+@ 20.700,2.375 TO 20.950,12.000 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 19.750,4.375 SAY "de Pago" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 21.700,11.500 TO 25.100,12.000 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 24.850,2.250 TO 25.100,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 21.250,1.875 GET d21decue ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzxc()
+@ 21.200,1.750 TO 24.750,11.250 ;
+	PEN 1, 8
+@ 21.250,11.250 TO 24.850,11.250 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 21.250,1.750 TO 24.650,1.750 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 24.750,1.750 TO 24.750,11.500 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 21.200,1.750 TO 21.200,11.375 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 22.800,10.750 TO 22.800,10.750 ;
+	PEN 1, 8
+@ 21.650,4.625 SAY (LOCFILE("..\iconos\impre8.ico","BMP|ICO|PCT|ICN", "¿Dónde está impre8?" )) BITMAP ;
+	SIZE 1.650,4.000 ;
+	STRETCH ;
+	STYLE "T"
+@ 23.900,3.875 SAY "Proveedor" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 23.350,4.000 SAY "Cta.Cte." ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 25.850,11.375 TO 29.250,11.875 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 29.000,2.125 TO 29.250,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 25.400,1.750 GET retenciones ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzxf()
+@ 25.350,1.625 TO 28.900,11.125 ;
+	PEN 1, 8
+@ 25.400,11.125 TO 29.000,11.125 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 25.400,1.625 TO 28.800,1.625 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 28.900,1.625 TO 28.900,11.375 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 25.350,1.625 TO 25.350,11.250 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 26.950,10.625 TO 26.950,10.625 ;
+	PEN 1, 8
+@ 27.600,2.250 SAY "Retenciones" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 9 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 25.700,4.375 SAY (LOCFILE("..\iconos\crdfle04.ico","BMP|ICO|PCT|ICN", "¿Dónde está crdfle04?" )) BITMAP ;
+	SIZE 1.650,4.000 ;
+	STRETCH ;
+	STYLE "T"
+@ 31.100,112.625 GET a_salir ;
+	PICTURE "@*BVN " + ;
+		(LOCFILE("door2.ico","BMP|ICO|PCT|ICN","¿Dónde está door2?")) ;
+	SIZE 2.000,11.500,0.200 ;
+	DEFAULT 1 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzxi()
+@ 29.550,1.750 GET s31carga ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn11uzxj()
+@ 29.500,1.625 TO 33.050,11.125 ;
+	PEN 1, 8
+@ 33.050,1.625 TO 33.050,11.250 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 29.500,1.625 TO 29.500,11.250 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 30.200,4.375 SAY (LOCFILE("..\iconos\tranfe2.ico","BMP|ICO|PCT|ICN", "¿Dónde está tranfe2?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 31.850,3.625 SAY "Compras" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 33.150,2.000 TO 33.400,11.500 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 29.550,11.125 TO 33.150,11.125 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 29.550,1.625 TO 32.950,1.625 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 31.100,10.625 TO 31.100,10.625 ;
+	PEN 1, 8
+@ 30.000,11.375 TO 33.400,11.875 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 8.100,23.625 TO 22.800,118.250 ;
+	PATTERN 1 ;
+	PEN 6, 8 ;
+	COLOR RGB(128,128,128,255,255,255)
+@ 13.000,25.125 TO 22.100,67.250 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(0,128,128,128,0,0)
+@ 8.700,67.375 SAY (LOCFILE("pp.bmp","BMP|ICO|PCT|ICN", "¿Dónde está pp?" )) BITMAP ;
+	SIZE 13.450,49.500 ;
+	STRETCH ;
+	STYLE "T"
+@ 8.750,25.000 TO 12.800,67.250 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,0,128,128,128)
+@ 11.450,25.750 TO 11.450,66.625 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(0,0,0,0,0,0)
+@ 9.450,26.750 SAY allt(mfantasia) ;
+	SIZE 1.000,22.286 ;
+	FONT "Tahoma", 20 ;
+	STYLE "BT" ;
+	PICTURE "@I" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 13.450,27.125 SAY allt(mdomicifa) ;
+	SIZE 1.000,38.750 ;
+	FONT "Tahoma", 14 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(255,255,0,192,192,192)
+@ 14.800,27.125 SAY allt(mlocalida) ;
+	SIZE 1.000,38.750 ;
+	FONT "Tahoma", 14 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(255,255,0,192,192,192)
+@ 17.700,27.125 SAY allt(mtelefono) ;
+	SIZE 1.000,44.286 ;
+	FONT "Tahoma", 12 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(0,255,255,192,192,192)
+@ 18.750,27.125 SAY "E-mail:" +allt(memail) ;
+	SIZE 1.000,44.286 ;
+	FONT "Tahoma", 12 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(0,255,255,192,192,192)
+@ 20.000,27.250 SAY allt(mweb) ;
+	SIZE 1.000,44.286 ;
+	FONT "Tahoma", 12 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(255,255,255,192,192,192)
+@ 16.200,27.125 SAY allt(mprovincia) ;
+	SIZE 1.000,38.750 ;
+	FONT "Tahoma", 14 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(192,192,192,192,192,192)
+
+
+
+READ CYCLE
+
+MODIFY WINDOW SCREEN
+SELECT (m.currarea)
+
+
+#REGION 0
+
+SET READBORDER &rborder
+
+IF m.talkstat = "ON"
+	SET TALK ON
+ENDIF
+IF m.compstat = "ON"
+	SET COMPATIBLE ON
+ENDIF
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZX1           E18ABM VALID                       
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   10  
+*       * Variable:            E18ABM                             
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      1                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzx1     &&  E18ABM VALID
+#REGION 1
+if xtecla = 'MouseDerecho'
+   Wait 'Clientes' wind
+   xtecla = ''
+   retu
+endi
+
+do mpath0+'e11abm'
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZX4           p20c_pro VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   23  
+*       * Variable:            p20c_pro                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      2                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzx4     &&  p20c_pro VALID
+#REGION 1
+xx=1
+do mpath4+'p20c_pro'
+xx=0
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZX5           i20carma VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   34  
+*       * Variable:            i20carma                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      3                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzx5     &&  i20carma VALID
+#REGION 1
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath5+'i21carma'
+xx=0
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZX7           d20consu VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   47  
+*       * Variable:            d20consu                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      4                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzx7     &&  d20consu VALID
+#REGION 1
+retu
+
+xx=1
+do mpath4+'p20consu'  with 'CONSUTO'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZX9           p22t_opa VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   57  
+*       * Variable:            p22t_opa                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      5                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzx9     &&  p22t_opa VALID
+#REGION 1
+xx=1
+do mpath4+'p22t_opa'
+xx=0
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZXC           d21decue VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   70  
+*       * Variable:            d21decue                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      6                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzxc     &&  d21decue VALID
+#REGION 1
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath4+'p21decue'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZXF           retenciones VALID                  
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   82  
+*       * Variable:            retenciones                        
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      7                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzxf     &&  retenciones VALID
+#REGION 1
+retu
+
+informe de retenciones
+
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath4+'p20l_pro'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZXI           a_salir VALID                      
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   91  
+*       * Variable:            a_salir                            
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Push Button                        
+*       * Snippet Number:      8                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzxi     &&  a_salir VALID
+#REGION 1
+set sysmenu to defa
+clear read
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN11UZXJ           s31carga VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_PRO,     Record Number:   92  
+*       * Variable:            s31carga                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      9                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn11uzxj     &&  s31carga VALID
+#REGION 1
+retu
+xx=1
+DO mpath4+'p31c_com'
+xx=0

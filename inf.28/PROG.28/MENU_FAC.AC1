@@ -1,0 +1,603 @@
+    1:  *:*****************************************************************************
+    2:  *:
+    3:  *: Procedure file: D:\INFONOR\PROG17\MENU_FAC.SPR
+    4:  *:         System: Menu-fac
+    5:  *:         Author: Infonor
+    6:  *:  Last modified: 09/06/2003 at 11:16:04
+    7:  *:
+    8:  *:  Procs & Fncts: _0Z10O5F9C()
+    9:  *:               : _0Z10O5FAG()
+   10:  *:               : _0Z10O5FBH()
+   11:  *:               : _0Z10O5FCN()
+   12:  *:               : _0Z10O5FDI()
+   13:  *:               : _0Z10O5FEO()
+   14:  *:               : _0Z10O5FFW()
+   15:  *:
+   16:  *:         Set by: MENU_FAC.PRG                      
+   17:  *:
+   18:  *:          Calls: MPATH13+MENU_FAC.MPR
+   19:  *:               : _0Z10O5F9C()       (function in MENU_FAC.SPR)
+   20:  *:               : _0Z10O5FAG()       (function in MENU_FAC.SPR)
+   21:  *:               : _0Z10O5FBH()       (function in MENU_FAC.SPR)
+   22:  *:               : _0Z10O5FCN()       (function in MENU_FAC.SPR)
+   23:  *:               : _0Z10O5FDI()       (function in MENU_FAC.SPR)
+   24:  *:               : _0Z10O5FEO()       (function in MENU_FAC.SPR)
+   25:  *:               : _0Z10O5FFW()       (function in MENU_FAC.SPR)
+   26:  *:
+   27:  *:      Documented 11:20:44                                FoxDoc version 3.00a
+   28:  *:*****************************************************************************
+   29:     *       *********************************************************
+   30:     *       *
+   31:     *       * 09/06/2003           MENU_FAC.SPR              11:16:03
+   32:     *       *
+   33:     *       *********************************************************
+   34:     *       *
+   35:     *       * Nombre del autor
+   36:     *       *
+   37:     *       * Copyright (c) 2003 Nombre de la empresa
+   38:     *       * Dirección
+   39:     *       * Ciudad,     C.P.
+   40:     *       * País
+   41:     *       *
+   42:     *       * Description:
+   43:     *       * Este programa lo ha generado automáticamente GENSCRN.
+   44:     *       *
+   45:     *       *********************************************************
+   46:     
+   47:     
+   48:     #REGION 0
+   49:     REGIONAL m.currarea, m.talkstat, m.compstat
+   50:     
+   51:   ÚÄIF SET("TALK") = "ON"
+   52:   ³    SET TALK OFF
+   53:   ³    m.talkstat = "ON"
+   54:   ÃÄELSE
+   55:   ³    m.talkstat = "OFF"
+   56:   ÀÄENDIF
+   57:     m.compstat = SET("COMPATIBLE")
+   58:     SET COMPATIBLE FOXPLUS
+   59:     
+   60:     m.rborder = SET("READBORDER")
+   61:     SET readborder ON
+   62:     
+   63:     *       *********************************************************
+   64:     *       *
+   65:     *       *             Windows Definiciones de ventana
+   66:     *       *
+   67:     *       *********************************************************
+   68:     *
+   69:     
+   70:     MODIFY WINDOW SCREEN ;
+   71:        AT -0.250, -0.250 ;
+   72:        SIZE 26.800,99.875 ;
+   73:        TITLE "I N F O N O R - de Colusso & García  - (03717) 420479 - 156-89373" ;
+   74:        FONT "MS Sans Serif", 12 ;
+   75:        FLOAT ;
+   76:        CLOSE ;
+   77:        MINIMIZE ;
+   78:        COLOR RGB(,,,192,192,192) ;
+   79:        ICON FILE LOCFILE("..\PROG17\ABM.ICO","ICO", ;
+   80:        "¿Dónde está abm?")
+   81:     CLEAR
+   82:     
+   83:     *       *********************************************************
+   84:     *       *
+   85:     *       *  MENU_FAC/Windows Código de configuración - SECCION 2
+   86:     *       *
+   87:     *       *********************************************************
+   88:     *
+   89:     
+   90:     #REGION 1
+   91:     DO mpath13+'menu_fac.mpr'
+   92:     
+   93:     *       *********************************************************
+   94:     *       *
+   95:     *       *        MENU_FAC/Windows Distribución de pantalla
+   96:     *       *
+   97:     *       *********************************************************
+   98:     *
+   99:     
+  100:     #REGION 1
+  101:     @ 0.200,13.125 SAY (LOCFILE("..\prog17\paraíso.bmp","BMP|ICO|PCT|ICN", "¿Dónde está paraíso?" )) BITMAP ;
+  102:        SIZE 20.900,85.750 ;
+  103:        STRETCH
+  104:     @ 0.400,1.750 GET s14abm ;
+  105:        PICTURE "@*IVN " ;
+  106:        SIZE 3.500,9.375,0.200 ;
+  107:        DEFAULT 0 ;
+  108:        FONT "MS Sans Serif", 12 ;
+  109:        VALID _0z10o5f9c()
+  110:     @ 0.350,1.625 TO 3.900,11.125 ;
+  111:        PEN 1, 8
+  112:     @ 0.400,11.125 TO 4.000,11.125 ;
+  113:        PEN 2, 8 ;
+  114:        COLOR RGB(128,128,128,128,128,128)
+  115:     @ 0.400,1.625 TO 3.800,1.625 ;
+  116:        PEN 1, 8 ;
+  117:        COLOR RGB(255,255,255,255,255,255)
+  118:     @ 3.900,1.625 TO 3.900,11.250 ;
+  119:        PEN 2, 8 ;
+  120:        STYLE "1" ;
+  121:        COLOR RGB(128,128,128,128,128,128)
+  122:     @ 0.350,1.625 TO 0.350,11.250 ;
+  123:        PEN 1, 8 ;
+  124:        STYLE "1" ;
+  125:        COLOR RGB(255,255,255,255,255,255)
+  126:     @ 1.950,10.625 TO 1.950,10.625 ;
+  127:        PEN 1, 8
+  128:     @ 1.050,4.375 SAY (LOCFILE("..\iconos\note02.ico","BMP|ICO|PCT|ICN", "¿Dónde está note02?" )) BITMAP ;
+  129:        SIZE 1.600,4.000 ;
+  130:        STYLE "T"
+  131:     @ 2.900,3.750 SAY "Productos" ;
+  132:        PICTURE "@J" ;
+  133:        FONT "Tahoma", 8 ;
+  134:        STYLE "T" ;
+  135:        COLOR RGB(128,0,0,192,192,192)
+  136:     @ 4.000,2.125 TO 4.250,11.625 ;
+  137:        PATTERN 1 ;
+  138:        PEN 1, 8 ;
+  139:        COLOR RGB(128,128,128,128,128,128)
+  140:     @ 0.850,11.375 TO 4.250,11.875 ;
+  141:        PATTERN 1 ;
+  142:        PEN 1, 8 ;
+  143:        COLOR RGB(128,128,128,128,128,128)
+  144:     @ 4.500,1.750 GET s32c_fac ;
+  145:        PICTURE "@*IVN " ;
+  146:        SIZE 3.500,9.375,0.200 ;
+  147:        DEFAULT 0 ;
+  148:        FONT "MS Sans Serif", 12 ;
+  149:        VALID _0z10o5fag()
+  150:     @ 4.450,1.625 TO 8.000,11.125 ;
+  151:        PEN 1, 8
+  152:     @ 4.500,11.125 TO 8.100,11.125 ;
+  153:        PEN 2, 8 ;
+  154:        COLOR RGB(128,128,128,128,128,128)
+  155:     @ 4.500,1.625 TO 7.900,1.625 ;
+  156:        PEN 1, 8 ;
+  157:        COLOR RGB(255,255,255,255,255,255)
+  158:     @ 8.000,1.625 TO 8.000,11.250 ;
+  159:        PEN 2, 8 ;
+  160:        STYLE "1" ;
+  161:        COLOR RGB(128,128,128,128,128,128)
+  162:     @ 4.450,1.625 TO 4.450,11.250 ;
+  163:        PEN 1, 8 ;
+  164:        STYLE "1" ;
+  165:        COLOR RGB(255,255,255,255,255,255)
+  166:     @ 6.050,10.625 TO 6.050,10.625 ;
+  167:        PEN 1, 8
+  168:     @ 6.950,3.000 SAY "Facturación" ;
+  169:        PICTURE "@J" ;
+  170:        FONT "Tahoma", 8 ;
+  171:        STYLE "T" ;
+  172:        COLOR RGB(128,0,0,192,192,192)
+  173:     @ 5.150,4.375 SAY (LOCFILE("..\iconos\crdfle10.ico","BMP|ICO|PCT|ICN", "¿Dónde está crdfle10?" )) BITMAP ;
+  174:        SIZE 1.600,4.000 ;
+  175:        STYLE "T"
+  176:     @ 8.100,2.125 TO 8.350,11.625 ;
+  177:        PATTERN 1 ;
+  178:        PEN 1, 8 ;
+  179:        COLOR RGB(128,128,128,128,128,128)
+  180:     @ 4.950,11.375 TO 8.350,11.875 ;
+  181:        PATTERN 1 ;
+  182:        PEN 1, 8 ;
+  183:        COLOR RGB(128,128,128,128,128,128)
+  184:     @ 8.600,1.750 GET s31carga ;
+  185:        PICTURE "@*IVN " ;
+  186:        SIZE 3.500,9.375,0.200 ;
+  187:        DEFAULT 0 ;
+  188:        FONT "MS Sans Serif", 12 ;
+  189:        VALID _0z10o5fbh()
+  190:     @ 8.550,1.625 TO 12.100,11.125 ;
+  191:        PEN 1, 8
+  192:     @ 8.600,11.125 TO 12.200,11.125 ;
+  193:        PEN 2, 8 ;
+  194:        COLOR RGB(128,128,128,128,128,128)
+  195:     @ 8.600,1.625 TO 12.000,1.625 ;
+  196:        PEN 1, 8 ;
+  197:        COLOR RGB(255,255,255,255,255,255)
+  198:     @ 12.100,1.625 TO 12.100,11.250 ;
+  199:        PEN 2, 8 ;
+  200:        STYLE "1" ;
+  201:        COLOR RGB(128,128,128,128,128,128)
+  202:     @ 8.550,1.625 TO 8.550,11.250 ;
+  203:        PEN 1, 8 ;
+  204:        STYLE "1" ;
+  205:        COLOR RGB(255,255,255,255,255,255)
+  206:     @ 10.150,10.625 TO 10.150,10.625 ;
+  207:        PEN 1, 8
+  208:     @ 9.250,4.375 SAY (LOCFILE("..\iconos\tranfe2.ico","BMP|ICO|PCT|ICN", "¿Dónde está tranfe2?" )) BITMAP ;
+  209:        SIZE 1.600,4.000 ;
+  210:        ISOMETRIC ;
+  211:        STYLE "T"
+  212:     @ 10.900,3.625 SAY "Compras" ;
+  213:        PICTURE "@J" ;
+  214:        FONT "Tahoma", 8 ;
+  215:        STYLE "T" ;
+  216:        COLOR RGB(128,0,0,192,192,192)
+  217:     @ 9.050,11.375 TO 12.450,11.875 ;
+  218:        PATTERN 1 ;
+  219:        PEN 1, 8 ;
+  220:        COLOR RGB(128,128,128,128,128,128)
+  221:     @ 12.200,2.000 TO 12.450,11.500 ;
+  222:        PATTERN 1 ;
+  223:        PEN 1, 8 ;
+  224:        COLOR RGB(128,128,128,128,128,128)
+  225:     @ 16.350,2.250 TO 16.600,11.750 ;
+  226:        PATTERN 1 ;
+  227:        PEN 1, 8 ;
+  228:        COLOR RGB(128,128,128,128,128,128)
+  229:     @ 13.200,11.375 TO 16.600,11.875 ;
+  230:        PATTERN 1 ;
+  231:        PEN 1, 8 ;
+  232:        COLOR RGB(128,128,128,128,128,128)
+  233:     @ 12.750,1.750 GET s33c_sto ;
+  234:        PICTURE "@*IVN " ;
+  235:        SIZE 3.500,9.375,0.200 ;
+  236:        DEFAULT 0 ;
+  237:        FONT "MS Sans Serif", 12 ;
+  238:        VALID _0z10o5fcn()
+  239:     @ 12.700,1.625 TO 16.250,11.125 ;
+  240:        PEN 1, 8
+  241:     @ 12.750,11.125 TO 16.350,11.125 ;
+  242:        PEN 2, 8 ;
+  243:        COLOR RGB(128,128,128,128,128,128)
+  244:     @ 12.750,1.625 TO 16.150,1.625 ;
+  245:        PEN 1, 8 ;
+  246:        COLOR RGB(255,255,255,255,255,255)
+  247:     @ 16.250,1.625 TO 16.250,11.250 ;
+  248:        PEN 2, 8 ;
+  249:        STYLE "1" ;
+  250:        COLOR RGB(128,128,128,128,128,128)
+  251:     @ 12.700,1.625 TO 12.700,11.250 ;
+  252:        PEN 1, 8 ;
+  253:        STYLE "1" ;
+  254:        COLOR RGB(255,255,255,255,255,255)
+  255:     @ 14.300,10.625 TO 14.300,10.625 ;
+  256:        PEN 1, 8
+  257:     @ 13.350,4.375 SAY (LOCFILE("..\iconos\ctrpanel.ico","BMP|ICO|PCT|ICN", "¿Dónde está ctrpanel?" )) BITMAP ;
+  258:        SIZE 1.600,4.000 ;
+  259:        STYLE "T"
+  260:     @ 15.250,2.375 SAY "Carga - Stock" ;
+  261:        PICTURE "@J" ;
+  262:        FONT "Tahoma", 8 ;
+  263:        STYLE "T" ;
+  264:        COLOR RGB(128,0,0,192,192,192)
+  265:     @ 21.050,1.750 GET s33c_fac ;
+  266:        PICTURE "@*IVN " ;
+  267:        SIZE 3.500,9.375,0.200 ;
+  268:        DEFAULT 0 ;
+  269:        FONT "MS Sans Serif", 12 ;
+  270:        VALID _0z10o5fdi()
+  271:     @ 21.000,1.625 TO 24.550,11.125 ;
+  272:        PEN 1, 8
+  273:     @ 21.050,11.125 TO 24.650,11.125 ;
+  274:        PEN 2, 8 ;
+  275:        COLOR RGB(128,128,128,128,128,128)
+  276:     @ 21.050,1.625 TO 24.450,1.625 ;
+  277:        PEN 1, 8 ;
+  278:        COLOR RGB(255,255,255,255,255,255)
+  279:     @ 24.550,1.625 TO 24.550,11.250 ;
+  280:        PEN 2, 8 ;
+  281:        STYLE "1" ;
+  282:        COLOR RGB(128,128,128,128,128,128)
+  283:     @ 21.000,1.625 TO 21.000,11.250 ;
+  284:        PEN 1, 8 ;
+  285:        STYLE "1" ;
+  286:        COLOR RGB(255,255,255,255,255,255)
+  287:     @ 22.600,10.625 TO 22.600,10.625 ;
+  288:        PEN 1, 8
+  289:     @ 21.700,4.250 SAY (LOCFILE("..\iconos\impre11.ico","BMP|ICO|PCT|ICN", "¿Dónde está impre11?" )) BITMAP ;
+  290:        SIZE 1.600,4.000 ;
+  291:        ISOMETRIC ;
+  292:        STYLE "T"
+  293:     @ 23.550,3.500 SAY "Inf.Stock" ;
+  294:        PICTURE "@J" ;
+  295:        FONT "Tahoma", 8 ;
+  296:        STYLE "T" ;
+  297:        COLOR RGB(128,0,0,192,192,192)
+  298:     @ 24.600,2.250 TO 24.850,11.750 ;
+  299:        PATTERN 1 ;
+  300:        PEN 1, 8 ;
+  301:        COLOR RGB(128,128,128,128,128,128)
+  302:     @ 21.400,11.375 TO 24.800,11.875 ;
+  303:        PATTERN 1 ;
+  304:        PEN 1, 8 ;
+  305:        COLOR RGB(128,128,128,128,128,128)
+  306:     @ 17.350,11.375 TO 20.750,11.875 ;
+  307:        PATTERN 1 ;
+  308:        PEN 1, 8 ;
+  309:        COLOR RGB(128,128,128,128,128,128)
+  310:     @ 20.500,2.125 TO 20.750,11.750 ;
+  311:        PATTERN 1 ;
+  312:        PEN 1, 8 ;
+  313:        COLOR RGB(128,128,128,128,128,128)
+  314:     @ 16.900,1.750 GET s32lista ;
+  315:        PICTURE "@*IVN " ;
+  316:        SIZE 3.500,9.375,0.200 ;
+  317:        DEFAULT 0 ;
+  318:        FONT "MS Sans Serif", 12 ;
+  319:        VALID _0z10o5feo()
+  320:     @ 16.850,1.625 TO 20.400,11.125 ;
+  321:        PEN 1, 8
+  322:     @ 16.900,11.125 TO 20.500,11.125 ;
+  323:        PEN 2, 8 ;
+  324:        COLOR RGB(128,128,128,128,128,128)
+  325:     @ 16.900,1.625 TO 20.300,1.625 ;
+  326:        PEN 1, 8 ;
+  327:        COLOR RGB(255,255,255,255,255,255)
+  328:     @ 20.400,1.625 TO 20.400,11.375 ;
+  329:        PEN 2, 8 ;
+  330:        STYLE "1" ;
+  331:        COLOR RGB(128,128,128,128,128,128)
+  332:     @ 16.850,1.625 TO 16.850,11.250 ;
+  333:        PEN 1, 8 ;
+  334:        STYLE "1" ;
+  335:        COLOR RGB(255,255,255,255,255,255)
+  336:     @ 18.450,10.625 TO 18.450,10.625 ;
+  337:        PEN 1, 8
+  338:     @ 19.350,2.875 SAY "Facturación" ;
+  339:        PICTURE "@J" ;
+  340:        FONT "Tahoma", 8 ;
+  341:        STYLE "T" ;
+  342:        COLOR RGB(128,0,0,192,192,192)
+  343:     @ 17.550,4.500 SAY (LOCFILE("..\iconos\impre9.ico","BMP|ICO|PCT|ICN", "¿Dónde está impre9?" )) BITMAP ;
+  344:        SIZE 1.600,4.000 ;
+  345:        ISOMETRIC ;
+  346:        STYLE "T"
+  347:     @ 21.400,13.125 TO 25.150,99.125 ;
+  348:        PATTERN 1 ;
+  349:        PEN 1, 8 ;
+  350:        COLOR RGB(255,255,255,128,128,128)
+  351:     @ 22.550,14.750 TO 22.550,84.500 ;
+  352:        PEN 2, 8 ;
+  353:        STYLE "1" ;
+  354:        COLOR RGB(192,192,192,192,192,192)
+  355:     @ 22.200,13.750 TO 23.950,86.000 ;
+  356:        PEN 1, 8 ;
+  357:        COLOR RGB(128,128,128,,,,)
+  358:     @ 22.250,13.875 TO 24.000,86.125 ;
+  359:        PEN 1, 8 ;
+  360:        COLOR RGB(192,192,192,,,,)
+  361:     @ 22.200,86.750 GET a_salir ;
+  362:        PICTURE "@*BVN " + ;
+  363:        (LOCFILE("..\door2.ico","BMP|ICO|PCT|ICN","¿Dónde está door2?")) ;
+  364:        SIZE 1.900,11.500,0.200 ;
+  365:        DEFAULT 1 ;
+  366:        FONT "MS Sans Serif", 12 ;
+  367:        VALID _0z10o5ffw()
+  368:     @ 22.800,15.000 SAY 'Módulo   Ventas  ...       '  +ALLT(mfantasia) ;
+  369:        SIZE 1.000,69.250 ;
+  370:        FONT "Tahoma", 11 ;
+  371:        STYLE "BT" ;
+  372:        PICTURE "@I" ;
+  373:        COLOR RGB(255,255,255,,,,)
+  374:     @ 0.150,0.875 TO 25.100,12.375 ;
+  375:        PEN 1, 8 ;
+  376:        COLOR RGB(128,0,0,,,,)
+  377:     
+  378:     
+  379:     
+  380:     READ CYCLE
+  381:     
+  382:     MODIFY WINDOW SCREEN
+  383:     
+  384:     #REGION 0
+  385:     
+  386:     SET readborder &rborder
+  387:     
+  388:   ÚÄIF m.talkstat = "ON"
+  389:   ³    SET TALK ON
+  390:   ÀÄENDIF
+  391:   ÚÄIF m.compstat = "ON"
+  392:   ³    SET COMPATIBLE ON
+  393:   ÀÄENDIF
+  394:     
+  395:     
+  396:     *       *********************************************************
+  397:     *       *
+  398:     *       * _0Z10O5F9C           s14abm VALID
+  399:     *       *
+  400:     *       * Function Origin:
+  401:     *       *
+  402:     *       * From Platform:       Windows
+  403:     *       * From Screen:         MENU_FAC,     Record Number:    3
+  404:     *       * Variable:            s14abm
+  405:     *       * Called By:           VALID Clause
+  406:     *       * Snippet Number:      1
+  407:     *       *
+  408:     *       *********************************************************
+  409:     *
+  410:  *!*****************************************************************************
+  411:  *!
+  412:  *!       Function: _0Z10O5F9C
+  413:  *!
+  414:  *!      Called by: MENU_FAC.SPR                      
+  415:  *!
+  416:  *!          Calls: MPATH9+S14ABM.PRG
+  417:  *!
+  418:  *!*****************************************************************************
+  419:     FUNCTION _0z10o5f9c     &&  s14abm VALID
+  420:     #REGION 1
+  421:     xx=1
+  422:     DO mpath9+'s14abm'
+  423:     xx=0
+  424:     
+  425:     *       *********************************************************
+  426:     *       *
+  427:     *       * _0Z10O5FAG           s32c_fac VALID
+  428:     *       *
+  429:     *       * Function Origin:
+  430:     *       *
+  431:     *       * From Platform:       Windows
+  432:     *       * From Screen:         MENU_FAC,     Record Number:   14
+  433:     *       * Variable:            s32c_fac
+  434:     *       * Called By:           VALID Clause
+  435:     *       * Snippet Number:      2
+  436:     *       *
+  437:     *       *********************************************************
+  438:     *
+  439:  *!*****************************************************************************
+  440:  *!
+  441:  *!       Function: _0Z10O5FAG
+  442:  *!
+  443:  *!      Called by: MENU_FAC.SPR                      
+  444:  *!
+  445:  *!          Calls: MPATH9+S32C_FAC.PRG
+  446:  *!
+  447:  *!*****************************************************************************
+  448:     FUNCTION _0z10o5fag     &&  s32c_fac VALID
+  449:     #REGION 1
+  450:     xx=1
+  451:     DO mpath9+'s32c_fac'
+  452:     xx=0
+  453:     
+  454:     *       *********************************************************
+  455:     *       *
+  456:     *       * _0Z10O5FBH           s31carga VALID
+  457:     *       *
+  458:     *       * Function Origin:
+  459:     *       *
+  460:     *       * From Platform:       Windows
+  461:     *       * From Screen:         MENU_FAC,     Record Number:   25
+  462:     *       * Variable:            s31carga
+  463:     *       * Called By:           VALID Clause
+  464:     *       * Snippet Number:      3
+  465:     *       *
+  466:     *       *********************************************************
+  467:     *
+  468:  *!*****************************************************************************
+  469:  *!
+  470:  *!       Function: _0Z10O5FBH
+  471:  *!
+  472:  *!      Called by: MENU_FAC.SPR                      
+  473:  *!
+  474:  *!          Calls: MPATH9+S31C_COM.PRG
+  475:  *!
+  476:  *!*****************************************************************************
+  477:     FUNCTION _0z10o5fbh     &&  s31carga VALID
+  478:     #REGION 1
+  479:     xx=1
+  480:     DO mpath9+'s31c_com'
+  481:     xx=0
+  482:     
+  483:     
+  484:     *       *********************************************************
+  485:     *       *
+  486:     *       * _0Z10O5FCN           s33c_sto VALID
+  487:     *       *
+  488:     *       * Function Origin:
+  489:     *       *
+  490:     *       * From Platform:       Windows
+  491:     *       * From Screen:         MENU_FAC,     Record Number:   38
+  492:     *       * Variable:            s33c_sto
+  493:     *       * Called By:           VALID Clause
+  494:     *       * Snippet Number:      4
+  495:     *       *
+  496:     *       *********************************************************
+  497:     *
+  498:  *!*****************************************************************************
+  499:  *!
+  500:  *!       Function: _0Z10O5FCN
+  501:  *!
+  502:  *!      Called by: MENU_FAC.SPR                      
+  503:  *!
+  504:  *!          Calls: MPATH9+S33C_STO.PRG
+  505:  *!
+  506:  *!*****************************************************************************
+  507:     FUNCTION _0z10o5fcn     &&  s33c_sto VALID
+  508:     #REGION 1
+  509:     x=0
+  510:     DO mpath9+'s33c_sto' WITH 'CARGA'
+  511:     x=1
+  512:     
+  513:     *       *********************************************************
+  514:     *       *
+  515:     *       * _0Z10O5FDI           s33c_fac VALID
+  516:     *       *
+  517:     *       * Function Origin:
+  518:     *       *
+  519:     *       * From Platform:       Windows
+  520:     *       * From Screen:         MENU_FAC,     Record Number:   47
+  521:     *       * Variable:            s33c_fac
+  522:     *       * Called By:           VALID Clause
+  523:     *       * Snippet Number:      5
+  524:     *       *
+  525:     *       *********************************************************
+  526:     *
+  527:  *!*****************************************************************************
+  528:  *!
+  529:  *!       Function: _0Z10O5FDI
+  530:  *!
+  531:  *!      Called by: MENU_FAC.SPR                      
+  532:  *!
+  533:  *!          Calls: MPATH9+S33L_STO.PRG
+  534:  *!
+  535:  *!*****************************************************************************
+  536:     FUNCTION _0z10o5fdi     &&  s33c_fac VALID
+  537:     #REGION 1
+  538:     xx=1
+  539:   ÚÄIF LASTKEY() <> 13
+  540:   ³    KEYB "{enter}"
+  541:   ÀÄENDI
+  542:     DO mpath9+'s33l_sto'
+  543:     xx=0
+  544:     
+  545:     *       *********************************************************
+  546:     *       *
+  547:     *       * _0Z10O5FEO           s32lista VALID
+  548:     *       *
+  549:     *       * Function Origin:
+  550:     *       *
+  551:     *       * From Platform:       Windows
+  552:     *       * From Screen:         MENU_FAC,     Record Number:   60
+  553:     *       * Variable:            s32lista
+  554:     *       * Called By:           VALID Clause
+  555:     *       * Snippet Number:      6
+  556:     *       *
+  557:     *       *********************************************************
+  558:     *
+  559:  *!*****************************************************************************
+  560:  *!
+  561:  *!       Function: _0Z10O5FEO
+  562:  *!
+  563:  *!      Called by: MENU_FAC.SPR                      
+  564:  *!
+  565:  *!          Calls: MPATH9+S32L_FAC.PRG
+  566:  *!
+  567:  *!*****************************************************************************
+  568:     FUNCTION _0z10o5feo     &&  s32lista VALID
+  569:     #REGION 1
+  570:     xx=1
+  571:   ÚÄIF LASTKEY() <> 13
+  572:   ³    KEYB "{enter}"
+  573:   ÀÄENDI
+  574:     DO mpath9+'s32l_fac'
+  575:     xx=0
+  576:     
+  577:     *       *********************************************************
+  578:     *       *
+  579:     *       * _0Z10O5FFW           a_salir VALID
+  580:     *       *
+  581:     *       * Function Origin:
+  582:     *       *
+  583:     *       * From Platform:       Windows
+  584:     *       * From Screen:         MENU_FAC,     Record Number:   73
+  585:     *       * Variable:            a_salir
+  586:     *       * Called By:           VALID Clause
+  587:     *       * Object Type:         Push Button
+  588:     *       * Snippet Number:      7
+  589:     *       *
+  590:     *       *********************************************************
+  591:     *
+  592:  *!*****************************************************************************
+  593:  *!
+  594:  *!       Function: _0Z10O5FFW
+  595:  *!
+  596:  *!      Called by: MENU_FAC.SPR                      
+  597:  *!
+  598:  *!*****************************************************************************
+  599:     FUNCTION _0z10o5ffw     &&  a_salir VALID
+  600:     #REGION 1
+  601:     SET SYSMENU TO DEFA
+  602:     CLEAR READ
+  603:  *:  EOF: MENU_FAC.ac1

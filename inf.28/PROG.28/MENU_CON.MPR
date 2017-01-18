@@ -1,0 +1,895 @@
+*       *********************************************************
+*       *                                                         
+*       * 06/11/2008           MENU_CON.MPR             10:52:43  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2008 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _2i70nbex8 OF _MSYSMENU PROMPT "Tablas" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _2i70nbex9 OF _MSYSMENU PROMPT "Movimientos" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _2i70nbexa OF _MSYSMENU PROMPT "Informes" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _2i70nbexb OF _MSYSMENU PROMPT "Utilitarios" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _2i70nbexc OF _MSYSMENU PROMPT "Salir" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+ON PAD _2i70nbex8 OF _MSYSMENU ACTIVATE POPUP tablas
+ON PAD _2i70nbex9 OF _MSYSMENU ACTIVATE POPUP movimiento
+ON PAD _2i70nbexa OF _MSYSMENU ACTIVATE POPUP informes
+ON PAD _2i70nbexb OF _MSYSMENU ACTIVATE POPUP utilitario
+ON SELECTION PAD _2i70nbexc OF _MSYSMENU ;
+	DO _2i70nbexd ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP tablas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tablas PROMPT "\<Proveedores"
+DEFINE BAR 2 OF tablas PROMPT "\<Clientes"
+DEFINE BAR 3 OF tablas PROMPT "\<Tipo de Clientes"
+DEFINE BAR 4 OF tablas PROMPT "\<Sucursales"
+DEFINE BAR 5 OF tablas PROMPT "\-"
+DEFINE BAR 6 OF tablas PROMPT "\<Plan de Cuenta"
+DEFINE BAR 7 OF tablas PROMPT "\<Tipo de Movimientos"
+DEFINE BAR 8 OF tablas PROMPT "\<Referencia de Cuenta"
+DEFINE BAR 9 OF tablas PROMPT "\<Cod.Concil.Bancaria"
+DEFINE BAR 10 OF tablas PROMPT "\<Códigos Financieros"
+DEFINE BAR 11 OF tablas PROMPT "\-"
+DEFINE BAR 12 OF tablas PROMPT "\<Personal"
+DEFINE BAR 13 OF tablas PROMPT "\<Tipo de Personal"
+DEFINE BAR 14 OF tablas PROMPT "\-"
+DEFINE BAR 15 OF tablas PROMPT "\<Asientos Modelos"
+ON BAR 1 OF tablas ACTIVATE POPUP proveedore
+ON BAR 2 OF tablas ACTIVATE POPUP clientes
+ON BAR 3 OF tablas ACTIVATE POPUP tipodeclie
+ON BAR 4 OF tablas ACTIVATE POPUP sucursales
+ON BAR 6 OF tablas ACTIVATE POPUP plandecuen
+ON BAR 7 OF tablas ACTIVATE POPUP tipodemovi
+ON BAR 8 OF tablas ACTIVATE POPUP referencia
+ON BAR 9 OF tablas ACTIVATE POPUP codconcilb
+ON BAR 10 OF tablas ACTIVATE POPUP códigosfin
+ON BAR 12 OF tablas ACTIVATE POPUP personal
+ON BAR 13 OF tablas ACTIVATE POPUP tipodepers
+ON BAR 15 OF tablas ACTIVATE POPUP asientosmo
+
+DEFINE POPUP proveedore MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF proveedore PROMPT "Actualiza" ;
+	SKIP FOR xx = 1
+DEFINE BAR 2 OF proveedore PROMPT "Lista" ;
+	SKIP FOR xx = 1
+ON SELECTION BAR 1 OF proveedore ;
+	DO _2i70nbexe ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF proveedore ;
+	DO _2i70nbexf ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP clientes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF clientes PROMPT "Actualiza"
+DEFINE BAR 2 OF clientes PROMPT "Lista"
+ON SELECTION BAR 1 OF clientes ;
+	DO _2i70nbexg ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF clientes ;
+	DO _2i70nbexh ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP tipodeclie MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodeclie PROMPT "Actualiza" ;
+	SKIP FOR xx=1
+DEFINE BAR 2 OF tipodeclie PROMPT "Lista" ;
+	SKIP FOR xx=1
+ON SELECTION BAR 1 OF tipodeclie ;
+	DO _2i70nbexi ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF tipodeclie ;
+	DO _2i70nbexj ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP sucursales MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF sucursales PROMPT "Actualiza"
+DEFINE BAR 2 OF sucursales PROMPT "Lista"
+ON SELECTION BAR 1 OF sucursales ;
+	DO _2i70nbexk ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF sucursales ;
+	DO _2i70nbexl ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP plandecuen MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF plandecuen PROMPT "Actualiza"
+DEFINE BAR 2 OF plandecuen PROMPT "Lista"
+ON SELECTION BAR 1 OF plandecuen ;
+	DO _2i70nbexm ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF plandecuen ;
+	DO _2i70nbexn ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP tipodemovi MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodemovi PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodemovi PROMPT "lista"
+ON SELECTION BAR 1 OF tipodemovi ;
+	DO _2i70nbexo ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF tipodemovi ;
+	DO _2i70nbexp ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP referencia MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF referencia PROMPT "Actualiza"
+DEFINE BAR 2 OF referencia PROMPT "Lista"
+ON SELECTION BAR 1 OF referencia ;
+	DO _2i70nbexq ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF referencia ;
+	DO _2i70nbexr ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP codconcilb MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF codconcilb PROMPT "Actualiza"
+DEFINE BAR 2 OF codconcilb PROMPT "Lista"
+ON SELECTION BAR 1 OF codconcilb ;
+	DO _2i70nbexs ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF codconcilb ;
+	DO _2i70nbext ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP códigosfin MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF códigosfin PROMPT "Actualiza"
+DEFINE BAR 2 OF códigosfin PROMPT "Lista"
+ON SELECTION BAR 1 OF códigosfin ;
+	DO _2i70nbexu ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF códigosfin ;
+	DO _2i70nbexv ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP personal MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF personal PROMPT "Actualiza"
+DEFINE BAR 2 OF personal PROMPT "Lista"
+ON SELECTION BAR 1 OF personal ;
+	DO _2i70nbexw ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF personal ;
+	DO _2i70nbexx ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP tipodepers MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodepers PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodepers PROMPT "Lista"
+ON SELECTION BAR 1 OF tipodepers ;
+	DO _2i70nbexy ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF tipodepers ;
+	DO _2i70nbexz ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP asientosmo MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF asientosmo PROMPT "Actualiza"
+DEFINE BAR 2 OF asientosmo PROMPT "Lista"
+ON SELECTION BAR 1 OF asientosmo ;
+	DO _2i70nbey0 ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF asientosmo ;
+	DO _2i70nbey1 ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP movimiento MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF movimiento PROMPT "Contabilidad"
+ON BAR 1 OF movimiento ACTIVATE POPUP contabilid
+
+DEFINE POPUP contabilid MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF contabilid PROMPT "Carga"
+DEFINE BAR 2 OF contabilid PROMPT "Listados"
+DEFINE BAR 3 OF contabilid PROMPT "\-"
+DEFINE BAR 4 OF contabilid PROMPT "Configuracion"
+ON SELECTION BAR 1 OF contabilid ;
+	DO _2i70nbey2 ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF contabilid ;
+	DO _2i70nbey3 ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON BAR 4 OF contabilid ACTIVATE POPUP _2dv16eaat
+
+DEFINE POPUP _2dv16eaat MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF _2dv16eaat PROMPT "Lista"
+DEFINE BAR 2 OF _2dv16eaat PROMPT "Edicion"
+ON SELECTION BAR 1 OF _2dv16eaat ;
+	DO _2i70nbey4 ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF _2dv16eaat ;
+	DO _2i70nbey5 ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+DEFINE POPUP informes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF informes PROMPT "Inf. Balance Sumas & Saldos"
+DEFINE BAR 2 OF informes PROMPT "\-"
+
+DEFINE POPUP utilitario MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR _mst_calcu OF utilitario PROMPT "Calculadora" ;
+	MESSAGE 'Calculadora .... '
+DEFINE BAR _mst_diary OF utilitario PROMPT "Calendario"
+DEFINE BAR _mfi_setup OF utilitario PROMPT "Configurar Impresora"
+DEFINE BAR 4 OF utilitario PROMPT "Selector de Colores"
+DEFINE BAR 5 OF utilitario PROMPT "Actualización de Archivos" ;
+	SKIP FOR xx=1
+ON SELECTION BAR 4 OF utilitario run/n control color
+ON BAR 5 OF utilitario ACTIVATE POPUP actualizac
+
+DEFINE POPUP actualizac MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF actualizac PROMPT "Fondos"
+DEFINE BAR 2 OF actualizac PROMPT "Generales"
+ON SELECTION BAR 1 OF actualizac ;
+	DO _2i70nbey6 ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+ON SELECTION BAR 2 OF actualizac ;
+	DO _2i70nbey7 ;
+	IN LOCFILE("PROG17\MENU_CON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_CON?")
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXD  ON SELECTION PAD                            
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   86       
+*       * Called By:  ON SELECTION PAD                            
+*       * Prompt:     Salir                                       
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexd
+set sysmenu to defa
+clos data
+clear read
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXE  ON SELECTION BAR 1 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:    7       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP proveedore      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    2                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexe
+xx = 1
+do mpath0+'e11abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXF  ON SELECTION BAR 2 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:    8       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP proveedore      
+*       * Prompt:     Lista                                       
+*       * Snippet:    3                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexf
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e11lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXG  ON SELECTION BAR 1 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   11       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP clientes        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexg
+xx = 1
+do mpath0+'e18abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXH  ON SELECTION BAR 2 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   12       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP clientes        
+*       * Prompt:     Lista                                       
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexh
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e18lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXI  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   15       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    6                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexi
+xx = 1
+do mpath0+'e19abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXJ  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   16       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       * Prompt:     Lista                                       
+*       * Snippet:    7                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexj
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e19lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXK  ON SELECTION BAR 1 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   19       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP sucursales      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    8                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexk
+xx = 1
+do mpath0+'e20abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXL  ON SELECTION BAR 2 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   20       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP sucursales      
+*       * Prompt:     Lista                                       
+*       * Snippet:    9                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexl
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e20lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXM  ON SELECTION BAR 1 OF POPUP plandecuen      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   25       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP plandecuen      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    10                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexm
+xx = 1
+do mpath2+'m16abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXN  ON SELECTION BAR 2 OF POPUP plandecuen      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   26       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP plandecuen      
+*       * Prompt:     Lista                                       
+*       * Snippet:    11                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexn
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m16lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXO  ON SELECTION BAR 1 OF POPUP tipodemovi      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   29       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodemovi      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    12                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexo
+xx = 1
+do mpath2+'m15abm'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXP  ON SELECTION BAR 2 OF POPUP tipodemovi      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   30       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodemovi      
+*       * Prompt:     lista                                       
+*       * Snippet:    13                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexp
+xx = 1
+do mpath2+'m15lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXQ  ON SELECTION BAR 1 OF POPUP referencia      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   33       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP referencia      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    14                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexq
+xx = 1
+do mpath2+'m11abm'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXR  ON SELECTION BAR 2 OF POPUP referencia      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   34       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP referencia      
+*       * Prompt:     Lista                                       
+*       * Snippet:    15                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexr
+xx = 1
+do mpath2+'m11lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXS  ON SELECTION BAR 1 OF POPUP codconcilb      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   37       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP codconcilb      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    16                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexs
+xx = 1
+do mpath2+'m17abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXT  ON SELECTION BAR 2 OF POPUP codconcilb      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   38       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP codconcilb      
+*       * Prompt:     Lista                                       
+*       * Snippet:    17                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbext
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m17lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXU  ON SELECTION BAR 1 OF POPUP códigosfin      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   41       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP códigosfin      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    18                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexu
+xx = 1
+do mpath2+'m12abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXV  ON SELECTION BAR 2 OF POPUP códigosfin      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   42       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP códigosfin      
+*       * Prompt:     Lista                                       
+*       * Snippet:    19                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexv
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m12lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXW  ON SELECTION BAR 1 OF POPUP personal        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   47       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP personal        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    20                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexw
+xx = 1
+do mpath0+'e13abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXX  ON SELECTION BAR 2 OF POPUP personal        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   48       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP personal        
+*       * Prompt:     Lista                                       
+*       * Snippet:    21                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexx
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e13lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXY  ON SELECTION BAR 1 OF POPUP tipodepers      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   51       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodepers      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    22                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexy
+* ----  Carga
+xx = 1
+do mpath0+'e12abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEXZ  ON SELECTION BAR 2 OF POPUP tipodepers      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   52       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodepers      
+*       * Prompt:     Lista                                       
+*       * Snippet:    23                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbexz
+* ---- Lista
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e12lista'
+xx = 0
+
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEY0  ON SELECTION BAR 1 OF POPUP asientosmo      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   57       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP asientosmo      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    24                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbey0
+xx = 1
+do mpath2+'m24a_mod'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEY1  ON SELECTION BAR 2 OF POPUP asientosmo      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   58       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP asientosmo      
+*       * Prompt:     Lista                                       
+*       * Snippet:    25                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbey1
+xx = 1
+keyb "{ENTER}"
+keyb "{ENTER}"
+do mpath2+'m24l_mod'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEY2  ON SELECTION BAR 1 OF POPUP contabilid      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   63       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP contabilid      
+*       * Prompt:     Carga                                       
+*       * Snippet:    26                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbey2
+xx=1
+do mpath2+'m24c_con' with 'CONTAB'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEY3  ON SELECTION BAR 2 OF POPUP contabilid      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   64       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP contabilid      
+*       * Prompt:     Listados                                    
+*       * Snippet:    27                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbey3
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m23l_con'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEY4  ON SELECTION BAR 1 OF POPUP _2dv16eaat      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   69       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP _2dv16eaat      
+*       * Prompt:     Lista                                       
+*       * Snippet:    28                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbey4
+xx=1
+do mpath2+'m70confic_con' with 'BROW'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEY5  ON SELECTION BAR 2 OF POPUP _2dv16eaat      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   70       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP _2dv16eaat      
+*       * Prompt:     Edicion                                     
+*       * Snippet:    29                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbey5
+xx=1
+do mpath2+'m70confic_con' with 'EDITH'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEY6  ON SELECTION BAR 1 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   84       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP actualizac      
+*       * Prompt:     Fondos                                      
+*       * Snippet:    30                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbey6
+xx=1
+do mpath2+'m70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2I70NBEY7  ON SELECTION BAR 2 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_CON.MPR,            Record:   85       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP actualizac      
+*       * Prompt:     Generales                                   
+*       * Snippet:    31                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2i70nbey7
+xx=1
+do mpath0+'e70mante'
+xx=0
+

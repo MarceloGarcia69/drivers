@@ -1,0 +1,22 @@
+PRUEBA de CONTROLADOR FISCAL Efectuada 08/09/20 20:00
+*****************************************************
+Comando = Cierre-Z
+Impresion Informe X='Z'
+='P  Imprimir Comando X'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x80A0
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000000010100000
+----------------------------------------------------------------------------------
+ PR Bit:15 Logica OR Bits 0-6 
+ PR Bit:7 Printer Buffer VACIO 
+ PR Bit:5 Receipt Paper LOW 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x0600
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000011000000000
+----------------------------------------------------------------------------------
+ PF Bit:10 El controlador Fiscal esta Fiscalizado 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+

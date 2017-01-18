@@ -1,0 +1,77 @@
+20-02598449-9SANCHEZ FLORENCIO                       DEAN FUNES 901                           FORMOSA                       3600N            
+20-04196657-3GARCIA ADOLFO OSCAR                                                              FORMOSA                       3600N            
+20-04743993-1DELPRATO ELADIO GUIDO                   ARENALES 775 FSA CAPITAL                 FORMOSA                       3600N            
+20-05386620-5CHUBURU PEDRO                                                                    FORMOSA                       3600N            
+20-05913115-0RHINER RODOLFO EMILIO                   J M URUBURU  Y  FONTANA                  FORMOSA                       3600N            
+20-06610565-3GERMANIER ENRIQUE MIGUEL                FONTANA 1117                             FORMOSA                       3600N            
+20-08220087-9BENITEZ MANUEL                                                                   FORMOSA                       3600N            
+20-08221371-7VERA HORACIO O                          BBALBIN C 6                              FORMOSA                       3600N            
+20-08225860-5PENA MIGUEL LUIS                        TERRITORIO NAC 846 FSA                   FORMOSA                       3600N            
+20-08229571-3SLABOVIC DAVID                                                                   FORMOSA                       3600N            
+20-10035573-7GUILIO ROQUE MANUEL                     AV 25 DE MAYO  799                       FORMOSA                       3600N            
+20-10490437-9VALDEZ RAMON                            BELGRANO 733                             FORMOSA                       3600N            
+20-10497903-4ACHITTE MIGUEL ANGEL                                                             FORMOSA                       3600N            
+20-10953697-1DE VIDO FERNANDO ANTONIO                                                         FORMOSA                       3600N            
+20-11035046-6PALACIOS JUAN CARLOS                    JUJUY 1143                               FORMOSA                       3600N            
+20-12383420-9FERREIRO EDUARDO LUIS                   FONTANA 964 FORMOSA CAPITAL              FORMOSA                       3600N            
+20-12686853-8MELGAREJO JOSE RAMON                    PADRE PATIO  40                          FORMOSA                       3600N            
+20-12770436-9MOLINA JORGE VICTOR                     AYACUCHO  239                            FORMOSA                       3600N            
+20-14196154-4DELGADO LAZARO ARGENTINO                EVA PERON 810                            FORMOSA                       3600N            
+20-14622723-7DURE ALEJO GABINO                       JUAN JOSE SILVA 5450                     FORMOSA                       3600N            
+20-17165268-6BANZHAF OSVALDO FEDERICO                MITRE 1625 FSA CAPITAL                   FORMOSA                       3600N            
+20-17560482-1DI MARTINO RUBEN DARIO                  AV ITALIA 1736  FSA CAP                  FORMOSA                       3600N            
+20-18022503-0EDGARDO DANIEL QUIROZ GAUTO             FONTANA  614   FSA                       FORMOSA                       3600N            
+20-18705611-0FALCON JORGE REINALDO                   ESPAA  1470                              FORMOSA                       3600N            
+20-20453214-2MARCELO BENITEZ  FEMENIA                FONTANA  614  FSA                        FORMOSA                       3600N            
+20-21307180-8LEE CARLOS ROBERTO                      PADRE PATIO 445                          FORMOSA                       3600N            
+20-21659348-1D AUGERO GUILLERMO OSCAR                MORENO 1441                              FORMOSA                       3600N            
+20-24079389-0SANTANDER JUAN MANUEL                   ESPAA  4890                              FORMOSA                       3600N            
+20-25228384-7MARTINEZ NESTOR JOAQUIN                 GUTNISKY 2015    FSA                     FORMOSA                       3600N            
+20-26211223-4ZUCHET PIETRO EZIO                      PARAGUAY 55 E                            FORMOSA                       3600N            
+23-17774390-9THOMPSON CESAR ALBERTO                                                           FORMOSA                       3600N            
+27-05714953-7GARCIA NELIDA                           SAN MARTIN 1043                          FORMOSA                       3600N            
+27-06507699-9HERTELENDI MARIA LUCILA                                                          FORMOSA                       3600N            
+27-13153708-0CRESPO RUTH ELENA                       ARIZA 3960   CBA                         FORMOSA                       3600N            
+27-14091268-4FRANCO WILFREDA                         SAAVEDRA  242                            FORMOSA                       3600N            
+27-14254653-7MEDINA  LILIAN  E                       BRANSEN 144                              FORMOSA                       3600N            
+27-17560262-9TALADRID  MARIA DEL ROCIO               MITRE 587                                FORMOSA                       3600N            
+27-24477362-7SHORT NELLY REGINA                      SAN MARTIN 535                           FORMOSA                       3600N            
+30-50574122-2MEDINA ANDRES E HIJOS                                                            FORMOSA                       3600N            
+30-50673300-2UNITAN SAICA                            PARAGUAY 280  ESTE                       FORMOSA                       3600N            
+30-58032280-4LORENA AUTOMOTORES SA                   AV 9 DE JULIO160                         FORMOSA                       3600N            
+30-60555089-0INGELET SRL                             JUAN JOSE SILVA 74                       FORMOSA                       3600N            
+30-63750344-4COVASA SRL                              FOTHERINGHAM 781                         FORMOSA                       3600N            
+30-64228585-4AGRP Y FORESTAL LA ELVIRA SA                                                     FORMOSA                       3600N            
+30-64342357-6COMUNICACION VIDEO SATELITAL S          AV SAN MARTIN 941 CLORINDA FSA           FORMOSA                       3600N            
+30-64860044-1ESTABLECIMIENTO LA CASUALIDAD           FORTIN YUNKA 672                         FORMOSA                       3600N            
+30-66318183-8LAFORMED                                                                         FORMOSA                       3600N            
+30-67013254-0M Y D  SRL                              PUEYRREDON 245   ROQUE SAENZ P           FORMOSA                       3600N            
+30-67133444-9COSTA BRAVA SRL                         VERA M51                                 FORMOSA                       3600N            
+30-67134041-4NUMMA S R L                                                                      FORMOSA                       3600N            
+30-67137705-9CAMILETTI SA                                                                     FORMOSA                       3600N            
+30-67137804-7AGUAS DE FORMOSA SA                                                              FORMOSA                       3600N            
+30-67140316-5EL COGOIK SH                            SAAVEDRA 124                             FORMOSA                       3600N            
+30-67142626-2FRAN SA                                 AV9 DE JULIO 266                         FORMOSA                       3600N            
+30-70703165-0EL PAJARITO SA                                                                   FORMOSA                       3600N            
+30-70705088-4COMERCY CONSTCENTRO SRL                 AVGENDARMERIA NACIONAL                   FORMOSA                       3600N            
+30-70735984-2LAS MARIAS CONST E INMOB  SRL           SAN VICENTE DE PAUL 1471                 FORMOSA                       3600N            
+30-70775383-4MOSAIQUERIA VILLA LA PILAR              JJURIBURU 2355                           FORMOSA                       3600N            
+30-70806747-0CARPINCHI  I                            CORDOBA 648 CLORINDA                     FORMOSA                       3600N            
+30-70827867-6SOFIA AUTOSERVICIO                                                               FORMOSA                       3600N            
+30-70889893-3GAMALAND SA                             MITRE 777 DPTO B P 3 BS AS               FORMOSA                       3600N            
+30-70894745-4EQUIPAMIENTOS Y SERV DEL LITOR          SARANDI 560 1222 CAP FED                 FORMOSA                       3600S            
+30-70906304-5FISA  SRL                               FONTANA 1074                             FORMOSA                       3600N            
+30-70910444-2INDUCON S R L                           AV MARCONI 560                           FORMOSA                       3500N            
+30-70929841-7LE BRIQUE SRL                                                                    FORMOSA                       3600N            
+30-70948409-1VOLTS  SA                               C GIROLA 2006                            FORMOSA                       3600N            
+30-70990282-9B Y R SRL                               AV 9 DE JULIO 1485                       FORMOSA                       3600N            
+30-71012217-9LEGA SRL                                AZCUENAGA LOTE 10 ESQUINA LOS            FORMOSA                       3600N            
+30-71023433-3MECA CONSTRUCTORA SH                    J A ROCA 36                              FORMOSA                       3600N            
+30-71040250-3CIRCULO K S SRL                         EVA PERON 751                            FORMOSA                       3600N            
+30-71045779-0CONSORCIO EBANISTA ARTE NUMA            SANDRINI 56                              FORMOSA                       3600N            
+30-71071017-8LINEAS DEL NORTE  SA                    JAURES JEAN  216 PISO 3                  FORMOSA                       3600N            
+33-55255998-9RAUL MAGLIETTI E HIJOS S R                                                       FORMOSA                       3600N            
+33-70914696-9MAVIL SRL                               PARAGUAY 190                             FORMOSA                       3600N            
+33-70947813-9URBITER  SRL                            BELGRANO 1241                            FORMOSA                       3600N            
+33-70950131-9INGENIARTE SRL                          NAP URIBURU 780 ALTOS                    FORMOSA                       3600N            
+

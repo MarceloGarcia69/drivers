@@ -1,0 +1,1568 @@
+*       *********************************************************
+*       *                                                         
+*       * 17/12/2016           MENU_FAC.MPR             00:29:20  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2016 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _4sw011qn3 OF _MSYSMENU PROMPT "Tablas" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4sw011qn4 OF _MSYSMENU PROMPT "Movimientos" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4sw011qn5 OF _MSYSMENU PROMPT "Informes" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4sw011qn6 OF _MSYSMENU PROMPT "Utilitarios" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4sw011qn7 OF _MSYSMENU PROMPT "Salir" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+ON PAD _4sw011qn3 OF _MSYSMENU ACTIVATE POPUP tablas
+ON PAD _4sw011qn4 OF _MSYSMENU ACTIVATE POPUP movimiento
+ON PAD _4sw011qn5 OF _MSYSMENU ACTIVATE POPUP informes
+ON PAD _4sw011qn6 OF _MSYSMENU ACTIVATE POPUP utilitario
+ON SELECTION PAD _4sw011qn7 OF _MSYSMENU ;
+	DO _4sw011qn8 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP tablas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tablas PROMPT "Proveedores"
+DEFINE BAR 2 OF tablas PROMPT "Rubro"
+DEFINE BAR 3 OF tablas PROMPT "Subrubro"
+DEFINE BAR 4 OF tablas PROMPT "Marcas"
+DEFINE BAR 5 OF tablas PROMPT "Embalaje"
+DEFINE BAR 6 OF tablas PROMPT "Tipo de Unidad"
+DEFINE BAR 7 OF tablas PROMPT "Artículos"
+DEFINE BAR 8 OF tablas PROMPT "\-"
+DEFINE BAR 9 OF tablas PROMPT "Localidad"
+DEFINE BAR 10 OF tablas PROMPT "Zonas"
+DEFINE BAR 11 OF tablas PROMPT "Barrios"
+DEFINE BAR 12 OF tablas PROMPT "Tipo de Clientes"
+DEFINE BAR 13 OF tablas PROMPT "Clientes"
+DEFINE BAR 14 OF tablas PROMPT "\-"
+DEFINE BAR 15 OF tablas PROMPT "\<Vendedor"
+ON BAR 1 OF tablas ACTIVATE POPUP proveedore
+ON BAR 2 OF tablas ACTIVATE POPUP rubro
+ON BAR 3 OF tablas ACTIVATE POPUP subrubro
+ON BAR 4 OF tablas ACTIVATE POPUP marcas
+ON BAR 5 OF tablas ACTIVATE POPUP embalaje
+ON BAR 6 OF tablas ACTIVATE POPUP tipodeunid
+ON BAR 7 OF tablas ACTIVATE POPUP artículos
+ON BAR 9 OF tablas ACTIVATE POPUP localidad
+ON BAR 10 OF tablas ACTIVATE POPUP zonas
+ON BAR 11 OF tablas ACTIVATE POPUP barrios
+ON BAR 12 OF tablas ACTIVATE POPUP tipodeclie
+ON BAR 13 OF tablas ACTIVATE POPUP clientes
+ON BAR 15 OF tablas ACTIVATE POPUP vendedor
+
+DEFINE POPUP proveedore MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF proveedore PROMPT "Actualiza" ;
+	SKIP FOR xx = 1
+DEFINE BAR 2 OF proveedore PROMPT "Cuentas Bancarias"
+DEFINE BAR 3 OF proveedore PROMPT "Lista" ;
+	SKIP FOR xx = 1
+ON SELECTION BAR 1 OF proveedore ;
+	DO _4sw011qn9 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF proveedore ;
+	DO _4sw011qnl ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 3 OF proveedore ;
+	DO _4sw011qnm ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP rubro MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF rubro PROMPT "Actualiza"
+DEFINE BAR 2 OF rubro PROMPT "Lista"
+ON SELECTION BAR 1 OF rubro ;
+	DO _4sw011qnn ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF rubro ;
+	DO _4sw011qno ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP subrubro MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF subrubro PROMPT "Actualiza"
+DEFINE BAR 2 OF subrubro PROMPT "Lista"
+ON SELECTION BAR 1 OF subrubro ;
+	DO _4sw011qnp ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF subrubro ;
+	DO _4sw011qnq ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP marcas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF marcas PROMPT "Actualiza"
+DEFINE BAR 2 OF marcas PROMPT "Lista"
+ON SELECTION BAR 1 OF marcas ;
+	DO _4sw011qnr ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF marcas ;
+	DO _4sw011qns ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP embalaje MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF embalaje PROMPT "Actualiza"
+DEFINE BAR 2 OF embalaje PROMPT "Lista"
+ON SELECTION BAR 1 OF embalaje ;
+	DO _4sw011qnt ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF embalaje ;
+	DO _4sw011qnu ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP tipodeunid MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodeunid PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodeunid PROMPT "Lista"
+ON SELECTION BAR 1 OF tipodeunid ;
+	DO _4sw011qnv ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF tipodeunid ;
+	DO _4sw011qnw ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP artículos MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF artículos PROMPT "Actualiza"
+DEFINE BAR 2 OF artículos PROMPT "Lista"
+DEFINE BAR 3 OF artículos PROMPT "Etiquetas"
+DEFINE BAR 4 OF artículos PROMPT "Ordenamiento"
+DEFINE BAR 5 OF artículos PROMPT "Consultar - Sub Familia"
+DEFINE BAR 6 OF artículos PROMPT "Consultar - Proveedores"
+ON SELECTION BAR 1 OF artículos ;
+	DO _4sw011qnx ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF artículos ;
+	DO _4sw011qny ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 3 OF artículos ;
+	DO _4sw011qnz ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 4 OF artículos ;
+	DO _4sw011qo0 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 5 OF artículos ;
+	DO _4sw011qo1 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 6 OF artículos ;
+	DO _4sw011qo2 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP localidad MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF localidad PROMPT "Actualiza"
+DEFINE BAR 2 OF localidad PROMPT "Lista"
+ON SELECTION BAR 1 OF localidad ;
+	DO _4sw011qo3 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF localidad ;
+	DO _4sw011qo4 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP zonas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF zonas PROMPT "Actualiza"
+DEFINE BAR 2 OF zonas PROMPT "Lista"
+ON SELECTION BAR 1 OF zonas ;
+	DO _4sw011qo5 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF zonas ;
+	DO _4sw011qo6 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP barrios MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF barrios PROMPT "Actualiza"
+DEFINE BAR 2 OF barrios PROMPT "Lista"
+ON SELECTION BAR 1 OF barrios ;
+	DO _4sw011qo7 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF barrios ;
+	DO _4sw011qo8 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP tipodeclie MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodeclie PROMPT "Actualiza" ;
+	SKIP FOR xx=1
+DEFINE BAR 2 OF tipodeclie PROMPT "Lista" ;
+	SKIP FOR xx=1
+ON SELECTION BAR 1 OF tipodeclie ;
+	DO _4sw011qo9 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF tipodeclie ;
+	DO _4sw011qoa ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP clientes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF clientes PROMPT "Actualiza"
+DEFINE BAR 2 OF clientes PROMPT "Lista"
+ON SELECTION BAR 1 OF clientes ;
+	DO _4sw011qob ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF clientes ;
+	DO _4sw011qoc ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP vendedor MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF vendedor PROMPT "Actualiza"
+DEFINE BAR 2 OF vendedor PROMPT "Lista"
+ON SELECTION BAR 1 OF vendedor ;
+	DO _4sw011qod ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF vendedor ;
+	DO _4sw011qoe ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP movimiento MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF movimiento PROMPT "Facturación"
+DEFINE BAR 2 OF movimiento PROMPT "Lista de Precios"
+DEFINE BAR 3 OF movimiento PROMPT "Devoluciones"
+DEFINE BAR 4 OF movimiento PROMPT "Notas de Crédito"
+DEFINE BAR 5 OF movimiento PROMPT "Actualización de Precios"
+ON BAR 1 OF movimiento ACTIVATE POPUP _0lh13sfyr
+ON SELECTION BAR 2 OF movimiento ;
+	DO _4sw011qof ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON BAR 3 OF movimiento ACTIVATE POPUP devolucion
+ON BAR 4 OF movimiento ACTIVATE POPUP notasdecré
+ON SELECTION BAR 5 OF movimiento ;
+	DO _4sw011qog ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP _0lh13sfyr MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF _0lh13sfyr PROMPT "Nueva"
+DEFINE BAR 2 OF _0lh13sfyr PROMPT "Exposición - Artículos"
+DEFINE BAR 3 OF _0lh13sfyr PROMPT "\-"
+DEFINE BAR 4 OF _0lh13sfyr PROMPT "Consultas"
+DEFINE BAR 5 OF _0lh13sfyr PROMPT "Anulación"
+DEFINE BAR 6 OF _0lh13sfyr PROMPT "\-"
+DEFINE BAR 7 OF _0lh13sfyr PROMPT "Informes"
+DEFINE BAR 8 OF _0lh13sfyr PROMPT "Informe Auditoria"
+DEFINE BAR 9 OF _0lh13sfyr PROMPT "Re Impresion - Comprobantes"
+DEFINE BAR 10 OF _0lh13sfyr PROMPT "Impresión Comprobantes"
+DEFINE BAR 11 OF _0lh13sfyr PROMPT "\-"
+DEFINE BAR 12 OF _0lh13sfyr PROMPT "Pasaje a Cuenta Corriente"
+DEFINE BAR 13 OF _0lh13sfyr PROMPT "\-"
+DEFINE BAR 14 OF _0lh13sfyr PROMPT "Modificar Precios Remitos"
+DEFINE BAR 15 OF _0lh13sfyr PROMPT "Modificar Fecha Factura"
+ON SELECTION BAR 1 OF _0lh13sfyr ;
+	DO _4sw011qoh ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF _0lh13sfyr ;
+	DO _4sw011qoi ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 4 OF _0lh13sfyr ;
+	DO _4sw011qoj ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 5 OF _0lh13sfyr ;
+	DO _4sw011qok ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 7 OF _0lh13sfyr ;
+	DO _4sw011qol ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 8 OF _0lh13sfyr ;
+	DO _4sw011qom ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 9 OF _0lh13sfyr ;
+	DO _4sw011qon ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 10 OF _0lh13sfyr ;
+	DO _4sw011qoo ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 12 OF _0lh13sfyr ;
+	DO _4sw011qop ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 14 OF _0lh13sfyr ;
+	DO _4sw011qoq ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 15 OF _0lh13sfyr ;
+	DO _4sw011qor ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP devolucion MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF devolucion PROMPT "Carga"
+ON SELECTION BAR 1 OF devolucion ;
+	DO _4sw011qos ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP notasdecré MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF notasdecré PROMPT "Carga"
+DEFINE BAR 2 OF notasdecré PROMPT "Lista"
+ON SELECTION BAR 1 OF notasdecré ;
+	DO _4sw011qot ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF notasdecré ;
+	DO _4sw011qou ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP informes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF informes PROMPT "Ventas"
+DEFINE BAR 2 OF informes PROMPT "CC - Remitos / Facturas"
+DEFINE BAR 3 OF informes PROMPT "Resumen de CC - Creditos"
+DEFINE BAR 4 OF informes PROMPT "Resumen de Movimientos"
+DEFINE BAR 5 OF informes PROMPT "Creditos Otorgados"
+DEFINE BAR 6 OF informes PROMPT "Recibos Emiltidos"
+ON SELECTION BAR 1 OF informes ;
+	DO _4sw011qov ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF informes ;
+	DO _4sw011qow ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 3 OF informes ;
+	DO _4sw011qox ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 4 OF informes ;
+	DO _4sw011qoy ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 5 OF informes ;
+	DO _4sw011qoz ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 6 OF informes ;
+	DO _4sw011qp0 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP utilitario MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR _mst_calcu OF utilitario PROMPT "Calculadora" ;
+	MESSAGE 'Calculadora .... '
+DEFINE BAR _mst_diary OF utilitario PROMPT "Calendario"
+DEFINE BAR _mfi_setup OF utilitario PROMPT "Configurar Impresora"
+DEFINE BAR 4 OF utilitario PROMPT "Selector de Colores"
+DEFINE BAR 5 OF utilitario PROMPT "Actualización de Archivos" ;
+	SKIP FOR xx=1
+DEFINE BAR 6 OF utilitario PROMPT "actualiza $ desde Pend.."
+ON SELECTION BAR 4 OF utilitario run/n control color
+ON BAR 5 OF utilitario ACTIVATE POPUP actualizac
+ON SELECTION BAR 6 OF utilitario ;
+	DO _4sw011qp1 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+DEFINE POPUP actualizac MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF actualizac PROMPT "Facturación"
+DEFINE BAR 2 OF actualizac PROMPT "Generales"
+ON SELECTION BAR 1 OF actualizac ;
+	DO _4sw011qp2 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+ON SELECTION BAR 2 OF actualizac ;
+	DO _4sw011qp3 ;
+	IN LOCFILE("PROG.28\MENU_FAC" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FAC?")
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QN8  ON SELECTION PAD                            
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  117       
+*       * Called By:  ON SELECTION PAD                            
+*       * Prompt:     Salir                                       
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qn8
+set sysmenu to defa
+clos data
+clear read
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QN9  ON SELECTION BAR 1 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:    7       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP proveedore      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    2                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qn9
+xx = 1
+do mpath0+'e11abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNL  ON SELECTION BAR 2 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:    8       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP proveedore      
+*       * Prompt:     Cuentas Bancarias                           
+*       * Snippet:    3                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnl
+xx = 1
+do mpath0+'e11c_bco'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNM  ON SELECTION BAR 3 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:    9       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP proveedore      
+*       * Prompt:     Lista                                       
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnm
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e11lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNN  ON SELECTION BAR 1 OF POPUP rubro           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   12       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP rubro           
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnn
+xx = 1
+do mpath9+'s12abm'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNO  ON SELECTION BAR 2 OF POPUP rubro           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   13       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP rubro           
+*       * Prompt:     Lista                                       
+*       * Snippet:    6                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qno
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s12lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNP  ON SELECTION BAR 1 OF POPUP subrubro        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   16       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP subrubro        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    7                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnp
+xx = 1
+do mpath9+'s13abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNQ  ON SELECTION BAR 2 OF POPUP subrubro        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   17       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP subrubro        
+*       * Prompt:     Lista                                       
+*       * Snippet:    8                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnq
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s13lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNR  ON SELECTION BAR 1 OF POPUP marcas          
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   20       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP marcas          
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    9                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnr
+xx = 1
+do mpath9+'s15abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNS  ON SELECTION BAR 2 OF POPUP marcas          
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   21       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP marcas          
+*       * Prompt:     Lista                                       
+*       * Snippet:    10                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qns
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s15lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNT  ON SELECTION BAR 1 OF POPUP embalaje        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   24       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP embalaje        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    11                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnt
+xx = 1
+do mpath9+'s21abm'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNU  ON SELECTION BAR 2 OF POPUP embalaje        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   25       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP embalaje        
+*       * Prompt:     Lista                                       
+*       * Snippet:    12                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnu
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s21lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNV  ON SELECTION BAR 1 OF POPUP tipodeunid      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   28       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodeunid      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    13                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnv
+xx = 1
+do mpath9+'s22abm'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNW  ON SELECTION BAR 2 OF POPUP tipodeunid      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   29       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodeunid      
+*       * Prompt:     Lista                                       
+*       * Snippet:    14                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnw
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s22lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNX  ON SELECTION BAR 1 OF POPUP artículos       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   32       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP artículos       
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    15                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnx
+xx = 1
+do mpath9+'s14abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNY  ON SELECTION BAR 2 OF POPUP artículos       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   33       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP artículos       
+*       * Prompt:     Lista                                       
+*       * Snippet:    16                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qny
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s14lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QNZ  ON SELECTION BAR 3 OF POPUP artículos       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   34       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP artículos       
+*       * Prompt:     Etiquetas                                   
+*       * Snippet:    17                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qnz
+xx = 1
+
+* if lastkey() <> 13
+*   keyb "{enter}"
+* endi
+
+do mpath9+'s14etiqu' with 'ETIQUESIM'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO0  ON SELECTION BAR 4 OF POPUP artículos       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   35       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP artículos       
+*       * Prompt:     Ordenamiento                                
+*       * Snippet:    18                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo0
+xx = 1
+do mpath9+'s14o_art'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO1  ON SELECTION BAR 5 OF POPUP artículos       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   36       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP artículos       
+*       * Prompt:     Consultar - Sub Familia                     
+*       * Snippet:    19                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo1
+xx = 1
+do mpath9+'s14brow'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO2  ON SELECTION BAR 6 OF POPUP artículos       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   37       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP artículos       
+*       * Prompt:     Consultar - Proveedores                     
+*       * Snippet:    20                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo2
+xx = 1
+do mpath9+'s14prov'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO3  ON SELECTION BAR 1 OF POPUP localidad       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   42       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP localidad       
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    21                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo3
+xx = 1
+do mpath0+'e14abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO4  ON SELECTION BAR 2 OF POPUP localidad       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   43       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP localidad       
+*       * Prompt:     Lista                                       
+*       * Snippet:    22                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo4
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e14lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO5  ON SELECTION BAR 1 OF POPUP zonas           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   46       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP zonas           
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    23                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo5
+xx = 1
+do mpath0+'e15abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO6  ON SELECTION BAR 2 OF POPUP zonas           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   47       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP zonas           
+*       * Prompt:     Lista                                       
+*       * Snippet:    24                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo6
+xx = 1
+do mpath0+'e15lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO7  ON SELECTION BAR 1 OF POPUP barrios         
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   50       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP barrios         
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    25                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo7
+xx = 1
+do mpath0+'e27abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO8  ON SELECTION BAR 2 OF POPUP barrios         
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   51       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP barrios         
+*       * Prompt:     Lista                                       
+*       * Snippet:    26                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo8
+xx = 1
+do mpath0+'e27lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QO9  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   54       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    27                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qo9
+xx = 1
+do mpath0+'e19abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOA  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   55       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       * Prompt:     Lista                                       
+*       * Snippet:    28                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoa
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e19lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOB  ON SELECTION BAR 1 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   58       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP clientes        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    29                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qob
+xx = 1
+do mpath0+'e18abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOC  ON SELECTION BAR 2 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   59       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP clientes        
+*       * Prompt:     Lista                                       
+*       * Snippet:    30                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoc
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e18lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOD  ON SELECTION BAR 1 OF POPUP vendedor        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   64       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP vendedor        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    31                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qod
+xx = 1
+do mpath9+'s16abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOE  ON SELECTION BAR 2 OF POPUP vendedor        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   65       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP vendedor        
+*       * Prompt:     Lista                                       
+*       * Snippet:    32                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoe
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s16lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOF  ON SELECTION BAR 2 OF POPUP movimiento      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   89       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP movimiento      
+*       * Prompt:     Lista de Precios                            
+*       * Snippet:    33                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qof
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s25l_pre'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOG  ON SELECTION BAR 5 OF POPUP movimiento      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   97       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP movimiento      
+*       * Prompt:     Actualización de Precios                    
+*       * Snippet:    34                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qog
+xx=1
+
+do mpath9+'s25a_pre'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOH  ON SELECTION BAR 1 OF POPUP _0lh13sfyr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   70       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP _0lh13sfyr      
+*       * Prompt:     Nueva                                       
+*       * Snippet:    35                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoh
+xx=1
+do mpath9+'s32c_fac'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOI  ON SELECTION BAR 2 OF POPUP _0lh13sfyr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   71       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP _0lh13sfyr      
+*       * Prompt:     Exposición - Artículos                      
+*       * Snippet:    36                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoi
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s32n_art'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOJ  ON SELECTION BAR 4 OF POPUP _0lh13sfyr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   74       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP _0lh13sfyr      
+*       * Prompt:     Consultas                                   
+*       * Snippet:    37                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoj
+
+xx=1
+do mpath9+'s32n_fac'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOK  ON SELECTION BAR 5 OF POPUP _0lh13sfyr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   75       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP _0lh13sfyr      
+*       * Prompt:     Anulación                                   
+*       * Snippet:    38                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qok
+xx=1
+do mpath9+'s32a_fac'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOL  ON SELECTION BAR 7 OF POPUP _0lh13sfyr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   78       
+*       * Called By:  ON SELECTION BAR 7 OF POPUP _0lh13sfyr      
+*       * Prompt:     Informes                                    
+*       * Snippet:    39                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qol
+xx=1
+*if lastkey() <> 13
+*   keyb "{enter}"
+*endi
+
+do mpath9+'s32l_tes'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOM  ON SELECTION BAR 8 OF POPUP _0lh13sfyr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   79       
+*       * Called By:  ON SELECTION BAR 8 OF POPUP _0lh13sfyr      
+*       * Prompt:     Informe Auditoria                           
+*       * Snippet:    40                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qom
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s32l_aud'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QON  ON SELECTION BAR 9 OF POPUP _0lh13sfyr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   80       
+*       * Called By:  ON SELECTION BAR 9 OF POPUP _0lh13sfyr      
+*       * Prompt:     Re Impresion - Comprobantes                 
+*       * Snippet:    41                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qon
+xx=1
+* if lastkey() <> 13
+*   keyb "{enter}"
+* endi
+do mpath9+'s32t_tes'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOO  ON SELECTION BAR 10 OF POPUP _0lh13sfyr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   81       
+*       * Called By:  ON SELECTION BAR 10 OF POPUP _0lh13sfyr     
+*       * Prompt:     Impresión Comprobantes                      
+*       * Snippet:    42                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoo
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s32i_fac'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOP  ON SELECTION BAR 12 OF POPUP _0lh13sfyr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   84       
+*       * Called By:  ON SELECTION BAR 12 OF POPUP _0lh13sfyr     
+*       * Prompt:     Pasaje a Cuenta Corriente                   
+*       * Snippet:    43                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qop
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s32pacte'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOQ  ON SELECTION BAR 14 OF POPUP _0lh13sfyr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   87       
+*       * Called By:  ON SELECTION BAR 14 OF POPUP _0lh13sfyr     
+*       * Prompt:     Modificar Precios Remitos                   
+*       * Snippet:    44                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoq
+xx=1
+do mpath9+'s34m_rem'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOR  ON SELECTION BAR 15 OF POPUP _0lh13sfyr     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   88       
+*       * Called By:  ON SELECTION BAR 15 OF POPUP _0lh13sfyr     
+*       * Prompt:     Modificar Fecha Factura                     
+*       * Snippet:    45                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qor
+xx=1
+do mpath9+'s34m_rem'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOS  ON SELECTION BAR 1 OF POPUP devolucion      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   92       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP devolucion      
+*       * Prompt:     Carga                                       
+*       * Snippet:    46                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qos
+xx=1
+do mpath9+'s34c_dev'  with 'REMITOS'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOT  ON SELECTION BAR 1 OF POPUP notasdecré      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   95       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP notasdecré      
+*       * Prompt:     Carga                                       
+*       * Snippet:    47                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qot
+xx=1
+do mpath9+'s34c_Ncr'  with 'NOT_CRE'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOU  ON SELECTION BAR 2 OF POPUP notasdecré      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:   96       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP notasdecré      
+*       * Prompt:     Lista                                       
+*       * Snippet:    48                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qou
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s34l_ncr'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOV  ON SELECTION BAR 1 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  100       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP informes        
+*       * Prompt:     Ventas                                      
+*       * Snippet:    49                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qov
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s64l_cor'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOW  ON SELECTION BAR 2 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  101       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP informes        
+*       * Prompt:     CC - Remitos / Facturas                     
+*       * Snippet:    50                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qow
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s32l_rem'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOX  ON SELECTION BAR 3 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  102       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP informes        
+*       * Prompt:     Resumen de CC - Creditos                    
+*       * Snippet:    51                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qox
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d21recre'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOY  ON SELECTION BAR 4 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  103       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP informes        
+*       * Prompt:     Resumen de Movimientos                      
+*       * Snippet:    52                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoy
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s62l_cc'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QOZ  ON SELECTION BAR 5 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  104       
+*       * Called By:  ON SELECTION BAR 5 OF POPUP informes        
+*       * Prompt:     Creditos Otorgados                          
+*       * Snippet:    53                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qoz
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d21cresu'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QP0  ON SELECTION BAR 6 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  105       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP informes        
+*       * Prompt:     Recibos Emiltidos                           
+*       * Snippet:    54                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qp0
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'d41inf03'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QP1  ON SELECTION BAR 6 OF POPUP utilitario      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  116       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP utilitario      
+*       * Prompt:     actualiza $ desde Pend..                    
+*       * Snippet:    55                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qp1
+do \inf272\272\ap_s2_27
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QP2  ON SELECTION BAR 1 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  114       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP actualizac      
+*       * Prompt:     Facturación                                 
+*       * Snippet:    56                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qp2
+xx=1
+do mpath9+'s70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4SW011QP3  ON SELECTION BAR 2 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FAC.MPR,            Record:  115       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP actualizac      
+*       * Prompt:     Generales                                   
+*       * Snippet:    57                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4sw011qp3
+xx=1
+do mpath0+'e70mante'
+xx=0
+

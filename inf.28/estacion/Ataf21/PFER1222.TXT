@@ -1,0 +1,300 @@
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/12/22 17:30
+*****************************************************
+******************************************
+Command = PFISend_Item 04-12-22 17:32
+Descripción del Item='Peras Williams'
+Cantidad de Unidades='00001000'
+Precio Unitario='000000100'
+Tasa de IVA en %='2100'
+Calificador de Línea de Item='M'
+Unidades Vendidas nnnnn.='00001'
+Tasa de Ajuste Variable .nnnnnnnn='00000000'
+Descripción Auxiliar 1='Linea Auxiliar 1'
+Descripción Auxiliar  2='Linea Auxiliar 2'
+Descripción Auxiliar 3='Linea Auxiliar 3'
+Tasa Adicional Resp.No Inscr.='1050'
+Impuestos Internos FIJOS='000000000000000'
+- - E R R O R - -
+* *  P R I N T E R   R E S P O N S E  * * 
+  3er. parametro de estado =Error de Formato. Campo con error: 3
+* *  S O F T W A R E   V A L I D A T I O N  * * 
+La impresora debe contestar:    - Command Error
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0xB210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1011001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:13 Documento Abierto 
+ PF Bit:12 Documento Fiscal Abierto
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+******************************************
+Command = PFISend_Item 04-12-22 17:33
+Descripción del Item='Peras Williams'
+Cantidad de Unidades='00001000'
+Precio Unitario='000000100'
+Tasa de IVA en %='2100'
+Calificador de Línea de Item='M'
+Unidades Vendidas nnnnn.='00001'
+Tasa de Ajuste Variable .nnnnnnnn='00000000'
+Descripción Auxiliar 1='Linea Auxiliar 1'
+Descripción Auxiliar  2='Linea Auxiliar 2'
+Descripción Auxiliar 3='Linea Auxiliar 3'
+Tasa Adicional Resp.No Inscr.='0000'
+Impuestos Internos FIJOS='000000000000000'
+- - E R R O R - -
+* *  P R I N T E R   R E S P O N S E  * * 
+  3er. parametro de estado =Error de Formato. Campo con error: 3
+* *  S O F T W A R E   V A L I D A T I O N  * * 
+La impresora debe contestar:    - Command Error
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0xB210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1011001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:13 Documento Abierto 
+ PF Bit:12 Documento Fiscal Abierto
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+******************************************
+Command = PFISend_Item 04-12-22 17:34
+Descripción del Item='Peras Williams'
+Cantidad de Unidades='00001000'
+Precio Unitario='000000070'
+Tasa de IVA en %='2100'
+Calificador de Línea de Item='M'
+Unidades Vendidas nnnnn.='00001'
+Tasa de Ajuste Variable .nnnnnnnn='00000000'
+Descripción Auxiliar 1='Linea Auxiliar 1'
+Descripción Auxiliar  2='Linea Auxiliar 2'
+Descripción Auxiliar 3='Linea Auxiliar 3'
+Tasa Adicional Resp.No Inscr.='0000'
+Impuestos Internos FIJOS='000000000000000'
+- - E R R O R - -
+* *  P R I N T E R   R E S P O N S E  * * 
+  3er. parametro de estado =Error de Formato. Campo con error: 3
+* *  S O F T W A R E   V A L I D A T I O N  * * 
+La impresora debe contestar:    - Command Error
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0xB210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1011001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:13 Documento Abierto 
+ PF Bit:12 Documento Fiscal Abierto
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+******************************************
+Command = PFISend_Item 04-12-22 17:34
+Descripción del Item='Peras Williams'
+Cantidad de Unidades='00001000'
+Precio Unitario='000000070'
+Tasa de IVA en %='2100'
+Calificador de Línea de Item='M'
+Unidades Vendidas nnnnn.='00001'
+Tasa de Ajuste Variable .nnnnnnnn='00000000'
+Descripción Auxiliar 1='Linea Auxiliar 1'
+Descripción Auxiliar  2=''
+Descripción Auxiliar 3=''
+Tasa Adicional Resp.No Inscr.='0000'
+Impuestos Internos FIJOS='000000000000000'
+- - E R R O R - -
+* *  P R I N T E R   R E S P O N S E  * * 
+  3er. parametro de estado =Error de Formato. Campo con error: 3
+* *  S O F T W A R E   V A L I D A T I O N  * * 
+La impresora debe contestar:    - Command Error
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0xB210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1011001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:13 Documento Abierto 
+ PF Bit:12 Documento Fiscal Abierto
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+******************************************
+Command = PFISend_Item 04-12-22 17:34
+Descripción del Item='Peras Williams'
+Cantidad de Unidades='00001000'
+Precio Unitario='000000070'
+Tasa de IVA en %='2100'
+Calificador de Línea de Item='M'
+Unidades Vendidas nnnnn.='00001'
+Tasa de Ajuste Variable .nnnnnnnn='00000000'
+Descripción Auxiliar 1=''
+Descripción Auxiliar  2=''
+Descripción Auxiliar 3=''
+Tasa Adicional Resp.No Inscr.='0000'
+Impuestos Internos FIJOS='000000000000000'
+- - E R R O R - -
+* *  P R I N T E R   R E S P O N S E  * * 
+  3er. parametro de estado =Error de Formato. Campo con error: 3
+* *  S O F T W A R E   V A L I D A T I O N  * * 
+La impresora debe contestar:    - Command Error
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0xB210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1011001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:13 Documento Abierto 
+ PF Bit:12 Documento Fiscal Abierto
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+******************************************
+Command = PFISend_Item 04-12-22 17:35
+Descripción del Item='Peras Williams'
+Cantidad de Unidades='00001000'
+Precio Unitario='000000001'
+Tasa de IVA en %='2100'
+Calificador de Línea de Item='M'
+Unidades Vendidas nnnnn.='00001'
+Tasa de Ajuste Variable .nnnnnnnn='00000000'
+Descripción Auxiliar 1=''
+Descripción Auxiliar  2=''
+Descripción Auxiliar 3=''
+Tasa Adicional Resp.No Inscr.='0000'
+Impuestos Internos FIJOS='000000000000000'
+- - E R R O R - -
+* *  P R I N T E R   R E S P O N S E  * * 
+  3er. parametro de estado =Error de Formato. Campo con error: 3
+* *  S O F T W A R E   V A L I D A T I O N  * * 
+La impresora debe contestar:    - Command Error
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0xB210
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1011001000010000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:13 Documento Abierto 
+ PF Bit:12 Documento Fiscal Abierto
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:4 Campo de Datos INVALIDO 
+
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/12/22 18:02
+*****************************************************
+Comando = Cierre-Z
+Impresion Informe X='Z'
+='P  Imprimir Comando X'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8220
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000100000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:5 Comando Invalido para el Estado Lógico del Equipo
+
+Comando = Cierre-Z
+Impresion Informe X='Z'
+='P  Imprimir Comando X'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8220
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000100000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:5 Comando Invalido para el Estado Lógico del Equipo
+
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/12/22 19:11
+*****************************************************
+Comando = Cierre-Z
+Impresion Informe X='Z'
+='P  Imprimir Comando X'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8220
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000100000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:5 Comando Invalido para el Estado Lógico del Equipo
+
+Comando = Cierre-Z
+Impresion Informe X='Z'
+='P  Imprimir Comando X'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8220
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000100000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:5 Comando Invalido para el Estado Lógico del Equipo
+
+PRUEBA de CONTROLADOR FISCAL Efectuada 04/12/22 19:14
+*****************************************************

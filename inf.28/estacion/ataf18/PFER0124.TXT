@@ -1,0 +1,39 @@
+PRUEBA de CONTROLADOR FISCAL Efectuada 05/01/24 09:02
+*****************************************************
+Comando = Cierre-Z
+Impresion Informe X='Z'
+='P  Imprimir Comando X'
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8220
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000100000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:5 Comando Invalido para el Estado Lógico del Equipo
+
+******************************************
+Command = PFIOpen_Ticket
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x0080
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  0000000010000000
+----------------------------------------------------------------------------------
+ PR Bit:7 Printer Buffer VACIO 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8208
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000001000001000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:3 Comando NO Reconocido 
+

@@ -1,0 +1,229 @@
+ARCHIVO : MODELO1.ZON
+TAMAÑO  : Form.continuo 12'' x 10''
+IMPRESOR: LX-300 Fiscal, FX-880 Fiscal
+
+Los comandos válidos son :
+        @ZONA           :nroDeZona, superior, izquierdo, inferior, derecho
+        @TAMAÑO         :líneas , columnas
+        @PREFERENCIA    :el formato de este comando depende de lo que se desee configurar
+        @MARGEN         :superior, izquierdo, inferior, derecho
+        @ENCABEZADO     :nroDeEncabezado, leyenda
+
+** DEFINICION GENERAL DEL FORMULARIO
+
+** Configura el tamaño de la hoja, calculando las líneas para 1/6 de pulgada y
+** las columnas en 12 caracteres por pulgada
+** @TAMAÑO | nnnnn | Columnas | Lineas
+@TAMAÑO | 00001 | 90 | 72
+
+** Esta instruccion configura la estacion para la emision Facturas A por Main Sheet
+** no se debe eliminar
+** @PREFERENCIA | nnnnn | Impresora | Dispositivo | Hoja principal | Factura | letra | ??
+@PREFERENCIA | 00002 | P | D | M | F | A | N
+
+** Esta instruccion configura la estacion para la emision de documento no fiscal
+** no debe eliminarse, si es necesario se puede modificar
+** @PREFERENCIA | nnnnn | Impresora | Papel | Rollo | Tamaño | Usuario | Columnas | Filas
+@PREFERENCIA | 00003 | P | P | R | S | U | 90 | 72
+
+** DEFINICION DE ZONAS
+
+** ZONA(010) Letra Comprobante
+@ZONA | 00004 |010 |43 |04 |44 |04
+
+** ZONA(022) Logo
+@ZONA | 00005 |022 |01 |04 |40 |04
+
+** ZONA(024) Fantasía y Razon social
+@ZONA | 00006 |024 |01 |05 |40 |07
+
+** ZONA(026) Datos Vendedor
+@ZONA | 00007 |026 |01 |09 |40 |14
+
+** ZONA(034) Nro Factura y fecha
+@ZONA | 00009 |034 |49 |05 |87 |07
+
+** ZONA(036) Cuit e impuestos
+@ZONA | 00010 |036 |45 |09 |87 |14
+
+** ZONA(042) Datos del comprador
+@ZONA | 00011 |042 |01 |16 |40 |20
+
+** ZONA(044) IVA Comprador
+@ZONA | 00012 |044 |01 |21 |40 |22
+
+** ZONA(052) CUIT Comprador
+@ZONA | 00013 |052 |45 |16 |87 |20
+
+** ZONA(054) Nro remitos
+@ZONA | 00014 |054 |45 |21 |87 |22
+
+** ZONA(060) Zona de detalle de venta
+@ZONA | 00015 |060 |01 |23 |87 |42
+
+** ZONA(061) Cantidad Item
+@ZONA | 00016 |061 |01 |23 |12 |42
+
+** ZONA(062) Descripción Item
+@ZONA | 00017 |062 |14 |23 |34 |42
+
+** ZONA(063) Precio Unitario Item
+@ZONA | 00018 |063 |36 |23 |48 |42
+
+** ZONA(064) Tasa de IVA Item
+@ZONA | 00019 |064 |50 |23 |59 |42
+
+** ZONA(065) Tasa Ajuste Variable Item
+@ZONA | 00020 |065 |61 |23 |70 |42
+
+** ZONA(066) Precio total Item
+@ZONA | 00021 |066 |72 |23 |87 |42
+
+** Esta instruccion configura el offset que se usará para imprimir los subtotales
+** debe ser menor o igual a las filas de la zona 60, por omisión se toma
+** las filas de la zona 60
+** @PREFERENCIA | nnnnn | Impresora | Comando | Offset | 901 | izquierdo | Superior
+@PREFERENCIA | 00022 | P | C | O | 901 | 0 | 20
+
+** ZONA(070) Mensajes de advertencia fiscal
+@ZONA | 00023 |070 |01 |23 |87 |42
+
+** ZONA(081) Descripción Percepcion de IVA RI
+@ZONA | 00024 |081 |33 |23 |41 |49
+
+** ZONA(082) Monto Percepcion de IVA RI
+@ZONA | 00025 |082 |43 |23 |54 |49
+
+** ZONA(083) Tasa de acrecentamiento RNI
+@ZONA | 00026 |083 |33 |23 |41 |49
+
+** ZONA(084) Monto de acrecentamiento RNI
+@ZONA | 00027 |084 |43 |23 |54 |49
+
+** ZONA(085) Descr.otras percep.
+@ZONA | 00028 |085 |56 |23 |62 |49
+
+** ZONA(086) Monto otras percep.
+@ZONA | 00029 |086 |64 |23 |75 |49
+
+** ZONA(090) Zona de subtotal y cierre
+@ZONA | 00030 |090 |01 |23 |87 |49
+
+** ZONA(091) Conceptos no gravados
+@ZONA | 00031 |091 |01 |23 |10 |49
+
+** ZONA(092) Tasa de IVA
+@ZONA | 00032 |092 |12 |23 |17 |49
+
+** ZONA(093) Monto de IVA
+@ZONA | 00033 |093 |19 |23 |31 |49
+
+** ZONA(094) Percepciones de IVA
+@ZONA | 00034 |094 |33 |23 |54 |49
+
+** ZONA(095) Otras percepciones
+@ZONA | 00035 |095 |56 |23 |75 |49
+
+** ZONA(097) Subtotal
+@ZONA | 00036 |097 |77 |23 |87 |49
+
+** ZONA(100) Zona de total documento
+@ZONA | 00037 |100 |01 |50 |87 |50
+
+** ZONA(101) Título de Total documento
+@ZONA | 00038 |101 |01 |50 |55 |50
+
+** ZONA(102) Monto de Total documento
+@ZONA | 00039 |102 |56 |50 |87 |50
+
+** ZONA(110) Zona de detalle de pagos
+@ZONA | 00040 |110 |01 |51 |87 |55
+
+** ZONA(111) Descripción de Pagos
+@ZONA | 00041 |111 |01 |51 |39 |55
+
+** ZONA(112) Monto de Pagos
+@ZONA | 00042 |112 |41 |51 |87 |55
+
+** ZONA(120) Leyendas de Pie de Factura
+@ZONA | 00043 |120 |01 |56 |87 |58
+
+** ZONA(142) Logo Fiscal
+@ZONA | 00044 |142 |01 |59 |40 |63
+
+** ZONA(144) Original / Copia
+@ZONA | 00045 |144 |45 |59 |87 |63
+
+** DEFINICION DE HEADERS y TRAILERS
+
+** HEADER/TRAILER (01) Nombre de Fantasía - Vacio
+@ENCABEZADO | 00046 | 01 |
+
+** HEADER/TRAILER (02) Nombre de Fantasía - Vacio
+@ENCABEZADO | 00047 | 02 |
+
+** HEADER/TRAILER (03) Nombre de Fantasía - Vacio
+@ENCABEZADO | 00048 | 03 |
+
+** HEADER/TRAILER (04) Nombre de Fantasía - Vacio
+@ENCABEZADO | 00049 | 04 |
+
+** HEADER/TRAILER (05) Nombre de Fantasía - Vacio
+@ENCABEZADO | 00050 | 05 |
+
+** HEADER/TRAILER (11) Leyenda de pie 11
+@ENCABEZADO | 00051 | 11 |Gracias por su compra
+
+** HEADER/TRAILER (12) Leyenda de pie 12 - Vacio
+@ENCABEZADO | 00052 | 12 |
+
+** HEADER/TRAILER (13) Leyenda de pie 13 - Vacio
+@ENCABEZADO | 00053 | 13 |
+
+** HEADER/TRAILER (14) Leyenda de pie 14 - Vacio
+@ENCABEZADO | 00054 | 14 |
+
+** HEADER/TRAILER (50) Domicilio Comercial
+@ENCABEZADO | 00055 | 50 |Dato fijo
+
+** HEADER/TRAILER (51) Domicilio Comercial
+@ENCABEZADO | 00056 | 51 |Capital Federal
+
+** HEADER/TRAILER (52) Domicilio Comercial - Vacio
+@ENCABEZADO | 00057 | 52 |
+
+** HEADER/TRAILER (53) Domicilio Fiscal
+@ENCABEZADO | 00058 | 53 |Belgrano 951
+
+** HEADER/TRAILER (54) Domicilio Fiscal
+@ENCABEZADO | 00059 | 54 |Capital Federal
+
+** HEADER/TRAILER (55) Domicilio Fiscal - Vacio
+@ENCABEZADO | 00060 | 55 |
+
+** HEADER/TRAILER (57) Impuestos Vendedor
+@ENCABEZADO | 00061 | 57 |Ingresos Brutos
+
+** HEADER/TRAILER (58) Impuestos Vendedor - Vacio
+@ENCABEZADO | 00062 | 58 |
+
+** HEADER/TRAILER (59) Impuestos Vendedor - Vacio
+@ENCABEZADO | 00063 | 59 |
+
+** HEADER/TRAILER (60) Impuestos Vendedor - Vacio
+@ENCABEZADO | 00064 | 60 |
+
+** HEADER/TRAILER (61) Impuestos Vendedor - Vacio
+@ENCABEZADO | 00065 | 61 |
+
+** HEADER/TRAILER (62) Fecha de inicio de actividades
+@ENCABEZADO | 00066 | 62 |Inicio de actividades 01/01/2000
+
+** HEADER/TRAILER (63) Leyendas Comerciales - Vacio
+@ENCABEZADO | 00067 | 63 |
+
+** HEADER/TRAILER (64) Leyendas Comerciales - Vacio
+@ENCABEZADO | 00068 | 64 |
+
+** HEADER/TRAILER (65) Leyendas Comerciales - Vacio
+@ENCABEZADO | 00069 | 65 |

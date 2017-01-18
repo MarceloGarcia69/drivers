@@ -1,0 +1,26 @@
+System: Menu-fac
+Author: Infonor
+Tree Diagram
+
+-------------------------------------------------------------------------------
+
+MENU_FAC.PRG
+ÃÄÄÄÄMPATH+E00PATH.PRG
+ÃÄÄÄÄMPATH1+W00VARI.PRG
+ÃÄÄÄÄRENCABEZADO.PRG
+ÀÄÄÄÄMENU_FAC.SPR
+     ÃÄÄÄÄMPATH13+MENU_FAC.MPR
+     ÃÄÄÄÄ_0Z10O5F9C()  (function in MENU_FAC.SPR)
+     ³    ÀÄÄÄÄMPATH9+S14ABM.PRG
+     ÃÄÄÄÄ_0Z10O5FAG()  (function in MENU_FAC.SPR)
+     ³    ÀÄÄÄÄMPATH9+S32C_FAC.PRG
+     ÃÄÄÄÄ_0Z10O5FBH()  (function in MENU_FAC.SPR)
+     ³    ÀÄÄÄÄMPATH9+S31C_COM.PRG
+     ÃÄÄÄÄ_0Z10O5FCN()  (function in MENU_FAC.SPR)
+     ³    ÀÄÄÄÄMPATH9+S33C_STO.PRG
+     ÃÄÄÄÄ_0Z10O5FDI()  (function in MENU_FAC.SPR)
+     ³    ÀÄÄÄÄMPATH9+S33L_STO.PRG
+     ÃÄÄÄÄ_0Z10O5FEO()  (function in MENU_FAC.SPR)
+     ³    ÀÄÄÄÄMPATH9+S32L_FAC.PRG
+     ÀÄÄÄÄ_0Z10O5FFW()  (function in MENU_FAC.SPR)
+

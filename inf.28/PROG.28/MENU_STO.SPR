@@ -1,0 +1,719 @@
+*       *********************************************************
+*       *                                                         
+*       * 02/11/2016           MENU_STO.SPR              17:44:10 
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2016 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENSCRN.    
+*       *                                                         
+*       *********************************************************
+
+
+#REGION 0
+REGIONAL m.currarea, m.talkstat, m.compstat
+
+IF SET("TALK") = "ON"
+	SET TALK OFF
+	m.talkstat = "ON"
+ELSE
+	m.talkstat = "OFF"
+ENDIF
+m.compstat = SET("COMPATIBLE")
+SET COMPATIBLE FOXPLUS
+
+m.rborder = SET("READBORDER")
+SET READBORDER ON
+
+m.currarea = SELECT()
+
+
+*       *********************************************************
+*       *                                                         
+*       *             Windows Definiciones de ventana             
+*       *                                                         
+*       *********************************************************
+*
+
+MODIFY WINDOW SCREEN ;
+	AT  -0.250, -0.250  ;
+	SIZE 36.200,128.000 ;
+	TITLE "I N F O N O R - de Colusso & García  - (03717) 420479 - 156-89373" ;
+	FONT "MS Sans Serif", 12 ;
+	FLOAT ;
+	CLOSE ;
+	MINIMIZE ;
+	COLOR RGB(,,,192,192,192) ;
+	ICON FILE LOCFILE("ABM.ICO","ICO", ;
+		"¿Dónde está abm?")
+MOVE WINDOW SCREEN CENTER
+CLEAR
+
+*       *********************************************************
+*       *                                                         
+*       *  MENU_STO/Windows Código de configuración - SECCION 2   
+*       *                                                         
+*       *********************************************************
+*
+
+#REGION 1
+DO mpath13+'menu_sto.mpr'
+
+
+*       *********************************************************
+*       *                                                         
+*       *        MENU_STO/Windows Distribución de pantalla        
+*       *                                                         
+*       *********************************************************
+*
+
+#REGION 1
+@ 0.150,0.875 TO 33.800,12.375 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,0,0,,,,)
+@ 30.150,13.625 TO 33.900,125.625 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,0,0,128)
+@ 31.300,20.375 TO 31.300,103.375 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(0,0,255,0,0,255)
+@ 30.950,19.375 TO 32.700,104.875 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,,,,)
+@ 31.000,19.500 TO 32.750,105.000 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,,,,)
+@ 1.000,11.250 TO 4.400,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 4.150,2.125 TO 4.400,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 0.550,1.625 GET E11ABM ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jah()
+@ 0.500,1.500 TO 4.050,11.000 ;
+	PEN 1, 8
+@ 0.550,11.000 TO 4.100,11.000 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 0.550,1.500 TO 3.950,1.500 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 4.050,1.500 TO 4.050,11.250 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 0.500,1.500 TO 0.500,11.125 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 1.050,4.375 SAY (LOCFILE("..\iconos\note38.ico","BMP|ICO|PCT|ICN", "¿Dónde está note38?" )) BITMAP ;
+	SIZE 1.550,4.125 ;
+	STRETCH ;
+	STYLE "T"
+@ 2.100,10.500 TO 2.100,10.500 ;
+	PEN 1, 8
+@ 2.600,5.000 SAY "ABM" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 3.050,3.750 SAY "Proveedor" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 4.700,1.625 GET e18abm ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jak()
+@ 5.350,4.250 SAY (LOCFILE("..\iconos\tranfe2.ico","BMP|ICO|PCT|ICN", "¿Dónde está tranfe2?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 7.000,4.000 SAY "Clientes" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 4.650,1.500 TO 8.200,11.000 ;
+	PEN 1, 8
+@ 4.700,11.000 TO 8.300,11.000 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 8.200,1.500 TO 8.200,11.125 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 4.650,1.500 TO 4.650,11.125 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 6.250,10.500 TO 6.250,10.500 ;
+	PEN 1, 8
+@ 5.150,11.250 TO 8.550,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 8.300,1.875 TO 8.550,11.375 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 4.700,1.500 TO 8.100,1.500 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 8.850,1.625 GET s14abm ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jan()
+@ 8.800,1.500 TO 12.350,11.000 ;
+	PEN 1, 8
+@ 8.850,11.000 TO 12.450,11.000 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 8.850,1.500 TO 12.250,1.500 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 12.350,1.500 TO 12.350,11.125 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 8.800,1.500 TO 8.800,11.125 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 10.400,10.500 TO 10.400,10.500 ;
+	PEN 1, 8
+@ 9.500,4.250 SAY (LOCFILE("..\iconos\note02.ico","BMP|ICO|PCT|ICN", "¿Dónde está note02?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	STYLE "T"
+@ 11.350,3.625 SAY "Productos" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 12.450,2.000 TO 12.700,11.500 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 9.300,11.250 TO 12.700,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 16.500,2.125 TO 16.750,11.625 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 12.900,1.625 GET s33c_sto ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jap()
+@ 12.850,1.500 TO 16.400,11.000 ;
+	PEN 1, 8
+@ 16.400,1.500 TO 16.400,11.125 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 12.850,1.500 TO 12.850,11.125 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 14.450,10.500 TO 14.450,10.500 ;
+	PEN 1, 8
+@ 13.500,4.250 SAY (LOCFILE("..\iconos\ctrpanel.ico","BMP|ICO|PCT|ICN", "¿Dónde está ctrpanel?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	STYLE "T"
+@ 15.400,2.250 SAY "Carga - Stock" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 12.900,11.000 TO 16.500,11.000 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 12.900,1.500 TO 16.300,1.500 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 13.350,11.250 TO 16.750,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 17.000,1.625 GET s32c_dev ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jat()
+@ 16.950,1.500 TO 20.500,11.000 ;
+	PEN 1, 8
+@ 17.000,11.000 TO 20.600,11.000 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 17.000,1.500 TO 20.400,1.500 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 20.500,1.500 TO 20.500,11.125 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 16.950,1.500 TO 16.950,11.250 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 18.550,10.500 TO 18.550,10.500 ;
+	PEN 1, 8
+@ 19.500,2.375 SAY "Devoluciones" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 17.650,4.250 SAY (LOCFILE("..\iconos\note27.ico","BMP|ICO|PCT|ICN", "¿Dónde está note27?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	STYLE "T"
+@ 17.450,11.250 TO 20.850,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 20.600,2.125 TO 20.850,11.625 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 21.050,1.750 GET s25l_pre ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jaw()
+@ 21.000,1.625 TO 24.550,11.125 ;
+	PEN 1, 8
+@ 24.550,1.625 TO 24.550,11.250 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 21.000,1.625 TO 21.000,11.250 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 21.700,4.375 SAY (LOCFILE("..\iconos\tranfe2.ico","BMP|ICO|PCT|ICN", "¿Dónde está tranfe2?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 23.400,1.750 SAY "Lista de Precios" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 24.650,2.000 TO 24.900,11.500 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 21.050,11.125 TO 24.650,11.125 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 21.050,1.625 TO 24.450,1.625 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 22.600,10.625 TO 22.600,10.625 ;
+	PEN 1, 8
+@ 21.500,11.375 TO 24.900,11.875 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 25.200,1.750 GET s33l_sto ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jay()
+@ 25.150,1.625 TO 28.700,11.125 ;
+	PEN 1, 8
+@ 25.200,11.125 TO 28.800,11.125 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 25.200,1.625 TO 28.600,1.625 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 28.700,1.625 TO 28.700,11.250 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 25.150,1.625 TO 25.150,11.250 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 26.750,10.625 TO 26.750,10.625 ;
+	PEN 1, 8
+@ 25.850,4.250 SAY (LOCFILE("..\iconos\impre11.ico","BMP|ICO|PCT|ICN", "¿Dónde está impre11?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 27.700,3.500 SAY "Inf.Stock" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 28.750,2.250 TO 29.000,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 25.550,11.375 TO 28.950,11.875 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 29.700,11.250 TO 33.100,11.750 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 32.850,2.000 TO 33.100,11.625 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 29.250,1.625 GET s32l_fac ;
+	PICTURE "@*IVN " ;
+	SIZE 3.500,9.375,0.200 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jb0()
+@ 29.200,1.500 TO 32.750,11.000 ;
+	PEN 1, 8
+@ 29.250,11.000 TO 32.850,11.000 ;
+	PEN 2, 8 ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 32.750,1.500 TO 32.750,11.250 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(128,128,128,128,128,128)
+@ 29.200,1.500 TO 29.200,11.125 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 30.800,10.500 TO 30.800,10.500 ;
+	PEN 1, 8
+@ 31.700,2.750 SAY "Facturación" ;
+	PICTURE "@J" ;
+	FONT "Tahoma", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 29.900,4.375 SAY (LOCFILE("..\iconos\impre9.ico","BMP|ICO|PCT|ICN", "¿Dónde está impre9?" )) BITMAP ;
+	SIZE 1.600,4.000 ;
+	ISOMETRIC ;
+	STYLE "T"
+@ 29.250,1.500 TO 32.650,1.500 ;
+	PEN 1, 8 ;
+	COLOR RGB(255,255,255,255,255,255)
+@ 31.550,21.875 SAY 'Módulo de Stock ...       '  +allt(mfantasia) ;
+	SIZE 1.000,78.375 ;
+	FONT "Tahoma", 11 ;
+	STYLE "BT" ;
+	PICTURE "@I" ;
+	COLOR RGB(0,255,255,192,192,192)
+@ 30.950,110.000 GET a_salir ;
+	PICTURE "@*BVN " + ;
+		(LOCFILE("door2.ico","BMP|ICO|PCT|ICN","¿Dónde está door2?")) ;
+	SIZE 1.900,11.500,0.200 ;
+	DEFAULT 1 ;
+	FONT "MS Sans Serif", 12 ;
+	VALID _4rn120jb3()
+@ 8.300,22.500 TO 23.000,117.125 ;
+	PATTERN 1 ;
+	PEN 6, 8 ;
+	COLOR RGB(128,128,128,255,255,255)
+@ 13.200,24.000 TO 22.300,66.125 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(0,128,128,0,128,128)
+@ 8.900,66.250 SAY (LOCFILE("pp.bmp","BMP|ICO|PCT|ICN", "¿Dónde está pp?" )) BITMAP ;
+	SIZE 13.450,49.500 ;
+	STRETCH ;
+	STYLE "T"
+@ 8.950,23.875 TO 13.000,66.125 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(128,128,0,128,128,128)
+@ 11.650,24.625 TO 11.650,65.500 ;
+	PEN 2, 8 ;
+	STYLE "1" ;
+	COLOR RGB(0,0,0,0,0,0)
+@ 9.650,25.625 SAY allt(mfantasia) ;
+	SIZE 1.000,22.286 ;
+	FONT "Tahoma", 20 ;
+	STYLE "BT" ;
+	PICTURE "@I" ;
+	COLOR RGB(128,0,0,192,192,192)
+@ 13.650,26.000 SAY allt(mdomicifa) ;
+	SIZE 1.000,38.750 ;
+	FONT "Tahoma", 14 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(255,255,0,192,192,192)
+@ 15.000,26.000 SAY allt(mlocalida) ;
+	SIZE 1.000,38.750 ;
+	FONT "Tahoma", 14 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(255,255,0,192,192,192)
+@ 17.900,26.000 SAY allt(mtelefono) ;
+	SIZE 1.000,44.286 ;
+	FONT "Tahoma", 12 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(0,255,255,192,192,192)
+@ 18.950,26.000 SAY "E-mail:" +allt(memail) ;
+	SIZE 1.000,44.286 ;
+	FONT "Tahoma", 12 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(0,255,255,192,192,192)
+@ 20.200,26.125 SAY allt(mweb) ;
+	SIZE 1.000,44.286 ;
+	FONT "Tahoma", 12 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(255,255,255,192,192,192)
+@ 16.400,26.000 SAY allt(mprovincia) ;
+	SIZE 1.000,38.750 ;
+	FONT "Tahoma", 14 ;
+	STYLE "T" ;
+	PICTURE "@I" ;
+	COLOR RGB(192,192,192,192,192,192)
+@ 0.200,13.500 TO 29.650,125.875 ;
+	PEN 4, 8 ;
+	COLOR RGB(128,128,128,,,,)
+
+
+
+READ CYCLE
+
+MODIFY WINDOW SCREEN
+SELECT (m.currarea)
+
+
+#REGION 0
+
+SET READBORDER &rborder
+
+IF m.talkstat = "ON"
+	SET TALK ON
+ENDIF
+IF m.compstat = "ON"
+	SET COMPATIBLE ON
+ENDIF
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JAH           E11ABM VALID                       
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:    9  
+*       * Variable:            E11ABM                             
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      1                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jah     &&  E11ABM VALID
+#REGION 1
+if xtecla = 'MouseDerecho'
+   Wait 'Clientes' wind
+   xtecla = ''
+   retu
+endi
+
+do mpath0+'e11abm'
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JAK           e18abm VALID                       
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:   19  
+*       * Variable:            e18abm                             
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      2                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jak     &&  e18abm VALID
+#REGION 1
+xx=1
+DO mpath0+'e18abm'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JAN           s14abm VALID                       
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:   30  
+*       * Variable:            s14abm                             
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      3                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jan     &&  s14abm VALID
+#REGION 1
+xx=1
+DO mpath9+'s14abm'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JAP           s33c_sto VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:   42  
+*       * Variable:            s33c_sto                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      4                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jap     &&  s33c_sto VALID
+#REGION 1
+xx=1
+do mpath9+'s33c_sto' with 'CARGA'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JAT           s32c_dev VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:   52  
+*       * Variable:            s32c_dev                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      5                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jat     &&  s32c_dev VALID
+#REGION 1
+xx=1
+do mpath9+'s34c_dev' with 'REMITOS'
+xx=0
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JAW           s25l_pre VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:   63  
+*       * Variable:            s25l_pre                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      6                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jaw     &&  s25l_pre VALID
+#REGION 1
+xx=1
+DO mpath9+'s25l_pre'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JAY           s33l_sto VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:   74  
+*       * Variable:            s33l_sto                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      7                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jay     &&  s33l_sto VALID
+#REGION 1
+xx=1
+IF LASTKEY() <> 13
+   KEYB "{enter}"
+ENDI
+DO mpath9+'s33l_sto'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JB0           s32l_fac VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:   87  
+*       * Variable:            s32l_fac                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      8                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jb0     &&  s32l_fac VALID
+#REGION 1
+retu
+xx=1
+IF LASTKEY() <> 13
+   KEYB "{enter}"
+ENDI
+DO mpath9+'s32l_fac'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RN120JB3           a_salir VALID                      
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         MENU_STO,     Record Number:   97  
+*       * Variable:            a_salir                            
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Push Button                        
+*       * Snippet Number:      9                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _4rn120jb3     &&  a_salir VALID
+#REGION 1
+set sysmenu to defa
+clear read

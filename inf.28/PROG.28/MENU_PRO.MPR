@@ -1,0 +1,770 @@
+*       *********************************************************
+*       *                                                         
+*       * 23/10/2016           MENU_PRO.MPR             03:03:45  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2016 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _4rd06kb3e OF _MSYSMENU PROMPT "Tablas" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4rd06kb3f OF _MSYSMENU PROMPT "Movimientos" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4rd06kb3g OF _MSYSMENU PROMPT "Informes" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4rd06kb3h OF _MSYSMENU PROMPT "Utilitarios" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _4rd06kb3i OF _MSYSMENU PROMPT "Salir" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+ON PAD _4rd06kb3e OF _MSYSMENU ACTIVATE POPUP tablas
+ON PAD _4rd06kb3f OF _MSYSMENU ACTIVATE POPUP movimiento
+ON PAD _4rd06kb3g OF _MSYSMENU ACTIVATE POPUP informes
+ON PAD _4rd06kb3h OF _MSYSMENU ACTIVATE POPUP utilitario
+ON SELECTION PAD _4rd06kb3i OF _MSYSMENU ;
+	DO _4rd06kb3j ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP tablas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tablas PROMPT "Sucursales"
+DEFINE BAR 2 OF tablas PROMPT "Proveedores"
+DEFINE BAR 3 OF tablas PROMPT "\-"
+DEFINE BAR 4 OF tablas PROMPT "Tipo de Movimiento"
+DEFINE BAR 5 OF tablas PROMPT "Plan de Cuenta"
+DEFINE BAR 6 OF tablas PROMPT "\-"
+DEFINE BAR 7 OF tablas PROMPT "\<Rubro Compra"
+DEFINE BAR 8 OF tablas PROMPT "\<Tipo de Compra"
+DEFINE BAR 9 OF tablas PROMPT "\-"
+DEFINE BAR 10 OF tablas PROMPT "Asientos Modelos"
+ON BAR 1 OF tablas ACTIVATE POPUP sucursales
+ON BAR 2 OF tablas ACTIVATE POPUP proveedore
+ON BAR 4 OF tablas ACTIVATE POPUP tipodemovi
+ON BAR 5 OF tablas ACTIVATE POPUP plandecuen
+ON BAR 7 OF tablas ACTIVATE POPUP rubrocompr
+ON BAR 8 OF tablas ACTIVATE POPUP tipodecomp
+ON BAR 10 OF tablas ACTIVATE POPUP asientosmo
+
+DEFINE POPUP sucursales MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF sucursales PROMPT "Actualiza"
+DEFINE BAR 2 OF sucursales PROMPT "Lista"
+ON SELECTION BAR 1 OF sucursales ;
+	DO _4rd06kb3k ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF sucursales ;
+	DO _4rd06kb3l ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP proveedore MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF proveedore PROMPT "Actualiza"
+DEFINE BAR 2 OF proveedore PROMPT "Cuentas Bancarias"
+DEFINE BAR 3 OF proveedore PROMPT "Lista"
+ON SELECTION BAR 1 OF proveedore ;
+	DO _4rd06kb3m ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF proveedore ;
+	DO _4rd06kb3n ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 3 OF proveedore ;
+	DO _4rd06kb3o ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP tipodemovi MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodemovi PROMPT "Actualiza" ;
+	SKIP FOR xx=1
+DEFINE BAR 2 OF tipodemovi PROMPT "Lista" ;
+	SKIP FOR xx=1
+ON SELECTION BAR 1 OF tipodemovi ;
+	DO _4rd06kb3p ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF tipodemovi ;
+	DO _4rd06kb3q ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP plandecuen MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF plandecuen PROMPT "Actualiza"
+DEFINE BAR 2 OF plandecuen PROMPT "Lista"
+ON SELECTION BAR 1 OF plandecuen ;
+	DO _4rd06kb3r ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF plandecuen ;
+	DO _4rd06kb3s ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP rubrocompr MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF rubrocompr PROMPT "Actualiza"
+DEFINE BAR 2 OF rubrocompr PROMPT "Lista"
+ON SELECTION BAR 1 OF rubrocompr ;
+	DO _4rd06kb3t ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF rubrocompr ;
+	DO _4rd06kb3u ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP tipodecomp MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodecomp PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodecomp PROMPT "Lista"
+ON SELECTION BAR 1 OF tipodecomp ;
+	DO _4rd06kb3v ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF tipodecomp ;
+	DO _4rd06kb3w ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP asientosmo MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF asientosmo PROMPT "Actualiza"
+DEFINE BAR 2 OF asientosmo PROMPT "Lista"
+ON SELECTION BAR 1 OF asientosmo ;
+	DO _4rd06kb3x ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF asientosmo ;
+	DO _4rd06kb3y ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP movimiento MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF movimiento PROMPT "Operación por Proveedores"
+DEFINE BAR 2 OF movimiento PROMPT "Actualización de Saldos"
+DEFINE BAR 3 OF movimiento PROMPT "Compras"
+ON SELECTION BAR 1 OF movimiento ;
+	DO _4rd06kb3z ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF movimiento ;
+	DO _4rd06kb40 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON BAR 3 OF movimiento ACTIVATE POPUP compras
+
+DEFINE POPUP compras MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF compras PROMPT "Carga"
+DEFINE BAR 2 OF compras PROMPT "Lista"
+ON SELECTION BAR 1 OF compras ;
+	DO _4rd06kb41 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF compras ;
+	DO _4rd06kb42 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP informes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF informes PROMPT "Movimiento de la Cuenta Corriente"
+DEFINE BAR 2 OF informes PROMPT "Ordenes de Pago"
+DEFINE BAR 3 OF informes PROMPT "Resumen de Saldos"
+ON SELECTION BAR 1 OF informes ;
+	DO _4rd06kb43 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON BAR 2 OF informes ACTIVATE POPUP ordenesdep
+ON SELECTION BAR 3 OF informes ;
+	DO _4rd06kb44 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP ordenesdep MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF ordenesdep PROMPT "Comprobantes"
+DEFINE BAR 2 OF ordenesdep PROMPT "Lista"
+ON SELECTION BAR 1 OF ordenesdep ;
+	DO _4rd06kb46 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF ordenesdep ;
+	DO _4rd06kb47 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP utilitario MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR _mst_calcu OF utilitario PROMPT "Calculadora" ;
+	MESSAGE 'Calculadora .... '
+DEFINE BAR _mst_diary OF utilitario PROMPT "Calendario"
+DEFINE BAR _mfi_setup OF utilitario PROMPT "Configurar Impresora"
+DEFINE BAR 4 OF utilitario PROMPT "Selector de Colores"
+DEFINE BAR 5 OF utilitario PROMPT "Actualización de Archivos" ;
+	SKIP FOR xx=1
+DEFINE BAR 6 OF utilitario PROMPT "Correo"
+ON SELECTION BAR 4 OF utilitario run/n control color
+ON BAR 5 OF utilitario ACTIVATE POPUP actualizac
+ON SELECTION BAR 6 OF utilitario ;
+	DO _4rd06kb48 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+DEFINE POPUP actualizac MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF actualizac PROMPT "Proveedores"
+DEFINE BAR 2 OF actualizac PROMPT "Generales"
+ON SELECTION BAR 1 OF actualizac ;
+	DO _4rd06kb49 ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+ON SELECTION BAR 2 OF actualizac ;
+	DO _4rd06kb4a ;
+	IN LOCFILE("PROG.28\MENU_PRO" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_PRO?")
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3J  ON SELECTION PAD                            
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   67       
+*       * Called By:  ON SELECTION PAD                            
+*       * Prompt:     Salir                                       
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3j
+set sysmenu to defa
+clos data
+clear read
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3K  ON SELECTION BAR 1 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:    7       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP sucursales      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    2                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3k
+xx = 1
+do mpath0+'e20abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3L  ON SELECTION BAR 2 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:    8       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP sucursales      
+*       * Prompt:     Lista                                       
+*       * Snippet:    3                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3l
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e20lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3M  ON SELECTION BAR 1 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   11       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP proveedore      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3m
+xx = 1
+do mpath0+'e11abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3N  ON SELECTION BAR 2 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   12       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP proveedore      
+*       * Prompt:     Cuentas Bancarias                           
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3n
+xx = 1
+do mpath0+'e11c_bco'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3O  ON SELECTION BAR 3 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   13       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP proveedore      
+*       * Prompt:     Lista                                       
+*       * Snippet:    6                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3o
+xx = 1
+do mpath0+'e11lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3P  ON SELECTION BAR 1 OF POPUP tipodemovi      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   18       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodemovi      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    7                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3p
+xx = 1
+do mpath2+'m15abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3Q  ON SELECTION BAR 2 OF POPUP tipodemovi      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   19       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodemovi      
+*       * Prompt:     Lista                                       
+*       * Snippet:    8                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3q
+*xx = 1
+*if lastkey() <> 13
+*   keyb "{enter}"
+*endi
+*do mpath2+'m15lista'
+*xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3R  ON SELECTION BAR 1 OF POPUP plandecuen      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   22       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP plandecuen      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    9                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3r
+xx = 1
+do mpath2+'m16abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3S  ON SELECTION BAR 2 OF POPUP plandecuen      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   23       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP plandecuen      
+*       * Prompt:     Lista                                       
+*       * Snippet:    10                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3s
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m16lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3T  ON SELECTION BAR 1 OF POPUP rubrocompr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   28       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP rubrocompr      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    11                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3t
+xx = 1
+do mpath5+'I10abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3U  ON SELECTION BAR 2 OF POPUP rubrocompr      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   29       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP rubrocompr      
+*       * Prompt:     Lista                                       
+*       * Snippet:    12                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3u
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath11+'I10lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3V  ON SELECTION BAR 1 OF POPUP tipodecomp      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   32       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodecomp      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    13                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3v
+xx = 1
+do mpath5+'I11abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3W  ON SELECTION BAR 2 OF POPUP tipodecomp      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   33       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodecomp      
+*       * Prompt:     Lista                                       
+*       * Snippet:    14                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3w
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath5'I11lista'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3X  ON SELECTION BAR 1 OF POPUP asientosmo      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   38       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP asientosmo      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    15                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3x
+xx = 1
+keyb "{ENTER}"
+keyb "{ENTER}"
+do mpath2+'m24a_mod'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3Y  ON SELECTION BAR 2 OF POPUP asientosmo      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   39       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP asientosmo      
+*       * Prompt:     Lista                                       
+*       * Snippet:    16                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3y
+xx = 1
+keyb "{ENTER}"
+keyb "{ENTER}"
+do mpath2+'m24l_mod'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB3Z  ON SELECTION BAR 1 OF POPUP movimiento      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   42       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP movimiento      
+*       * Prompt:     Operación por Proveedores                   
+*       * Snippet:    17                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb3z
+xx = 1
+do mpath4+'p20c_pro'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB40  ON SELECTION BAR 2 OF POPUP movimiento      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   43       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP movimiento      
+*       * Prompt:     Actualización de Saldos                     
+*       * Snippet:    18                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb40
+xx = 1
+do mpath4+'p20acsal'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB41  ON SELECTION BAR 1 OF POPUP compras         
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   46       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP compras         
+*       * Prompt:     Carga                                       
+*       * Snippet:    19                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb41
+xx = 1
+do mpath4+'p31c_com'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB42  ON SELECTION BAR 2 OF POPUP compras         
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   47       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP compras         
+*       * Prompt:     Lista                                       
+*       * Snippet:    20                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb42
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath9+'s31l_com'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB43  ON SELECTION BAR 1 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   50       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP informes        
+*       * Prompt:     Movimiento de la Cuenta Corriente           
+*       * Snippet:    21                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb43
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath4+'p21decue'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB44  ON SELECTION BAR 3 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   55       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP informes        
+*       * Prompt:     Resumen de Saldos                           
+*       * Snippet:    22                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb44
+xx = 1
+keyb "{enter}"
+do mpath4+'p20saldo'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB46  ON SELECTION BAR 1 OF POPUP ordenesdep      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   53       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP ordenesdep      
+*       * Prompt:     Comprobantes                                
+*       * Snippet:    23                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb46
+xx = 1
+do mpath4+'p22t_opa'
+xx = 0
+
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB47  ON SELECTION BAR 2 OF POPUP ordenesdep      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   54       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP ordenesdep      
+*       * Prompt:     Lista                                       
+*       * Snippet:    24                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb47
+xx = 1
+keyb "{enter}"
+do mpath4+'p22l_opa'
+xx = 0
+
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB48  ON SELECTION BAR 6 OF POPUP utilitario      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   66       
+*       * Called By:  ON SELECTION BAR 6 OF POPUP utilitario      
+*       * Prompt:     Correo                                      
+*       * Snippet:    25                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb48
+xx=1
+do mpath9+'s32acfon' with 'PROCE_MANU'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB49  ON SELECTION BAR 1 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   64       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP actualizac      
+*       * Prompt:     Proveedores                                 
+*       * Snippet:    26                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb49
+xx=1
+do mpath4+'p70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4RD06KB4A  ON SELECTION BAR 2 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_PRO.MPR,            Record:   65       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP actualizac      
+*       * Prompt:     Generales                                   
+*       * Snippet:    27                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4rd06kb4a
+xx=1
+do mpath0+'e70mante'
+xx=0
+

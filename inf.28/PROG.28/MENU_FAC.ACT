@@ -1,0 +1,130 @@
+    1:  *:*****************************************************************************
+    2:  *:
+    3:  *: Procedure file: D:\INFONOR\PROG17\MENU_FAC.PRG
+    4:  *:         System: Menu-fac
+    5:  *:         Author: Infonor
+    6:  *:  Last modified: 12/10/2002 at  8:23:42
+    7:  *:
+    8:  *:  Procs & Fncts: RMOUSE_DERE
+    9:  *:
+   10:  *:          Calls: MPATH+E00PATH.PRG
+   11:  *:               : MPATH1+W00VARI.PRG
+   12:  *:               : RENCABEZADO.PRG
+   13:  *:               : MENU_FAC.SPR
+   14:  *:
+   15:  *:           Uses: EMPRESA.DBF        
+   16:  *:               : CONFIENT.DBF       
+   17:  *:               : CONFISUC.DBF       
+   18:  *:
+   19:  *:      Documented 11:20:44                                FoxDoc version 3.00a
+   20:  *:*****************************************************************************
+   21:     * ---------------------------------------------------------------------- *
+   22:     * Amsoft         - Gestión
+   23:     * Programa       : Menu_int.prg
+   24:     * Llamado  desde : Escritorio de windows
+   25:     * Objetivo       : Menu Principal, llama a
+   26:     * Ultima Actual. : 03/11/2000
+   27:     * Programo       : Colusso & Garcia
+   28:     * ---------------------------------------------------------------------- *
+   29:     CLEAR
+   30:     *CLEAR ALL
+   31:     CLOSE ALL
+   32:     SET AUTOSAVE ON
+   33:     SET CENTURY ON
+   34:     SET CLEAR OFF
+   35:     SET CLOC STATUS
+   36:     SET CONFIRM ON
+   37:     SET DELETE ON
+   38:     SET ESCA OFF
+   39:     SET EXCL OFF
+   40:     SET HOUR TO 24
+   41:     SET KEYCOMP TO DOS
+   42:     SET NEAR ON
+   43:     SET TALK OFF
+   44:     SET readborder OFF
+   45:     SET SYSMENU OFF
+   46:     SET SAFETY OFF
+   47:     SET STATUS BAR OFF
+   48:     SET STATUS OFF
+   49:     * on key label RIGHTMOUSE do rMouse_dere
+   50:     
+   51:     * -------------------------
+   52:     PUBLIC mclavebo, mclavemo, a_tablas, a_facturas, a_stock,a_ctacte,xtecla
+   53:     
+   54:     STORE 1 TO a_tablas, a_facturas, a_stock,a_ctacte
+   55:     PUBLIC xx
+   56:     xx = 0
+   57:     
+   58:     SELE 0
+   59:     USE \infonor\17\empresa
+   60:     
+   61:     mpath= ALLT(empresa.path)
+   62:     * mclaveen = empresa.claveen
+   63:     mclavebo = empresa.clavebo
+   64:     mclavemo = empresa.clavemo
+   65:     
+   66:     **mlongi = len(mpath)
+   67:     *set path to left(mpath,mlongi-1)
+   68:     
+   69:     DO mpath+'e00path'
+   70:     DO mpath1+'w00vari'
+   71:     DO rencabezado IN mpath1+'w00wlis'
+   72:     
+   73:     * on key label ESCAPE do rSalir
+   74:     msalir = .F.
+   75:     paso = .T.
+   76:     mcanticla = 0
+   77:     xtecla = ' '
+   78:     
+   79:     * --------- confient -------------
+   80:     SELE 0
+   81:     USE \infonor\segurida\confient
+   82:     asuc3 = confient.codsuc
+   83:     
+   84:     SELE 0
+   85:     USE \infonor\17\confisuc
+   86:     
+   87:     SELE confisuc
+   88:     SET FILTER TO VAL(confisuc.codsuc) = VAL(asuc3)
+   89:     SELE confisuc
+   90:     GO TOP
+   91:     mclaveen = confisuc.claveen
+   92:     
+   93:     * ----  Actualización del correo  -----
+   94:     * do mpath9+'s32acfon'  with 'ACTU_AUTO'    &&& SE CONFIGURA POR SUCURSAL
+   95:     
+   96:     * -------------------------------------
+   97:   ÉÍDO WHIL .T. AND !msalir
+   98:   º    CLEAR
+   99:   º    SET SYSMENU OFF
+  100:   º    * if mclaveen = 'S'
+  101:   º    *    paso = .f.
+  102:   º    *    do MPATH7+'c11abm'
+  103:   º    *    if !paso
+  104:   º    *        retu
+  105:   º    *        *quit
+  106:   º    *    ENDI
+  107:   º    * endi
+  108:   º    
+  109:   º  ÚÄIF paso
+  110:   º  ³    DO menu_fac.spr
+  111:   º  ÀÄENDI
+  112:   vÍÍÍÍEXIT
+  113:   ÈÍENDD
+  114:     RELE a_tablas
+  115:     * quit
+  116:     x=0
+  117:     SET SYSMENU TO DEFA
+  118:     * on key label RIGHTMOUSE
+  119: <ÍÍÍRETU
+  120:     *
+  121:  *!*****************************************************************************
+  122:  *!
+  123:  *!      Procedure: RMOUSE_DERE
+  124:  *!
+  125:  *!*****************************************************************************
+  126:     PROCEDURE rmouse_dere
+  127:     xtecla = 'MouseDerecho'
+  128:     KEYB "{ENTER}"
+  129: <ÍÍÍRETU
+  130:  *:  EOF: MENU_FAC.act

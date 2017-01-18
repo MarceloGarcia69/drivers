@@ -1,0 +1,23 @@
+PRUEBA de CONTROLADOR FISCAL Efectuada 02/12/04 20.34
+*****************************************************
+Comando = Diagnostico
+- - E R R O R - -
+
+* * PRINTER STATUS * *  Valor Hexadecimal del Error: 0x8088
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000000010001000
+----------------------------------------------------------------------------------
+ PR Bit:15 Logica OR Bits 0-6 
+ PR Bit:7 Printer Buffer VACIO 
+ PR Bit:3 Impresora Fuera de Linea 
+
+* * FISCAL  STATUS * *  Valor Hexadecimal del Error: 0x8780
+----------------------------------------------------------------------------------
+ Valor BINARIO del Error:  1000011110000000
+----------------------------------------------------------------------------------
+ PF Bit:15 OR de bits 0-8 da 1 
+ PF Bit:10 El controlador Fiscal esta Fiscalizado 
+ PF Bit:9 El Impresor tiene Núm.Serie(Certificado)
+ PF Bit:8 La memoria fiscal se esta por LLENAR 
+ PF Bit:7 La memoria Fiscal esta LLENA 
+

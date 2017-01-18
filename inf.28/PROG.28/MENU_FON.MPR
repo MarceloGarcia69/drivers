@@ -1,0 +1,1013 @@
+*       *********************************************************
+*       *                                                         
+*       * 09-04-2009           MENU_FON.MPR             19:08:39  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (c) 2009 Nombre de la empresa                 
+*       * Dirección                                               
+*       * Ciudad,     C.P.                                        
+*       * País                                              
+*       *                                                         
+*       * Description:                                            
+*       * Este programa lo ha generado automáticamente GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _2mi1516q2 OF _MSYSMENU PROMPT "Tablas" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _2mi1516q3 OF _MSYSMENU PROMPT "Movimientos" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _2mi1516q4 OF _MSYSMENU PROMPT "Informes" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _2mi1516q5 OF _MSYSMENU PROMPT "Utilitarios" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+DEFINE PAD _2mi1516q6 OF _MSYSMENU PROMPT "Salir" COLOR SCHEME 3 ;
+	SKIP FOR xx=1
+ON PAD _2mi1516q2 OF _MSYSMENU ACTIVATE POPUP tablas
+ON PAD _2mi1516q3 OF _MSYSMENU ACTIVATE POPUP movimiento
+ON PAD _2mi1516q4 OF _MSYSMENU ACTIVATE POPUP informes
+ON PAD _2mi1516q5 OF _MSYSMENU ACTIVATE POPUP utilitario
+ON SELECTION PAD _2mi1516q6 OF _MSYSMENU ;
+	DO _2mi1516q7 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP tablas MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tablas PROMPT "\<Proveedores"
+DEFINE BAR 2 OF tablas PROMPT "\<Clientes"
+DEFINE BAR 3 OF tablas PROMPT "\<Tipo de Clientes"
+DEFINE BAR 4 OF tablas PROMPT "\<Sucursales"
+DEFINE BAR 5 OF tablas PROMPT "\-"
+DEFINE BAR 6 OF tablas PROMPT "\<Plan de Cuenta"
+DEFINE BAR 7 OF tablas PROMPT "\<Tipo de Movimientos"
+DEFINE BAR 8 OF tablas PROMPT "\<Referencia de Cuenta"
+DEFINE BAR 9 OF tablas PROMPT "\<Cod.Concil.Bancaria"
+DEFINE BAR 10 OF tablas PROMPT "\<Códigos Financieros"
+DEFINE BAR 11 OF tablas PROMPT "\-"
+DEFINE BAR 12 OF tablas PROMPT "\<Personal"
+DEFINE BAR 13 OF tablas PROMPT "\<Tipo de Personal"
+ON BAR 1 OF tablas ACTIVATE POPUP proveedore
+ON BAR 2 OF tablas ACTIVATE POPUP clientes
+ON BAR 3 OF tablas ACTIVATE POPUP tipodeclie
+ON BAR 4 OF tablas ACTIVATE POPUP sucursales
+ON BAR 6 OF tablas ACTIVATE POPUP plandecuen
+ON BAR 7 OF tablas ACTIVATE POPUP tipodemovi
+ON BAR 8 OF tablas ACTIVATE POPUP referencia
+ON BAR 9 OF tablas ACTIVATE POPUP codconcilb
+ON BAR 10 OF tablas ACTIVATE POPUP códigosfin
+ON BAR 12 OF tablas ACTIVATE POPUP personal
+ON BAR 13 OF tablas ACTIVATE POPUP tipodepers
+
+DEFINE POPUP proveedore MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF proveedore PROMPT "Actualiza" ;
+	SKIP FOR xx = 1
+DEFINE BAR 2 OF proveedore PROMPT "Lista" ;
+	SKIP FOR xx = 1
+ON SELECTION BAR 1 OF proveedore ;
+	DO _2mi1516q8 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF proveedore ;
+	DO _2mi1516q9 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP clientes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF clientes PROMPT "Actualiza"
+DEFINE BAR 2 OF clientes PROMPT "Lista"
+ON SELECTION BAR 1 OF clientes ;
+	DO _2mi1516qa ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF clientes ;
+	DO _2mi1516qb ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP tipodeclie MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodeclie PROMPT "Actualiza" ;
+	SKIP FOR xx=1
+DEFINE BAR 2 OF tipodeclie PROMPT "Lista" ;
+	SKIP FOR xx=1
+ON SELECTION BAR 1 OF tipodeclie ;
+	DO _2mi1516qc ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF tipodeclie ;
+	DO _2mi1516qd ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP sucursales MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF sucursales PROMPT "Actualiza"
+DEFINE BAR 2 OF sucursales PROMPT "Lista"
+ON SELECTION BAR 1 OF sucursales ;
+	DO _2mi1516qe ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF sucursales ;
+	DO _2mi1516qf ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP plandecuen MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF plandecuen PROMPT "Actualiza"
+DEFINE BAR 2 OF plandecuen PROMPT "Lista"
+ON SELECTION BAR 1 OF plandecuen ;
+	DO _2mi1516qg ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF plandecuen ;
+	DO _2mi1516qh ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP tipodemovi MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodemovi PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodemovi PROMPT "lista"
+ON SELECTION BAR 1 OF tipodemovi ;
+	DO _2mi1516qi ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF tipodemovi ;
+	DO _2mi1516qj ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP referencia MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF referencia PROMPT "Actualiza"
+DEFINE BAR 2 OF referencia PROMPT "Lista"
+ON SELECTION BAR 1 OF referencia ;
+	DO _2mi1516qk ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF referencia ;
+	DO _2mi1516ql ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP codconcilb MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF codconcilb PROMPT "Actualiza"
+DEFINE BAR 2 OF codconcilb PROMPT "Lista"
+ON SELECTION BAR 1 OF codconcilb ;
+	DO _2mi1516qm ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF codconcilb ;
+	DO _2mi1516qn ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP códigosfin MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF códigosfin PROMPT "Actualiza"
+DEFINE BAR 2 OF códigosfin PROMPT "Lista"
+ON SELECTION BAR 1 OF códigosfin ;
+	DO _2mi1516qo ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF códigosfin ;
+	DO _2mi1516qp ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP personal MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF personal PROMPT "Actualiza"
+DEFINE BAR 2 OF personal PROMPT "Lista"
+ON SELECTION BAR 1 OF personal ;
+	DO _2mi1516qq ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF personal ;
+	DO _2mi1516qr ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP tipodepers MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF tipodepers PROMPT "Actualiza"
+DEFINE BAR 2 OF tipodepers PROMPT "Lista"
+ON SELECTION BAR 1 OF tipodepers ;
+	DO _2mi1516qs ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF tipodepers ;
+	DO _2mi1516qt ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP movimiento MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF movimiento PROMPT "Fondos"
+DEFINE BAR 2 OF movimiento PROMPT "Caja"
+DEFINE BAR 3 OF movimiento PROMPT "Banco"
+DEFINE BAR 4 OF movimiento PROMPT "Cheques de 3º"
+DEFINE BAR 5 OF movimiento PROMPT "\-"
+DEFINE BAR 6 OF movimiento PROMPT "Contabilidad"
+DEFINE BAR 7 OF movimiento PROMPT "\-"
+DEFINE BAR 8 OF movimiento PROMPT "Panorama Financiero"
+DEFINE BAR 9 OF movimiento PROMPT "Cash Flow"
+ON BAR 1 OF movimiento ACTIVATE POPUP fondos
+ON BAR 2 OF movimiento ACTIVATE POPUP caja
+ON BAR 3 OF movimiento ACTIVATE POPUP banco
+ON BAR 4 OF movimiento ACTIVATE POPUP chequesde3
+ON BAR 6 OF movimiento ACTIVATE POPUP contabilid
+ON BAR 8 OF movimiento ACTIVATE POPUP panoramafi
+
+DEFINE POPUP fondos MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF fondos PROMPT "Carga"
+DEFINE BAR 2 OF fondos PROMPT "Lista"
+ON SELECTION BAR 1 OF fondos ;
+	DO _2mi1516qu ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP caja MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF caja PROMPT "Importar"
+
+DEFINE POPUP banco MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF banco PROMPT "Chequeras"
+DEFINE BAR 2 OF banco PROMPT "Informes - Chequeras"
+DEFINE BAR 3 OF banco PROMPT "Conciliación Libro Banco"
+DEFINE BAR 4 OF banco PROMPT "Informes - Libro Banco"
+ON SELECTION BAR 1 OF banco ;
+	DO _2mi1516qw ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF banco ;
+	DO _2mi1516qx ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 3 OF banco ;
+	DO _2mi1516qy ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 4 OF banco ;
+	DO _2mi1516qz ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP chequesde3 MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF chequesde3 PROMPT "Consultar"
+DEFINE BAR 2 OF chequesde3 PROMPT "Informes"
+ON SELECTION BAR 1 OF chequesde3 ;
+	DO _2mi1516r0 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF chequesde3 ;
+	DO _2mi1516r1 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP contabilid MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF contabilid PROMPT "Carga"
+DEFINE BAR 2 OF contabilid PROMPT "Listados"
+ON SELECTION BAR 1 OF contabilid ;
+	DO _2mi1516r2 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF contabilid ;
+	DO _2mi1516r3 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP panoramafi MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF panoramafi PROMPT "Importación"
+DEFINE BAR 2 OF panoramafi PROMPT "Carga"
+DEFINE BAR 3 OF panoramafi PROMPT "Informes"
+DEFINE BAR 4 OF panoramafi PROMPT "Parametrización"
+
+DEFINE POPUP informes MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF informes PROMPT "Inf.Financieros"
+DEFINE BAR 2 OF informes PROMPT "\-"
+DEFINE BAR 3 OF informes PROMPT "Inf. Balance Sumas & Saldos"
+ON SELECTION BAR 1 OF informes ;
+	DO _2mi1516r4 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+DEFINE POPUP utilitario MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR _mst_calcu OF utilitario PROMPT "Calculadora" ;
+	MESSAGE 'Calculadora .... '
+DEFINE BAR _mst_diary OF utilitario PROMPT "Calendario"
+DEFINE BAR _mfi_setup OF utilitario PROMPT "Configurar Impresora"
+DEFINE BAR 4 OF utilitario PROMPT "Selector de Colores"
+DEFINE BAR 5 OF utilitario PROMPT "Actualización de Archivos" ;
+	SKIP FOR xx=1
+ON SELECTION BAR 4 OF utilitario run/n control color
+ON BAR 5 OF utilitario ACTIVATE POPUP actualizac
+
+DEFINE POPUP actualizac MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF actualizac PROMPT "Fondos"
+DEFINE BAR 2 OF actualizac PROMPT "Generales"
+ON SELECTION BAR 1 OF actualizac ;
+	DO _2mi1516r6 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+ON SELECTION BAR 2 OF actualizac ;
+	DO _2mi1516r7 ;
+	IN LOCFILE("PROG17\MENU_FON" ,"MPX;MPR|FXP;PRG" ,"¿Dónde está MENU_FON?")
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516Q7  ON SELECTION PAD                            
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:  108       
+*       * Called By:  ON SELECTION PAD                            
+*       * Prompt:     Salir                                       
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516q7
+set sysmenu to defa
+clos data
+clear read
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516Q8  ON SELECTION BAR 1 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:    7       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP proveedore      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    2                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516q8
+xx = 1
+do mpath0+'e11abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516Q9  ON SELECTION BAR 2 OF POPUP proveedore      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:    8       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP proveedore      
+*       * Prompt:     Lista                                       
+*       * Snippet:    3                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516q9
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e11lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QA  ON SELECTION BAR 1 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   11       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP clientes        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qa
+xx = 1
+do mpath0+'e18abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QB  ON SELECTION BAR 2 OF POPUP clientes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   12       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP clientes        
+*       * Prompt:     Lista                                       
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qb
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e18lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QC  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   15       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodeclie      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    6                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qc
+xx = 1
+do mpath0+'e19abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QD  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   16       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodeclie      
+*       * Prompt:     Lista                                       
+*       * Snippet:    7                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qd
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e19lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QE  ON SELECTION BAR 1 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   19       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP sucursales      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    8                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qe
+xx = 1
+do mpath0+'e20abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QF  ON SELECTION BAR 2 OF POPUP sucursales      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   20       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP sucursales      
+*       * Prompt:     Lista                                       
+*       * Snippet:    9                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qf
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e20lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QG  ON SELECTION BAR 1 OF POPUP plandecuen      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   25       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP plandecuen      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    10                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qg
+xx = 1
+do mpath2+'m16abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QH  ON SELECTION BAR 2 OF POPUP plandecuen      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   26       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP plandecuen      
+*       * Prompt:     Lista                                       
+*       * Snippet:    11                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qh
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m16lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QI  ON SELECTION BAR 1 OF POPUP tipodemovi      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   29       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodemovi      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    12                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qi
+xx = 1
+do mpath2+'m15abm'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QJ  ON SELECTION BAR 2 OF POPUP tipodemovi      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   30       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodemovi      
+*       * Prompt:     lista                                       
+*       * Snippet:    13                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qj
+xx = 1
+do mpath2+'m15lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QK  ON SELECTION BAR 1 OF POPUP referencia      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   33       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP referencia      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    14                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qk
+xx = 1
+do mpath2+'m11abm'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QL  ON SELECTION BAR 2 OF POPUP referencia      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   34       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP referencia      
+*       * Prompt:     Lista                                       
+*       * Snippet:    15                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516ql
+xx = 1
+do mpath2+'m11lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QM  ON SELECTION BAR 1 OF POPUP codconcilb      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   37       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP codconcilb      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    16                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qm
+xx = 1
+do mpath2+'m17abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QN  ON SELECTION BAR 2 OF POPUP codconcilb      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   38       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP codconcilb      
+*       * Prompt:     Lista                                       
+*       * Snippet:    17                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qn
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m17lista'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QO  ON SELECTION BAR 1 OF POPUP códigosfin      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   41       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP códigosfin      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    18                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qo
+xx = 1
+do mpath2+'m12abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QP  ON SELECTION BAR 2 OF POPUP códigosfin      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   42       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP códigosfin      
+*       * Prompt:     Lista                                       
+*       * Snippet:    19                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qp
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m12lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QQ  ON SELECTION BAR 1 OF POPUP personal        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   47       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP personal        
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    20                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qq
+xx = 1
+do mpath0+'e13abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QR  ON SELECTION BAR 2 OF POPUP personal        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   48       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP personal        
+*       * Prompt:     Lista                                       
+*       * Snippet:    21                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qr
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e13lista'
+xx = 0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QS  ON SELECTION BAR 1 OF POPUP tipodepers      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   51       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP tipodepers      
+*       * Prompt:     Actualiza                                   
+*       * Snippet:    22                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qs
+* ----  Carga
+xx = 1
+do mpath0+'e12abm'
+xx = 0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QT  ON SELECTION BAR 2 OF POPUP tipodepers      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   52       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP tipodepers      
+*       * Prompt:     Lista                                       
+*       * Snippet:    23                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qt
+* ---- Lista
+xx = 1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath0+'e12lista'
+xx = 0
+
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QU  ON SELECTION BAR 1 OF POPUP fondos          
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   57       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP fondos          
+*       * Prompt:     Carga                                       
+*       * Snippet:    24                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qu
+xx=1
+do mpath2+'m20c_fon' with 'FONDOS'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QW  ON SELECTION BAR 1 OF POPUP banco           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   64       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP banco           
+*       * Prompt:     Chequeras                                   
+*       * Snippet:    25                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qw
+xx=1
+do mpath2+'m21c_che'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QX  ON SELECTION BAR 2 OF POPUP banco           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   65       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP banco           
+*       * Prompt:     Informes - Chequeras                        
+*       * Snippet:    26                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qx
+xx=1
+do mpath2+'m21lisch'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QY  ON SELECTION BAR 3 OF POPUP banco           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   66       
+*       * Called By:  ON SELECTION BAR 3 OF POPUP banco           
+*       * Prompt:     Conciliación Libro Banco                    
+*       * Snippet:    27                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qy
+retu
+xx=1
+do mpath2+'m20conci'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516QZ  ON SELECTION BAR 4 OF POPUP banco           
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   67       
+*       * Called By:  ON SELECTION BAR 4 OF POPUP banco           
+*       * Prompt:     Informes - Libro Banco                      
+*       * Snippet:    28                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516qz
+retu
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516R0  ON SELECTION BAR 1 OF POPUP chequesde3      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   70       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP chequesde3      
+*       * Prompt:     Consultar                                   
+*       * Snippet:    29                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516r0
+retu
+xx=1
+do mpath2+'m21custo'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516R1  ON SELECTION BAR 2 OF POPUP chequesde3      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   71       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP chequesde3      
+*       * Prompt:     Informes                                    
+*       * Snippet:    30                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516r1
+retu
+xx=1
+do mpath2+'m21liscu'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516R2  ON SELECTION BAR 1 OF POPUP contabilid      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   76       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP contabilid      
+*       * Prompt:     Carga                                       
+*       * Snippet:    31                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516r2
+xx=1
+do mpath2+'m24c_con' with 'CONTAB'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516R3  ON SELECTION BAR 2 OF POPUP contabilid      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   77       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP contabilid      
+*       * Prompt:     Listados                                    
+*       * Snippet:    32                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516r3
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m23l_con'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516R4  ON SELECTION BAR 1 OF POPUP informes        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:   94       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP informes        
+*       * Prompt:     Inf.Financieros                             
+*       * Snippet:    33                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516r4
+xx=1
+if lastkey() <> 13
+   keyb "{enter}"
+endi
+do mpath2+'m61l_fon'
+xx=0
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516R6  ON SELECTION BAR 1 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:  106       
+*       * Called By:  ON SELECTION BAR 1 OF POPUP actualizac      
+*       * Prompt:     Fondos                                      
+*       * Snippet:    34                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516r6
+xx=1
+do mpath2+'m70mante'
+xx=0
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _2MI1516R7  ON SELECTION BAR 2 OF POPUP actualizac      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU_FON.MPR,            Record:  107       
+*       * Called By:  ON SELECTION BAR 2 OF POPUP actualizac      
+*       * Prompt:     Generales                                   
+*       * Snippet:    35                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _2mi1516r7
+xx=1
+do mpath0+'e70mante'
+xx=0
+
